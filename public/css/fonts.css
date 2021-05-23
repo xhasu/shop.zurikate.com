@@ -1,0 +1,46 @@
+/* CenturyGothic */
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic/CenturyGothic-Regular.woff2') format('woff2'),
+    url('/fonts/CenturyGothic/CenturyGothic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic/CenturyGothic-Bold.woff2') format('woff2'),
+    url('/fonts/CenturyGothic/CenturyGothic-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic/CenturyGothic-Italic.woff2') format('woff2'),
+    url('/fonts/CenturyGothic/CenturyGothic-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic/CenturyGothic-BoldItalic.woff2') format('woff2'),
+    url('/fonts/CenturyGothic/CenturyGothic-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ObjectSans */
+@font-face {
+  font-family: 'ObjectSans';
+  src: url('/fonts/ObjectSans/ObjectSans-Heavy.woff2') format('woff2'),
+    url('/fonts/ObjectSans/ObjectSans-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

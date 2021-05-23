@@ -1,0 +1,40 @@
+
+.background-noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: -1;
+  opacity: .4;
+  @include no-events();
+  background-color: black;
+  padding-top: 56.25%;
+  img {
+    // margin-top: 100vh;
+    display: block;
+    width: 100%;
+    // height: 100%;
+    // object-fit: cover;
+    margin-bottom: 0;
+
+    &:nth-child(even) {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  &::after {
+    // content: "";
+    display: none;
+    clear: both;
+
+    @include no-events();
+    @include cover();
+    background-color: rgba(black, .2);
+  }
+
+  @include below($phone) {
+    padding-top: 320px;
+  }
+}
