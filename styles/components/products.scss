@@ -1,0 +1,38 @@
+.products {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+
+  &-container {
+    flex: 1;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-swiper {
+    width: 640px;
+    .swiper-container {
+      padding-bottom: 50px;
+    }
+  }
+  
+  &-panel {
+    flex: 1;
+  }
+}
+
+.product {
+  &-color {
+  }
+  &-price {
+  }
+  &-info {
+  }
+  &-actions {
+  }
+}

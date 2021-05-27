@@ -14,7 +14,7 @@ const Gallery = () => {
 
 					<div className="gallery-swiper">
             <Swiper navigation={{prevEl: '.swiper-arrows .arrow-prev', nextEl: '.swiper-arrows .arrow-next'}} loop={true}>
-              <SwiperSlide className="swiper-slide">
+              <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: matte brown</div>
                   <div className="gallery-media">
@@ -29,7 +29,7 @@ const Gallery = () => {
                 </div>
               </SwiperSlide>
               
-              <SwiperSlide className="swiper-slide">
+              <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: matte aluminum</div>
                   <div className="gallery-media">
@@ -44,7 +44,7 @@ const Gallery = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide className="swiper-slide">
+              <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: reflective zurikate black</div>
                   <div className="gallery-media">
@@ -59,7 +59,7 @@ const Gallery = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide className="swiper-slide">
+              <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: matte hard black</div>
                   <div className="gallery-media">
@@ -74,7 +74,7 @@ const Gallery = () => {
                 </div>
               </SwiperSlide>
 
-              <SwiperSlide className="swiper-slide">
+              <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: gloss fire red</div>
                   <div className="gallery-media">

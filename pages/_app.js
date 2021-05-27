@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Main from 'components/layouts/main'
 
-import 'styles/main.scss'
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss'
+import 'styles/main.scss'
 
 function MyApp({ Component, pageProps }) {
   return (

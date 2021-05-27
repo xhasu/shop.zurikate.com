@@ -1,0 +1,40 @@
+
+.skins {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+
+  &-container {
+    flex: 1;
+  }
+
+  .swiper-slide {
+    width: 360px;
+  }
+}
+
+.skin {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  &-media {
+    position: relative;
+    margin-bottom: 12px;
+    img {
+      @include img-fluid();
+    }
+  }
+  &-description {
+    p {
+      font-size: 24px;
+      color: white;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

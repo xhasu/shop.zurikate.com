@@ -9,11 +9,11 @@ import Contact from 'components/sections/contact'
 const Landing = () => {
   return (
     <main>
-      <Intro />
-      <Showcase />
+      {/* <Intro /> */}
+      {/* <Showcase /> */}
       <Shop />
-      <Gallery />
-      <Contact />
+      {/* <Gallery /> */}
+      {/* <Contact /> */}
     </main>
   )
 }

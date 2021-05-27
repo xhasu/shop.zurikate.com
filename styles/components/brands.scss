@@ -1,0 +1,53 @@
+
+.brands {
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-title {
+    @include font-object();
+    font-size: 120px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: white;
+    flex: none;
+    span.stroke {
+      color: transparent;
+      font-size: 1.1em;
+      -webkit-text-stroke: 1px $color-brand;
+    }
+    span.green {
+      color: $color-brand;
+    }
+  }
+  &-list {
+    position: relative;
+    flex: 1;
+    margin-bottom: 60px;
+    
+    select {
+      display: block;
+      height: 55px;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: 0;
+      padding: 0 54px;
+      border: 1px solid white;
+      background-color: transparent;
+      font-size: 32px;
+      line-height: 1;
+      color: white;
+      text-transform: uppercase;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    option {
+      color: black;
+    }
+  }
+}

@@ -97,10 +97,7 @@ small {
 }
 
 .section {
-  @include center(1024px);
-  padding: 0 15px;
+  @include center(1280px);
+  padding: 0 10px;
   box-sizing: border-box;
-  @include below($sm) {
-    padding: 0 10px;
-  }
 }
