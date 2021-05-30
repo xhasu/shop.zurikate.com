@@ -9,6 +9,10 @@
     flex: 1;
   }
 
+  &-section {
+    max-width: 1400px;
+  }
+
   &-content {
     display: flex;
     align-items: center;
@@ -16,8 +20,12 @@
   }
   &-swiper {
     width: 640px;
+    margin-right: 90px;
     .swiper-container {
+      width: 100%;
+      max-width: 600px;
       padding-bottom: 50px;
+      margin: 0 auto;
     }
   }
   
@@ -27,12 +35,67 @@
 }
 
 .product {
+  &-media {
+    position: relative;
+    img {
+      @include img-fluid();
+    }
+  }
   &-color {
+    margin-bottom: 30px;
+    label {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    select {
+      @extend %select-reset;
+      max-width: none;
+      padding: 0 15px;
+      margin-left: 0;
+      margin-right: auto;
+      font-size: 24px;
+      font-weight: bold;
+    }
   }
   &-price {
+    line-height: 1;
+    margin-bottom: 30px;
+    sup {
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+    strong {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0 8px;
+    }
+    span {
+      font-size: 24px;
+    }
   }
   &-info {
+    margin-bottom: 20px;
+    select {
+      @extend %select-reset;
+      margin-bottom: 16px;
+      max-width: 360px;
+      margin-left: 0;
+      margin-right: auto;
+      text-transform: none;
+      padding: 0 15px;
+      font-size: 24px;
+    }
+    option {
+      background-color: black;
+      color: white;
+    }
   }
   &-actions {
+    .btn {
+      margin-bottom: 20px;
+    }
   }
 }
