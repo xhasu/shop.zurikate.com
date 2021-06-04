@@ -7,8 +7,8 @@ const Brands = () => {
         <section className="section brands-section">
           <div className="brands-content">
             <h2 className="brands-title">
-              <span className="stroke">FIND</span> <br />
-              your <br />
+              <span className="stroke">FIND</span>
+              your
               <span className="green">MAKE:</span>
             </h2>
             <div className="brands-list">
@@ -20,7 +20,7 @@ const Brands = () => {
                 <option value="HONDA">HONDA</option>
                 <option value="LAMBORGHINI">LAMBORGHINI</option>
                 <option value="FERRARI">FERRARI</option>
-                <option value="PORSHE">PORSHE</option>
+                <option value="PORSHE">PORSCHE</option>
               </select>
             </div>
           </div>

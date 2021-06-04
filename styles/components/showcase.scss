@@ -2,14 +2,15 @@
 .showcase {
 
   position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
+  @include center(1920px);
+  margin-bottom: 240px;
   padding-bottom: 40px;
   z-index: 1;
   overflow: hidden;
 
   @include below($tablet) {
     padding-bottom: 0;
+    margin-bottom: 180px;
   }
 
   &-section {

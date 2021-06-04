@@ -1,17 +1,16 @@
 
 .brands {
   &-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
   }
   &-title {
     @include font-object();
     font-size: 120px;
     line-height: 1;
+    text-align: center;
     text-transform: uppercase;
     color: white;
-    flex: none;
+    margin-bottom: 60px;
     span.stroke {
       color: transparent;
       font-size: 1.1em;
@@ -23,7 +22,6 @@
   }
   &-list {
     position: relative;
-    flex: 1;
     margin-bottom: 60px;
     
     select {

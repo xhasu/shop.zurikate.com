@@ -18,7 +18,7 @@ const Header = () => {
 					<nav className="navbar" onClick={handleMenu}>
 						<ul>
 							<li><span data-to-view="#embed">Home</span></li>
-							<li><span data-to-view="#colorsboard">See Color Board</span></li>
+							<li><span data-to-view="#colorsboard">Find your make</span></li>
 							<li><span data-to-view="#bestsellers">Best Sellers</span></li>
 						</ul>
 					</nav>
