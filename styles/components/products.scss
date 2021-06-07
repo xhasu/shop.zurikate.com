@@ -4,12 +4,19 @@
   align-items: center;
   justify-content: center;
   min-height: 80vh;
+  margin-bottom: 180px;
+
+  @include below($sm) {
+    display: block;
+    margin-bottom: 60px;
+  }
 
   &-container {
     flex: 1;
   }
 
   &-section {
+    position: relative;
     max-width: 1400px;
   }
 
@@ -17,20 +24,84 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include below($laptop) {
+      display: block;
+    }
   }
+
   &-swiper {
-    width: 640px;
-    margin-right: 90px;
+    position: relative;
+    width: 680px;
+    padding: 0 40px;
+    margin-right: 50px;
+    box-sizing: border-box;
+
+    @include below($desktop) {
+      width: 100%;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include below($laptop) {
+      margin-bottom: 60px;
+    }
+    @include below($sm) {
+      margin-bottom: 40px;
+      padding: 0;
+    }
+
     .swiper-container {
       width: 100%;
       max-width: 600px;
       padding-bottom: 50px;
       margin: 0 auto;
+      @include below($laptop) {
+        padding-bottom: 30px;
+      }
+
+      .swiper-pagination {
+        @include below($laptop) {
+          text-align: center;
+        }
+      }
     }
+
+
+    .swiper-arrows {
+      @include below($sm) {
+        display: none;
+      }
+    }
+
   }
   
   &-panel {
     flex: 1;
+    @include below($laptop) {
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-sticker {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    max-width: 40%;
+    transform: translateY(-50%);
+    z-index: -1;
+
+    @include below($laptop) {
+      opacity: .4;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 0;
+    }
   }
 }
 

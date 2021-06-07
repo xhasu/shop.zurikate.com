@@ -13,7 +13,7 @@ const Gallery = () => {
 				<section className="section gallery-section">
 
 					<div className="gallery-swiper">
-            <Swiper navigation={{prevEl: '.swiper-arrows .arrow-prev', nextEl: '.swiper-arrows .arrow-next'}} loop={true}>
+            <Swiper navigation={{prevEl: '.gallery .swiper-arrows .arrow-prev', nextEl: '.gallery .swiper-arrows .arrow-next'}} loop={true}>
               <SwiperSlide>
                 <div className="gallery-item">
                   <div className="gallery-title">Color reference: matte brown</div>
@@ -93,10 +93,10 @@ const Gallery = () => {
 						
 					<div className="swiper-arrows">
 						<div className="arrow-prev">
-							<img src="/images/icons/icon-arrow-left.png" alt="icon arrow prev" loading="lazy" width="58" height="58" />
+							<img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
 						</div>
 						<div className="arrow-next">
-							<img src="/images/icons/icon-arrow-right.png" alt="icon arrow next" loading="lazy" width="58" height="58" />
+							<img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
 						</div>
 					</div>
 

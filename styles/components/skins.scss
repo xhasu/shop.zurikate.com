@@ -6,12 +6,30 @@
   justify-content: center;
   min-height: 80vh;
 
+  @include below($sm) {
+    min-height: 60vh;
+  }
+
   &-container {
     flex: 1;
+    min-width: 0;
+  }
+
+  &-section {
+    position: relative;
+    padding: 0 40px;
+    @include below($sm) {
+      padding: 0 10px;
+    }
+  }
+
+  &-swiper {
+    position: relative;
+    margin-bottom: 60px;
   }
 
   .swiper-slide {
-    width: 360px;
+    width: auto;
   }
 }
 
@@ -22,6 +40,14 @@
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+
+  @include below($desktop) {
+    max-width: 320px;
+  }
+  @include below($sm) {
+    max-width: 240px;
+  }
+
   &-media {
     position: relative;
     margin-bottom: 12px;
@@ -29,12 +55,17 @@
       @include img-fluid();
     }
   }
-  &-description {
-    p {
-      font-size: 24px;
-      color: white;
-      margin-top: 0;
-      margin-bottom: 0;
+  &-description p {
+    font-size: 24px;
+    line-height: 1.2;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+    @include below($desktop) {
+      font-size: 18px;
+    }
+    @include below($sm) {
+      font-size: 14px;
     }
   }
 }

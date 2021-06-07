@@ -1,4 +1,3 @@
-
 .brands {
   &-content {
     display: block;
@@ -18,6 +17,16 @@
     }
     span.green {
       color: $color-brand;
+    }
+
+    @include below($desktop) {
+      font-size: 80px;
+    }
+    @include below($laptop) {
+      font-size: 40px;
+    }
+    @include below($phone) {
+      font-size: 28px;
     }
   }
   &-list {

@@ -12,6 +12,9 @@
     padding-bottom: 0;
     margin-bottom: 180px;
   }
+  @include below($sm) {
+    margin-bottom: 120px;
+  }
 
   &-section {
     position: relative;
