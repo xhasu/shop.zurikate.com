@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Brands = () => {
+const Brands = ({data = [], setBrand}) => {
+
+  const handleBrand = (event) => {
+    setBrand(event.target.value);
+  }
+
   return (
     <div className="brands">
       <div className="brands-container">
@@ -12,15 +17,9 @@ const Brands = () => {
               <span className="green">MAKE:</span>
             </h2>
             <div className="brands-list">
-              <select name="brand">
-                <option value="BMW">BMW</option>
-                <option value="AUDI">AUDI</option>
-                <option value="MERCEDES BENZ">MERCEDES BENZ</option>
-                <option value="LEXUS">LEXUS</option>
-                <option value="HONDA">HONDA</option>
-                <option value="LAMBORGHINI">LAMBORGHINI</option>
-                <option value="FERRARI">FERRARI</option>
-                <option value="PORSHE">PORSCHE</option>
+              <select name="brand" onChange={handleBrand}>
+                <option value="" hidden={true}>Select your make</option>
+                { data.map((item, index) => <option key={index} value={item.title}>{item.title}</option>) }
               </select>
             </div>
           </div>

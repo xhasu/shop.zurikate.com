@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import BuyButton from 'components/ui/buybutton'
 
 SwiperCore.use([Navigation, Pagination]);
 
-const Products = () => {
+const Products = ({data = []}) => {
+
+  const [product, setProduct] = useState();
+  const [variant, setVariant] = useState();
+
+  const setProductVariant = (product, variant) => {
+    setProduct(product);
+    setVariant(variant);
+  }
+
   return (
     <div className="products">
+
       <div className="products-container">
         <section className="section products-section">
+
+          <button onClick={() => {setProductVariant(6840854315167, 40237834240159)}}>6840854315167 - 40237834240159</button>
+          <br />
+          <button onClick={() => {setProductVariant(6840854315167, 40237834272927)}}>6840854315167 - 40237834272927</button>
+          <br />
+          <button onClick={() => {setProductVariant(6840854315167, 40237834305695)}}>6840854315167 - 40237834305695</button>
+          <br />
+          <button onClick={() => {setProductVariant(6840854315167, 40237834371231)}}>6840854315167 - 40237834371231</button>
+          <hr />
 
           <div className="products-content">
 
@@ -65,7 +85,7 @@ const Products = () => {
               </div>
               <div className="product-actions">
                 <button className="btn btn-primary">Add to cart</button>
-                <button className="btn btn-primary">Buy now</button>
+                {(product && variant) && <BuyButton product={product} variant={variant} />}
               </div>
             </div>
 

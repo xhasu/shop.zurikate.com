@@ -4,20 +4,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Navigation]);
 
-const Skin = () => {
+const Skin = ({data = {}}) => {
+
+  const { title = "", images = [] } = data;
+
+  const skinImage = images.find(item => item.altText.toLowerCase() == "skin");
+
   return (
     <div className="skin">
       <div className="skin-media">
-        <img src="/images/skin-01.jpg" alt="" />
+        <img src={skinImage.src} alt="" />
       </div>
       <div className="skin-description">
-        <p>2019 BMW X7 xDRIVE 40 FRONT RIM 21" - REAR RIM 21"</p>
+        <p>{title}</p>
       </div>
     </div>
   )
 }
 
-const Skins = () => {
+const Skins = ({ data = [], brand = "", setSkin }) => {
 
   const breakpoints = {
     1280: {
@@ -28,36 +33,33 @@ const Skins = () => {
     }
   };
 
+  const skins = data.find(d => d.title == brand);
+
   return (
     <div className="skins">
       <div className="skins-container">
         <section className="section skins-section">
 
           <div className="skins-swiper">
-            <Swiper navigation={{prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next'}} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints} loop={true}>
-              <SwiperSlide>
-                <Skin />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Skin />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Skin />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Skin />
-              </SwiperSlide>
+            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints} centeredSlides={true}>
+              {skins.products.map((skin, index) => {
+                return (
+                  <SwiperSlide key={index} onClick={() => setSkin(skin)}>
+                    <Skin data={skin} />
+                  </SwiperSlide>
+                )
+              })}
             </Swiper>
           </div>
 
           <div className="swiper-arrows">
-						<div className="arrow-prev">
-							<img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
-						</div>
-						<div className="arrow-next">
-							<img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
-						</div>
-					</div>
+            <div className="arrow-prev">
+              <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
+            </div>
+            <div className="arrow-next">
+              <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
+            </div>
+          </div>
 
         </section>
       </div>
