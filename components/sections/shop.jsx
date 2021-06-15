@@ -19,14 +19,17 @@ const Shop = () => {
     })
 
     client.collection.fetchAllWithProducts().then(collections => {
-      console.log(collections);
+      // console.log(collections);
       setData(collections);
     })
     
     return () => { }
   }, [])
 
-  
+  useEffect(() => {
+    setSkin(null);
+    return () => { }
+  }, [brand])
 
   return (
     <div>

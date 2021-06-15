@@ -4,11 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Navigation]);
 
-const Skin = ({data = {}}) => {
+const Skin = ({ data = {} }) => {
 
   const { title = "", images = [] } = data;
 
-  const skinImage = images.find(item => item.altText.toLowerCase() == "skin");
+  const skinImage = images.find(item => {
+     return item.altText ? item.altText.toLowerCase() == "skin" : {};
+  });
 
   return (
     <div className="skin">
@@ -41,7 +43,7 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
         <section className="section skins-section">
 
           <div className="skins-swiper">
-            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints} centeredSlides={true}>
+            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints}>
               {skins.products.map((skin, index) => {
                 return (
                   <SwiperSlide key={index} onClick={() => setSkin(skin)}>

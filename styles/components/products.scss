@@ -55,9 +55,6 @@
       max-width: 600px;
       padding-bottom: 50px;
       margin: 0 auto;
-      @include below($laptop) {
-        padding-bottom: 30px;
-      }
 
       .swiper-pagination {
         @include below($laptop) {
@@ -164,5 +161,7 @@
       color: white;
     }
   }
-  // &-actions {}
+  &-actions {
+    min-height: 75px;
+  }
 }
