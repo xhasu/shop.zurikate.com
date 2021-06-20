@@ -10,10 +10,15 @@ const Landing = () => {
   return (
     <main>
       {/* <Intro /> */}
-      {/* <Showcase /> */}
-      <Shop />
-      {/* <Gallery /> */}
-      {/* <Contact /> */}
+      <div className="pos-relative">
+        {/* <Showcase /> */}
+        <Shop />
+        {/* <Gallery /> */}
+        {/* <Contact /> */}
+        <div className="background-noise">
+          <img src="/images/backgrounds/background-noise.jpg" alt="background Zurikate" />
+        </div>
+      </div>
     </main>
   )
 }

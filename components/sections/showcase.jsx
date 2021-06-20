@@ -1,10 +1,52 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 SwiperCore.use([Pagination]);
+gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
+
+  useEffect(() => {
+
+    gsap.from('.showcase-head', {
+      scrollTrigger: {
+        trigger: '.showcase-box',
+        start: 'top 75%',
+        end: 'bottom center',
+        scrub: true,
+        // markers: true,
+      },
+      y: '+50%'
+    });
+
+    gsap.from('.showcase-bg-right', {
+      scrollTrigger: {
+        trigger: '.showcase-bg-right',
+        start: 'top 75%',
+        // markers: true,
+        toggleActions: 'play none play none',
+      },
+      x: "+50%",
+      opacity: .4
+    })
+
+    gsap.from('.showcase-bg-left', {
+      scrollTrigger: {
+        trigger: '.showcase-bg-left',
+        start: 'top 75%',
+        // markers: true,
+        toggleActions: 'play none play none',
+      },
+      x: "-50%",
+      opacity: .4
+    })
+    
+    return () => { }
+  }, [])
+
   return (
     <div className="showcase">
       <div className="showcase-container" id="showcase">
