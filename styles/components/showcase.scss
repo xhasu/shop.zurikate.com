@@ -6,7 +6,7 @@
   margin-bottom: 240px;
   padding-bottom: 40px;
   z-index: 1;
-  overflow: hidden;
+  // overflow: hidden;
 
   @include below($tablet) {
     padding-bottom: 0;

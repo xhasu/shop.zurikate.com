@@ -9,12 +9,12 @@ import Contact from 'components/sections/contact'
 const Landing = () => {
   return (
     <main>
-      {/* <Intro /> */}
+      <Intro />
       <div className="pos-relative">
-        {/* <Showcase /> */}
+        <Showcase />
         <Shop />
-        {/* <Gallery /> */}
-        {/* <Contact /> */}
+        <Gallery />
+        <Contact />
         <div className="background-noise">
           <img src="/images/backgrounds/background-noise.jpg" alt="background Zurikate" />
         </div>

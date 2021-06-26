@@ -3,13 +3,15 @@ import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import BuyButton from 'components/ui/buybutton'
 import { getProductVariant } from 'app/helpers'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 
 SwiperCore.use([Navigation, Pagination]);
+gsap.registerPlugin(ScrollToPlugin);
 
 const Products = ({ data = {} }) => {
 
-  const { options = [] } = data;
-  const { variants = [] } = data;
+  const { options = [], variants = [], images = [], title = "" } = data;
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: installs = [] } = options.find(item => item.name == 'Install');
@@ -21,6 +23,7 @@ const Products = ({ data = {} }) => {
   const [install, setInstall] = useState();
   const [kit, setKit] = useState();
 
+  const [media, setMedia] = useState([]);
   const [product, setProduct] = useState();
   const [variant, setVariant] = useState();
 
@@ -35,14 +38,25 @@ const Products = ({ data = {} }) => {
     setVariant(variantId);
 
     setDefaultVariant(selectedVariant);
-    console.log(selectedVariant);
-    console.log(defaultVariant);
+
+    const filteredImages = images.filter(image => !['skin', 'color'].includes(image.altText));
+    filteredImages.unshift(selectedVariant.image);
+    setMedia(filteredImages);
+
+    handleScroll('#products')
   }
+
+  const handleScroll = (elementId, offsetY = 100) => {
+		gsap.to(window, {
+			scrollTo: {
+				y: elementId,
+				offsetY: offsetY,
+			}
+		});
+	}
 
   useEffect(() => {
     if( colors, installs, kits ) {
-
-      setDefaultVariant(variants[0]);
 
       const {
         value: fColor = ""
@@ -59,6 +73,8 @@ const Products = ({ data = {} }) => {
       setColor(fColor);
       setInstall(fInstall);
       setKit(fKit);
+
+      setDefaultVariant(variants[0]);
     }
     return () => {}
   }, [colors, installs, kits])
@@ -70,8 +86,15 @@ const Products = ({ data = {} }) => {
     return () => {}
   }, [color, install, kit])
 
+  useEffect(() => {
+    if( data && data.variants && data.variants.length != 0 && color && install && kit ) {
+      setProductVariant();
+    }
+    return () => { }
+  }, [data])
+
   return (
-    <div className="products">
+    <div className="products" id="products">
 
       <div className="products-container">
         <section className="section products-section">
@@ -81,15 +104,11 @@ const Products = ({ data = {} }) => {
             <div className="products-swiper">
 
               <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-                <SwiperSlide className="product-media">
-                  <img src="/images/product-01.jpg" alt="" />
-                </SwiperSlide>
-                <SwiperSlide className="product-media">
-                  <img src="/images/product-01.jpg" alt="" />
-                </SwiperSlide>
-                <SwiperSlide className="product-media">
-                  <img src="/images/product-01.jpg" alt="" />
-                </SwiperSlide>
+                {media.map((image, index) => 
+                  <SwiperSlide className="product-media" key={index}>
+                    <img src={image.src} alt={image.altText} />
+                  </SwiperSlide>
+                )}
               </Swiper>
 
               <div className="swiper-arrows">

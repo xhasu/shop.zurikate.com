@@ -38,7 +38,7 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
   const skins = data.find(d => d.title == brand);
 
   return (
-    <div className="skins">
+    <div className="skins" id="skins">
       <div className="skins-container">
         <section className="section skins-section">
 

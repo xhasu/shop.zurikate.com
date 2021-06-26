@@ -1,13 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Brands = ({data = [], setBrand}) => {
 
+  const [flag, setFlag] = useState();
+
   const handleBrand = (event) => {
     setBrand(event.target.value);
+    setFlag(true);
   }
 
+  const handleScroll = (elementId, offsetY = 100) => {
+		gsap.to(window, {
+			scrollTo: {
+				y: elementId,
+				offsetY: offsetY,
+			}
+		});
+	}
+
+  useEffect(() => {
+
+    if( flag ) {
+      handleScroll('#skins', 100);
+    }
+    
+    return () => {
+      setFlag(false)
+    }
+  }, [flag])
+
   return (
-    <div className="brands">
+    <div className="brands" id="brands">
       <div className="brands-container">
         <section className="section brands-section">
           <div className="brands-content">

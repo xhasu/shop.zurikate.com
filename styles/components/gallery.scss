@@ -1,9 +1,11 @@
 
 .gallery {
   position: relative;
+  margin-top: 240px;
   z-index: 1;
 
   @include below($sm) {
+    margin-top: 120px;
     padding-top: 10px;
   }
 

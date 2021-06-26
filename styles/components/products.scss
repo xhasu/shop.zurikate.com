@@ -100,6 +100,11 @@
       margin-bottom: 0;
     }
   }
+
+  option {
+    background-color: black;
+    color: white;
+  }
 }
 
 .product {
@@ -126,6 +131,10 @@
       margin-right: auto;
       font-size: 24px;
       font-weight: bold;
+      @include below($tablet) {
+        font-size: 18px;
+        height: 35px;
+      }
     }
   }
   &-price {
@@ -155,11 +164,13 @@
       text-transform: none;
       padding: 0 15px;
       font-size: 24px;
+      @include below($tablet) {
+        font-size: 18px;
+        height: 35px;
+        max-width: none;
+      }
     }
-    option {
-      background-color: black;
-      color: white;
-    }
+    
   }
   &-actions {
     min-height: 75px;

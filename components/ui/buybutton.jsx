@@ -35,14 +35,14 @@ const BuyButton = ({ product = "", variant = "" }) => {
           "styles": {
             "button": {
               "font-family": "CenturyGothic, Helvetica, sans-serif",
-              "font-size": "24px",
+              "font-size": "21px",
               "font-weight": "700",
               "text-transform": "uppercase",
               "background-color": "#CBFF00",
               "border-radius": "0",
               "color": "black",
               "width": "100%",
-              "height": "55px",
+              "height": "45px",
               ":hover": {
                 "background-color": "#CBFF00"
               }
