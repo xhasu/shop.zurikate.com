@@ -21,7 +21,7 @@ const BuyButton = ({ product = "", variant = "" }) => {
       node: buttonRef.current,
       options: {
         product: {
-          "width": "720px",
+          "width": "420px",
           "buttonDestination": "checkout",
           "contents": {
             "img": false,
@@ -49,9 +49,6 @@ const BuyButton = ({ product = "", variant = "" }) => {
               }
             }
           }
-        },
-        cart: {
-          // "popup": false
         }
       }
     })

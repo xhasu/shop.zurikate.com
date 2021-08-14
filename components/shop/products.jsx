@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import BuyButton from 'components/ui/buybutton'
+import AddToCartButton from 'components/ui/addtocartbutton'
 import { UITopBar, UIBottomBar } from 'components/ui/bars'
 import Select from 'components/ui/select'
 import Modal from 'components/ui/modal'
@@ -158,7 +159,9 @@ const Products = ({ data = {} }) => {
           </div>
           */}
           <div className="product-actions">
-            {/* <button className="btn btn-primary">Add to cart</button> */}
+            <div className="product-control">
+              {(product && variant) && <AddToCartButton product={product} variant={variant} />}
+            </div>
             <div className="product-control">
               {(product && variant) && <BuyButton product={product} variant={variant} />}
             </div>
