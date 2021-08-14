@@ -1,39 +1,27 @@
 .products {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  margin-bottom: 180px;
-
-  @include below($sm) {
-    display: block;
-    margin-bottom: 60px;
-  }
 
   &-container {
-    flex: 1;
+    position: relative;
   }
 
   &-section {
     position: relative;
-    max-width: 1400px;
+    max-width: 1540px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  &-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include below($laptop) {
-      display: block;
-    }
+  &-view {
+    position: relative;
+    margin-bottom: 120px;
   }
 
   &-swiper {
     position: relative;
     width: 680px;
     padding: 0 40px;
-    margin-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
 
     @include below($desktop) {
@@ -53,7 +41,7 @@
     .swiper-container {
       width: 100%;
       max-width: 600px;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
       margin: 0 auto;
 
       .swiper-pagination {
@@ -63,7 +51,6 @@
       }
     }
 
-
     .swiper-arrows {
       @include below($sm) {
         display: none;
@@ -72,107 +59,103 @@
 
   }
   
-  &-panel {
-    flex: 1;
-    @include below($laptop) {
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  &-sticker {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    max-width: 40%;
-    transform: translateY(-50%);
-    z-index: -1;
-
-    @include below($laptop) {
-      opacity: .4;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin-bottom: 0;
-    }
-  }
-
-  option {
-    background-color: black;
-    color: white;
-  }
 }
 
+
 .product {
+
+  &-tip {
+    img {
+      @include img-responsive();
+    }
+  }
+
   &-media {
     position: relative;
+
     img {
-      @include img-fluid();
+      @include img-fluid;
     }
   }
-  &-color {
-    margin-bottom: 30px;
-    label {
-      display: block;
-      font-size: 24px;
-      line-height: 1;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+
+  &-ui {
+    @include cover();
+    left: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+
+  &-info {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+
+    .btn {
+      flex: none;
     }
-    select {
-      @extend %select-reset;
-      max-width: none;
-      padding: 0 15px;
-      margin-left: 0;
-      margin-right: auto;
-      font-size: 24px;
+  }
+
+  &-name {
+    margin: 0 24px;
+    flex: 1;
+    font-size: 22px;
+    font-style: italic;
+    max-width: 40ch;
+    &::first-line {
       font-weight: bold;
-      @include below($tablet) {
-        font-size: 18px;
-        height: 35px;
-      }
     }
   }
+
   &-price {
     line-height: 1;
     margin-bottom: 30px;
+    font-size: 24px;
     sup {
       text-transform: uppercase;
-      font-size: 24px;
+      font-size: 1em;
     }
     strong {
-      font-size: 36px;
+      font-size: 1.5em;
       font-weight: bold;
       margin: 0 8px;
     }
     span {
-      font-size: 24px;
+      font-size: 1em;
+    }
+    @include below($tablet) {
+      font-size: 21px;
+      margin-bottom: 20px;
     }
   }
-  &-info {
-    margin-bottom: 20px;
-    select {
-      @extend %select-reset;
-      margin-bottom: 16px;
-      max-width: 360px;
-      margin-left: 0;
-      margin-right: auto;
-      text-transform: none;
-      padding: 0 15px;
-      font-size: 24px;
+
+  &-panel {
+    position: relative;
+    @include center(360px);
+
+    .ui-select {
+      font-size: 21px;
       @include below($tablet) {
         font-size: 18px;
-        height: 35px;
-        max-width: none;
       }
     }
-    
+    .ui-select-placeholder,
+    .ui-select-item {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
+  &-control {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
   &-actions {
-    min-height: 75px;
+    .product-control {
+      min-height: 65px;
+    }
   }
+
 }

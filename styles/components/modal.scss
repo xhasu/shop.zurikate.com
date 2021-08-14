@@ -1,0 +1,47 @@
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+
+  background-color: rgba(black, .6);
+  backdrop-filter: blur(6px);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  &-open {
+    display: flex;
+  }
+
+  &-box {
+    position: relative;
+    min-width: 0;
+    padding: 0 10px;
+  }
+  
+  &-close {
+    position: absolute;
+    top: -24px;
+    right: 12px;
+    border-radius: 100%;
+    background-color: $color-brand;
+    color: black;
+    cursor: pointer;
+  
+    svg {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    @include below($tablet) {
+      top: -32px;
+    }
+  }
+}

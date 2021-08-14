@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <main>
       <Intro />
-      <div className="pos-relative">
+      <div className="relative">
         <Showcase />
         <Shop />
         <Gallery />

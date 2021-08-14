@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import BuyButton from 'components/ui/buybutton'
+import { UITopBar, UIBottomBar } from 'components/ui/bars'
+import Select from 'components/ui/select'
+import Modal from 'components/ui/modal'
+import { SearchIcon } from 'components/ui/svgs'
 import { getProductVariant } from 'app/helpers'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
@@ -10,7 +14,7 @@ SwiperCore.use([Navigation, Pagination]);
 gsap.registerPlugin(ScrollToPlugin);
 
 const Products = ({ data = {} }) => {
-
+  
   const { options = [], variants = [], images = [], title = "" } = data;
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
@@ -27,6 +31,8 @@ const Products = ({ data = {} }) => {
   const [product, setProduct] = useState();
   const [variant, setVariant] = useState();
 
+  const [openModal, setOpenModal] = useState(false);
+
   const setProductVariant = () => {
     const arrProduct = atob(data.id).split('/');
     const productId = arrProduct[arrProduct.length - 1];
@@ -42,8 +48,6 @@ const Products = ({ data = {} }) => {
     const filteredImages = images.filter(image => !['skin', 'color'].includes(image.altText));
     filteredImages.unshift(selectedVariant.image);
     setMedia(filteredImages);
-
-    handleScroll('#products')
   }
 
   const handleScroll = (elementId, offsetY = 100) => {
@@ -54,6 +58,11 @@ const Products = ({ data = {} }) => {
 			}
 		});
 	}
+
+  useEffect(() => {
+    handleScroll("#products");
+    return () => {}
+  }, [data])
 
   useEffect(() => {
     if( colors, installs, kits ) {
@@ -93,75 +102,94 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [data])
 
+  useEffect(() => {
+
+    document.body.style.overflow =  openModal ? 'hidden': '';
+    
+    return () => { }
+  }, [openModal])
+
   return (
     <div className="products" id="products">
 
       <div className="products-container">
-        <section className="section products-section">
 
-          <div className="products-content">
+        <div className="products-view">
 
-            <div className="products-swiper">
-
-              <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-                {media.map((image, index) => 
-                  <SwiperSlide className="product-media" key={index}>
-                    <img src={image.src} alt={image.altText} />
-                  </SwiperSlide>
-                )}
-              </Swiper>
-
-              <div className="swiper-arrows">
-                <div className="arrow-prev">
-                  <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
-                </div>
-                <div className="arrow-next">
-                  <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
-                </div>
-              </div>
-
-            </div>
-
-            <div className="products-panel">
-              <div className="product-color">
-                <label>Color:</label>
-                <select name="color" value={color} onChange={(event) => setColor(event.target.value)}>
-                  {colors.map((color, index) => <option key={index} value={color.value}>{color.value}</option> )}
-                </select>
-              </div>
-              <div className="product-price">
-                <sup>USD</sup> <strong>${defaultVariant && defaultVariant.price}</strong> <span>Free shipping</span>
-              </div>
-              <div className="product-info">
-                <select name="kit" value={kit} onChange={(event) => setKit(event.target.value)}>
-                  {kits.map((kit, index) => <option key={index} value={kit.value}>{kit.value}</option> )}
-                </select>
-                <select name="installation" value={install} onChange={(event) => setInstall(event.target.value)}>
-                  {installs.map((install, index) => <option key={index} value={install.value}>{install.value}</option> )}
-                </select>
-                {/* 
-                <select name="qty">
-                  <option value="1">QUANTITY: 1</option>
-                  <option value="2">QUANTITY: 2</option>
-                  <option value="3">QUANTITY: 3</option>
-                  <option value="3">QUANTITY: 4</option>
-                </select>
-                */}
-              </div>
-              <div className="product-actions">
-                {/* <button className="btn btn-primary">Add to cart</button> */}
-                {(product && variant) && <BuyButton product={product} variant={variant} />}
-              </div>
-            </div>
-
+          <div className="product-media">
+            <img src="images/product-01.png" alt="" />
           </div>
 
-        </section>
-      </div>
+          <div className="product-ui products-section">
+            <UITopBar />
+            <UIBottomBar />
+            <div className="product-info">
+              <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
+                <SearchIcon />
+                <span>Product details</span>
+              </button>
+              <div className="product-name">CADILLAC ESCALADE SPORT PLATINUM 2021 / FRONT  WHEEL 22” / REAR WHEEL 22”</div>
+            </div>
+          </div>
 
-      <div className="products-sticker">
-        <img src="/images/backgrounds/bg-right.png" alt="Sticker zurikate" width="636" height="582" />
+        </div>
+
+        <div className="product-panel">
+          <div className="product-price">
+            <sup>USD</sup> <strong>${defaultVariant && defaultVariant.price}</strong> <span>Free shipping</span>
+          </div>
+          <div className="product-control">
+            <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
+          </div>
+          <div className="product-control">
+            <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
+          </div>
+          <div className="product-control">
+            <Select placeholder={install} options={installs} keyValue="value" keyShow="value" handleClick={(value) => setInstall(value)} />
+          </div>
+          {/* 
+          <div className="product-control">
+            <select name="qty">
+              <option value="1">QUANTITY: 1</option>
+              <option value="2">QUANTITY: 2</option>
+              <option value="3">QUANTITY: 3</option>
+              <option value="3">QUANTITY: 4</option>
+            </select>
+          </div>
+          */}
+          <div className="product-actions">
+            {/* <button className="btn btn-primary">Add to cart</button> */}
+            <div className="product-control">
+              {(product && variant) && <BuyButton product={product} variant={variant} />}
+            </div>
+          </div>
+        </div>
+
       </div>
+      
+      {openModal && (
+        <Modal isOpen={openModal} handleOpen={setOpenModal}>
+          <div className="products-swiper">
+            <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
+              {media.filter(item => item.altText == 'tip').map((image, index) => 
+                <SwiperSlide className="product-tip" key={index}>
+                  <img src={image.src} alt={image.altText} />
+                </SwiperSlide>
+              )}
+            </Swiper>
+
+            <div className="swiper-arrows">
+              <div className="arrow-prev">
+                <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
+              </div>
+              <div className="arrow-next">
+                <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
+              </div>
+            </div>
+          </div>
+        </Modal>
+      )}
+
     </div>
   )
 }

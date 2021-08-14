@@ -1,6 +1,9 @@
 .brands {
+  position: relative;
+  z-index: 1;
   &-content {
     display: block;
+    margin-bottom: 120px;
   }
   &-title {
     @include font-object();

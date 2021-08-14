@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
+import Select from 'components/ui/select'
 
 gsap.registerPlugin(ScrollToPlugin);
 
 const Brands = ({data = [], setBrand}) => {
 
   const [flag, setFlag] = useState();
+  const [placeholder, setPlaceholder] = useState("Select your make");
 
-  const handleBrand = (event) => {
-    setBrand(event.target.value);
+  const handleBrand = (value) => {
+    setBrand(value);
+    setPlaceholder(value);
     setFlag(true);
   }
 
@@ -44,10 +47,7 @@ const Brands = ({data = [], setBrand}) => {
               <span className="green">MAKE:</span>
             </h2>
             <div className="brands-list">
-              <select name="brand" onChange={handleBrand}>
-                <option value="" hidden={true}>Select your make</option>
-                { data.map((item, index) => <option key={index} value={item.title}>{item.title}</option>) }
-              </select>
+              <Select placeholder={placeholder} options={data} keyValue="title" keyShow="title" handleClick={handleBrand} />
             </div>
           </div>
         </section>

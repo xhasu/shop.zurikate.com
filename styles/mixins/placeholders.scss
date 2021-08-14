@@ -1,12 +1,14 @@
 %select-reset {
+  position: relative;
   display: block;
   height: 55px;
   width: 100%;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 54px;
-  border: 1px solid white;
+  padding: 0;
+  border: 2px solid white;
+  border-radius: 12px;
   background-image: url('/images/icons/icon-angle-down.png');
   background-size: 25px 17px;
   background-position: right 20px center;

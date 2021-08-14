@@ -15,7 +15,7 @@ const Skin = ({ data = {} }) => {
   return (
     <div className="skin">
       <div className="skin-media">
-        <img src={skinImage.src} alt="" />
+        <img src={skinImage.src} alt={skinImage.altText} />
       </div>
       <div className="skin-description">
         <p>{title}</p>

@@ -1,0 +1,116 @@
+
+
+.ui {
+
+  &-topbar {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+  }
+
+  &-bottombar {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    z-index: 10;
+
+    min-width: 410px;
+  }
+
+  &-head {
+    position: relative;
+  }
+
+  &-type {
+    @include font-default();
+    font-size: 21px;
+    line-height: 1;
+    text-transform: uppercase;
+    b {
+      font-size: 36px;
+      @include font-object();
+    }
+  }
+
+  &-title {
+    margin-bottom: 16px;
+    @include font-object();
+    font-size: 40px;
+    line-height: 1;
+    color: white;
+    text-transform: uppercase;
+    span {
+      color: transparent;
+      -webkit-text-stroke: 1px white;
+    }
+  }
+  &-bar {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 13px;
+    height: 26px;
+    border: 1px solid white;
+    box-sizing: border-box;
+
+    &-item {
+      position: relative;
+      margin: 0 2px;
+      height: 16px;
+      background: white;
+      flex: 1;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 5px;
+        border-top-left-radius: 13px;
+        border-bottom-left-radius: 13px;
+      }
+      &:last-child {
+        margin-right: 5px;
+        border-top-right-radius: 13px;
+        border-bottom-right-radius: 13px;
+      }
+    }
+    
+    &-info {
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      opacity: 0;
+      transition: all ease-in-out 400ms;
+      transform: translateY(0);
+      @include no-events();
+      z-index: 1;
+    }
+
+    &-item.active {
+      .ui-bar-info {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(20px);
+      }
+    }
+  }
+
+  &-icon {
+    position: relative;
+    max-width: 70px;
+    img {
+      @include img-fluid();
+      margin: 0 auto;
+    }
+  }
+  &-text {
+    margin-top: 10px;
+    @include font-default();
+    text-align: left;
+    font-size: 21px;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
