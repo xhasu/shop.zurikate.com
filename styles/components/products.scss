@@ -74,7 +74,34 @@
     position: relative;
 
     img {
+      position: relative;
       @include img-fluid;
+      z-index: 0;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      clear: both;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 220px;
+      z-index: 1;
+      @include no-events();
+
+      @include below($tablet) {
+        display: none;
+      }
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, black, transparent);
+    }
+    &::after {
+      right: 0;      
+      background: linear-gradient(-90deg, black, transparent);
     }
   }
 

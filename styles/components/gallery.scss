@@ -1,7 +1,7 @@
 
 .gallery {
   position: relative;
-  margin-top: 240px;
+  margin-top: 200px;
   z-index: 1;
 
   @include below($sm) {

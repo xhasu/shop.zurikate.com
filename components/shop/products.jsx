@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollToPlugin);
 const Products = ({ data = {} }) => {
   
   const { options = [], variants = [], images = [], title = "" } = data;
+  console.log(options);
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: installs = [] } = options.find(item => item.name == 'Install');
@@ -148,16 +149,6 @@ const Products = ({ data = {} }) => {
           <div className="product-control">
             <Select placeholder={install} options={installs} keyValue="value" keyShow="value" handleClick={(value) => setInstall(value)} />
           </div>
-          {/* 
-          <div className="product-control">
-            <select name="qty">
-              <option value="1">QUANTITY: 1</option>
-              <option value="2">QUANTITY: 2</option>
-              <option value="3">QUANTITY: 3</option>
-              <option value="3">QUANTITY: 4</option>
-            </select>
-          </div>
-          */}
           <div className="product-actions">
             <div className="product-control">
               {(product && variant) && <AddToCartButton product={product} variant={variant} />}

@@ -15,11 +15,11 @@ const Showcase = () => {
       scrollTrigger: {
         trigger: '.showcase-box',
         start: 'top 75%',
-        end: 'bottom center',
+        end: 'bottom bottom',
         scrub: true,
         // markers: true,
       },
-      y: '+50%'
+      y: '+80%'
     });
 
     gsap.from('.showcase-bg-right', {
