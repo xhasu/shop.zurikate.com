@@ -14,8 +14,6 @@
     bottom: 80px;
     right: 0;
     z-index: 10;
-
-    min-width: 410px;
   }
 
   &-head {
@@ -28,7 +26,7 @@
     line-height: 1;
     text-transform: uppercase;
     b {
-      font-size: 36px;
+      font-size: 1.7em;
       @include font-object();
     }
   }
@@ -36,7 +34,7 @@
   &-title {
     margin-bottom: 16px;
     @include font-object();
-    font-size: 40px;
+    font-size: 34px;
     line-height: 1;
     color: white;
     text-transform: uppercase;
@@ -51,16 +49,17 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 13px;
-    height: 26px;
+    height: 20px;
     border: 1px solid white;
     box-sizing: border-box;
 
     &-item {
       position: relative;
       margin: 0 2px;
-      height: 16px;
+      height: 10px;
+      width: 40px;
       background: white;
-      flex: 1;
+      flex: 1 1;
       cursor: pointer;
 
       &:first-child {
@@ -73,12 +72,21 @@
         border-top-right-radius: 13px;
         border-bottom-right-radius: 13px;
       }
+
+      &:nth-last-child(-n+3) {
+        text-align: right;
+        .ui-bar-info {
+          right: 0;
+          left: auto;
+        }
+      }
     }
     
     &-info {
       visibility: hidden;
       position: absolute;
       left: 0;
+      right: auto;
       top: 100%;
       opacity: 0;
       transition: all ease-in-out 400ms;
@@ -94,11 +102,14 @@
         transform: translateY(20px);
       }
     }
+
+    
   }
 
   &-icon {
+    display: inline-block;
     position: relative;
-    max-width: 70px;
+    width: 46px;
     img {
       @include img-fluid();
       margin: 0 auto;
@@ -107,10 +118,52 @@
   &-text {
     margin-top: 10px;
     @include font-default();
-    text-align: left;
-    font-size: 21px;
+    font-size: 16px;
     line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
+  }
+}
+
+.ui-bar-item {
+  &.white {
+    background: white;
+  }
+  &.black {
+    background: black;
+  }
+  &.red {
+    background: red;
+  }
+  &.grey {
+    background: grey;
+  }
+  &.blue {
+    background: blue;
+  }
+
+  &.gloss-luxury-black {
+    background: #000000;
+  }
+  &.gloss-fire-red {
+    background: #ff0000;
+  }
+  &.gloss-golden-beach {
+    background: #ffd700;
+  }
+  &.gloss-satin-azure {
+    background: #00ffff;
+  }
+  &.matte-brown {
+    background: #a52a2a;
+  }
+  &.matte-gun-metal {
+    background: #2f4f4f;
+  }
+  &.matte-hard-black {
+    background: #000000;
+  }
+  &.reflective-zurikate {
+    background: #ff00ff;
   }
 }

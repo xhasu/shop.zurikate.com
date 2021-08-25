@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export const UITopBar = () => {
+export const UITopBar = ({ handlePickColor }) => {
+
+  const colors = [
+    { classname: 'white', text: 'White' },
+    { classname: 'red', text: 'Red' },
+    { classname: 'blue', text: 'Blue' },
+    { classname: 'grey', text: 'Grey' },
+    { classname: 'black', text: 'Black' },
+  ]
+
+  const [selected, setSelected] = useState(0)
+
+  const handleSelect = (index) => {
+    setSelected(index)
+    handlePickColor(index);
+  }
+
   return (
     <div className="ui ui-topbar">
       <div className="ui-head">
@@ -13,54 +29,45 @@ export const UITopBar = () => {
       </div>
       <div className="ui-bar">
 
-        <div className="ui-bar-item active">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
+        {colors.map((color, index) => {
+          const isSelected = index === selected ? 'active' : '';
+          return (
+            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)}>
+              <div className="ui-bar-info">
+                <div className="ui-icon">
+                  <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18" />
+                </div>
+                <div className="ui-text">{color.text}</div>
+              </div>
             </div>
-            <div className="ui-text">Black</div>
-          </div>
-        </div>
-
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Black</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Black</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Black</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Black</div>
-          </div>
-        </div>
+          )
+        })}
 
       </div>
     </div>
   )
 }
 
-export const UIBottomBar = () => {
+export const UIBottomBar = ({ handlePickColor }) => {
+
+  const colors = [
+    { classname: 'gloss-luxury-black', text: 'Gloss Luxury Black' },
+    { classname: 'gloss-fire-red', text: 'Gloss Fire Red' },
+    { classname: 'gloss-golden-beach', text: 'Gloss Golden Beach' },
+    { classname: 'gloss-satin-azure', text: 'Gloss Satin Azure' },
+    { classname: 'matte-brown', text: 'Matte Brown' },
+    { classname: 'matte-gun-metal', text: 'Matte Gun Metal' },
+    { classname: 'matte-hard-black', text: 'Matte Hard Black' },
+    { classname: 'reflective-zurikate', text: 'Reflective Zurikate' },
+  ]
+
+  const [selected, setSelected] = useState(0)
+
+  const handleSelect = (index) => {
+    setSelected(index)
+    handlePickColor(index);
+  }
+
   return (
     <div className="ui ui-bottombar">
       <div className="ui-head">
@@ -73,79 +80,20 @@ export const UIBottomBar = () => {
       </div>
       <div className="ui-bar">
 
-        <div className="ui-bar-item active">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
+        {colors.map((color, index) => {
+          const isSelected = index === selected ? 'active' : '';
 
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
+          return (
+            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)}>
+              <div className="ui-bar-info">
+                <div className="ui-icon">
+                  <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18" />
+                </div>
+                <div className="ui-text">{color.text}</div>
+              </div>
             </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
-        <div className="ui-bar-item">
-          <div className="ui-bar-info">
-            <div className="ui-icon">
-              <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18"/>
-            </div>
-            <div className="ui-text">Gloss golden beach</div>
-          </div>
-        </div>
+          )
+        })}
 
       </div>
     </div>

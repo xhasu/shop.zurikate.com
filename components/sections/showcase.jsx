@@ -24,23 +24,23 @@ const Showcase = () => {
 
     gsap.from('.showcase-bg-right', {
       scrollTrigger: {
-        trigger: '.showcase-bg-right',
-        start: 'top 75%',
+        trigger: '.showcase-head',
+        start: 'top 50%',
+        toggleActions: 'play reverse play reverse',
         // markers: true,
-        toggleActions: 'play none play none',
       },
-      x: "+50%",
+      x: "+100%",
       opacity: .4
     })
 
     gsap.from('.showcase-bg-left', {
       scrollTrigger: {
-        trigger: '.showcase-bg-left',
-        start: 'top 75%',
+        trigger: '.showcase-head',
+        start: 'top 50%',
+        toggleActions: 'play reverse play reverse',
         // markers: true,
-        toggleActions: 'play none play none',
       },
-      x: "-50%",
+      x: "-100%",
       opacity: .4
     })
     
@@ -60,7 +60,7 @@ const Showcase = () => {
             </div>
 
             <div className="showcase-swiper">
-              <Swiper className="showcase-container" pagination={{clickable: true}} loop={true}>
+              <Swiper pagination={{clickable: true}} loop={true}>
                 <SwiperSlide className="swiper-slide">
                   <div className="showcase-item">
                     <picture>

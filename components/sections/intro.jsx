@@ -16,12 +16,10 @@ const Intro = () => {
 
 				// stop  video
 				ref.current.pause();
-				console.log('Video paused');
 				
 			} else {
 				// resume video
 				ref.current.play();
-				console.log('Video resume');
 			}
 		}
 

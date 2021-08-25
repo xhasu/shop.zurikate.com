@@ -111,6 +111,9 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [openModal])
 
+  const [carColor, setCarColor] = useState(0);
+  const [wheelColor, setWheelColor] = useState(0);
+
   return (
     <div className="products" id="products">
 
@@ -123,8 +126,8 @@ const Products = ({ data = {} }) => {
           </div>
 
           <div className="product-ui products-section">
-            <UITopBar />
-            <UIBottomBar />
+            <UITopBar handlePickColor={(idx) => setCarColor(idx)} />
+            <UIBottomBar handlePickColor={(idx) => setWheelColor(idx)} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
                 <SearchIcon />
