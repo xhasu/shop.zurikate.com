@@ -3,18 +3,18 @@ import React, { useState } from 'react'
 export const UITopBar = ({ handlePickColor }) => {
 
   const colors = [
-    { classname: 'white', text: 'White' },
+    { classname: 'black', text: 'Black' },
     { classname: 'red', text: 'Red' },
     { classname: 'blue', text: 'Blue' },
     { classname: 'grey', text: 'Grey' },
-    { classname: 'black', text: 'Black' },
+    { classname: 'white', text: 'White' },
   ]
 
   const [selected, setSelected] = useState(0)
 
   const handleSelect = (index) => {
-    setSelected(index)
-    handlePickColor(index);
+    setSelected(prev => index)
+    handlePickColor(prev => colors[index].classname);
   }
 
   return (
@@ -32,7 +32,7 @@ export const UITopBar = ({ handlePickColor }) => {
         {colors.map((color, index) => {
           const isSelected = index === selected ? 'active' : '';
           return (
-            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)}>
+            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)} key={index}>
               <div className="ui-bar-info">
                 <div className="ui-icon">
                   <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18" />
@@ -64,8 +64,8 @@ export const UIBottomBar = ({ handlePickColor }) => {
   const [selected, setSelected] = useState(0)
 
   const handleSelect = (index) => {
-    setSelected(index)
-    handlePickColor(index);
+    setSelected(prev => index)
+    handlePickColor(prev => colors[index].classname);
   }
 
   return (
@@ -84,7 +84,7 @@ export const UIBottomBar = ({ handlePickColor }) => {
           const isSelected = index === selected ? 'active' : '';
 
           return (
-            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)}>
+            <div className={`ui-bar-item ${color.classname} ${isSelected}`} onClick={(event) => handleSelect(index)} key={index}>
               <div className="ui-bar-info">
                 <div className="ui-icon">
                   <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18" />

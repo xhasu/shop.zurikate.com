@@ -17,17 +17,17 @@ gsap.registerPlugin(ScrollToPlugin);
 const Products = ({ data = {} }) => {
   
   const { options = [], variants = [], images = [], title = "" } = data;
-  console.log(options);
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
 
-  const [defaultVariant, setDefaultVariant] = useState({});
+  const [defaultVariant, setDefaultVariant] = useState();
 
   const [color, setColor] = useState();
   const [kit, setKit] = useState();
 
-  const [media, setMedia] = useState([]);
+  const [tips, setTips] = useState([]);
+  const [media, setMedia] = useState("");
   const [product, setProduct] = useState();
   const [variant, setVariant] = useState();
 
@@ -39,15 +39,15 @@ const Products = ({ data = {} }) => {
     setProduct(productId);
     
     const selectedVariant = getProductVariant(variants, color, kit);
+    console.log(selectedVariant);
     const arrVariant = atob(selectedVariant.id).split('/');
     const variantId = arrVariant[arrVariant.length - 1];
     setVariant(variantId);
 
     setDefaultVariant(selectedVariant);
 
-    const filteredImages = images.filter(image => ['tip'].includes(image.altText));
-    filteredImages.unshift(selectedVariant.image);
-    setMedia(filteredImages);
+    const imagesTips = images.filter(image => ['tip'].includes(image.altText));
+    setTips(imagesTips);
   }
 
   const handleScroll = (elementId, offsetY = 100) => {
@@ -104,8 +104,20 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [openModal])
 
-  const [carColor, setCarColor] = useState(0);
-  const [wheelColor, setWheelColor] = useState(0);
+  const [carColor, setCarColor] = useState('black');
+  const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
+
+  useEffect(() => {
+    if(images.length != 0) {
+      const imageFiltered = images.filter(image => image.altText );
+      const result = imageFiltered.filter(image => {
+        const [c, w] = image.altText.split(':');
+        return c == carColor && w == wheelColor;
+      });
+      result.length != 0 && setMedia(result[0].src);
+    }
+    return () => {}
+  }, [data, carColor, wheelColor]);
 
   return (
     <div className="products" id="products">
@@ -115,12 +127,12 @@ const Products = ({ data = {} }) => {
         <div className="products-view">
 
           <div className="product-media">
-            <img src="images/product-01.png" alt="" />
+            <img src={media} alt="" />
           </div>
 
           <div className="product-ui products-section">
-            <UITopBar handlePickColor={(idx) => setCarColor(idx)} />
-            <UIBottomBar handlePickColor={(idx) => setWheelColor(idx)} />
+            <UITopBar handlePickColor={(color) => setCarColor(color)} />
+            <UIBottomBar handlePickColor={(wheelcolor) => setWheelColor(wheelcolor)} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
                 <SearchIcon />
@@ -158,7 +170,7 @@ const Products = ({ data = {} }) => {
         <Modal isOpen={openModal} handleOpen={setOpenModal}>
           <div className="products-swiper">
             <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-              {media.filter(item => item.altText == 'tip').map((image, index) => 
+              {tips.filter(item => item.altText == 'tip').map((image, index) => 
                 <SwiperSlide className="product-tip" key={index}>
                   <img src={image.src} alt={image.altText} />
                 </SwiperSlide>

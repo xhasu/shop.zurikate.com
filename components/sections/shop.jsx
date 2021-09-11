@@ -19,7 +19,7 @@ const Shop = () => {
     })
 
     client.collection.fetchAllWithProducts().then(collections => {
-      console.log(collections);
+      // console.log(collections);
       setData(collections);
     })
     
