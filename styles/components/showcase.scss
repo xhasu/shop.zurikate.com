@@ -40,12 +40,14 @@
 
   &-item {
     position: relative;
-    margin-top: 60px;
+    padding-top: 60px;
     img {
       @include img-fluid();
+      max-height: 80vh;
+      width: auto;
     }
     @include below($laptop) {
-      margin-top: 0;
+      padding-top: 0;
     }
   }
 
@@ -81,7 +83,7 @@
 
   &-description {
     position: absolute;
-    bottom: 30px;
+    bottom: 80px;
     right: 0;
     margin-left: auto;
     margin-right: 0;
@@ -101,6 +103,7 @@
     @include below($desktop) {
       font-size: 21px;
       max-width: 480px;
+      bottom: 50px;
     }
     @include below($laptop) {
       position: static;
@@ -152,5 +155,9 @@
   &-swiper {
     position: relative;
     z-index: 2;
+  }
+
+  .swiper-pagination {
+    bottom: 40px;
   }
 }

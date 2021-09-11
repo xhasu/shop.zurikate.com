@@ -15,7 +15,7 @@ SwiperCore.use([Navigation, Pagination]);
 gsap.registerPlugin(ScrollToPlugin);
 
 const Products = ({ data = {} }) => {
-  
+
   const { options = [], variants = [], images = [], title = "" } = data;
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
@@ -37,7 +37,7 @@ const Products = ({ data = {} }) => {
     const arrProduct = atob(data.id).split('/');
     const productId = arrProduct[arrProduct.length - 1];
     setProduct(productId);
-    
+
     const selectedVariant = getProductVariant(variants, color, kit);
     console.log(selectedVariant);
     const arrVariant = atob(selectedVariant.id).split('/');
@@ -51,26 +51,26 @@ const Products = ({ data = {} }) => {
   }
 
   const handleScroll = (elementId, offsetY = 100) => {
-		gsap.to(window, {
-			scrollTo: {
-				y: elementId,
-				offsetY: offsetY,
-			}
-		});
-	}
+    gsap.to(window, {
+      scrollTo: {
+        y: elementId,
+        offsetY: offsetY,
+      }
+    });
+  }
 
   useEffect(() => {
     handleScroll("#products", 0);
-    return () => {}
+    return () => { }
   }, [data])
 
   useEffect(() => {
-    if( colors, kits ) {
+    if (colors, kits) {
 
       const {
         value: fColor = ""
       } = variants[0].selectedOptions.find(item => item.name == 'Color');
-  
+
       const {
         value: fKit = ""
       } = variants[0].selectedOptions.find(item => item.name == 'Kit');
@@ -80,18 +80,18 @@ const Products = ({ data = {} }) => {
 
       setDefaultVariant(variants[0]);
     }
-    return () => {}
+    return () => { }
   }, [colors, kits])
 
   useEffect(() => {
-    if( color, kit ) {
+    if (color, kit) {
       setProductVariant();
     }
-    return () => {}
+    return () => { }
   }, [color, kit])
 
   useEffect(() => {
-    if( data && data.variants && data.variants.length != 0 && color && kit ) {
+    if (data && data.variants && data.variants.length != 0 && color && kit) {
       setProductVariant();
     }
     return () => { }
@@ -99,8 +99,8 @@ const Products = ({ data = {} }) => {
 
   useEffect(() => {
 
-    document.body.style.overflow =  openModal ? 'hidden': '';
-    
+    document.body.style.overflow = openModal ? 'hidden' : '';
+
     return () => { }
   }, [openModal])
 
@@ -108,15 +108,15 @@ const Products = ({ data = {} }) => {
   const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
 
   useEffect(() => {
-    if(images.length != 0) {
-      const imageFiltered = images.filter(image => image.altText );
+    if (images.length != 0) {
+      const imageFiltered = images.filter(image => image.altText);
       const result = imageFiltered.filter(image => {
         const [c, w] = image.altText.split(':');
         return c == carColor && w == wheelColor;
       });
       result.length != 0 && setMedia(result[0].src);
     }
-    return () => {}
+    return () => { }
   }, [data, carColor, wheelColor]);
 
   return (
@@ -165,16 +165,22 @@ const Products = ({ data = {} }) => {
         </div>
 
       </div>
-      
+
       {openModal && (
         <Modal isOpen={openModal} handleOpen={setOpenModal}>
           <div className="products-swiper">
             <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-              {tips.filter(item => item.altText == 'tip').map((image, index) => 
+              {tips.filter(item => item.altText == 'tip').map((image, index) =>
                 <SwiperSlide className="product-tip" key={index}>
                   <img src={image.src} alt={image.altText} />
                 </SwiperSlide>
               )}
+              <SwiperSlide className="product-tip">
+                <video preload="metadata" playsInline="playsinline" poster="/media/product-details-poster.jpg" controls={true} width={645} height={645}>
+                  <source src="/media/product-details.mp4" type="video/mp4" />
+                  <img src="/media/product-details-poster.jpg" alt="Zurikate video poster" width="645" height="645" />
+                </video>
+              </SwiperSlide>
             </Swiper>
 
             <div className="swiper-arrows">
