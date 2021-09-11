@@ -20,13 +20,11 @@ const Products = ({ data = {} }) => {
   console.log(options);
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
-  const { values: installs = [] } = options.find(item => item.name == 'Install');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
 
   const [defaultVariant, setDefaultVariant] = useState({});
 
   const [color, setColor] = useState();
-  const [install, setInstall] = useState();
   const [kit, setKit] = useState();
 
   const [media, setMedia] = useState([]);
@@ -40,14 +38,14 @@ const Products = ({ data = {} }) => {
     const productId = arrProduct[arrProduct.length - 1];
     setProduct(productId);
     
-    const selectedVariant = getProductVariant(variants, color, install, kit);
+    const selectedVariant = getProductVariant(variants, color, kit);
     const arrVariant = atob(selectedVariant.id).split('/');
     const variantId = arrVariant[arrVariant.length - 1];
     setVariant(variantId);
 
     setDefaultVariant(selectedVariant);
 
-    const filteredImages = images.filter(image => !['skin', 'color'].includes(image.altText));
+    const filteredImages = images.filter(image => ['tip'].includes(image.altText));
     filteredImages.unshift(selectedVariant.image);
     setMedia(filteredImages);
   }
@@ -62,43 +60,38 @@ const Products = ({ data = {} }) => {
 	}
 
   useEffect(() => {
-    handleScroll("#products");
+    handleScroll("#products", 0);
     return () => {}
   }, [data])
 
   useEffect(() => {
-    if( colors, installs, kits ) {
+    if( colors, kits ) {
 
       const {
         value: fColor = ""
       } = variants[0].selectedOptions.find(item => item.name == 'Color');
   
       const {
-        value: fInstall = ""
-      } = variants[0].selectedOptions.find(item => item.name == 'Install');
-  
-      const {
         value: fKit = ""
       } = variants[0].selectedOptions.find(item => item.name == 'Kit');
 
       setColor(fColor);
-      setInstall(fInstall);
       setKit(fKit);
 
       setDefaultVariant(variants[0]);
     }
     return () => {}
-  }, [colors, installs, kits])
+  }, [colors, kits])
 
   useEffect(() => {
-    if( color, install, kit ) {
+    if( color, kit ) {
       setProductVariant();
     }
     return () => {}
-  }, [color, install, kit])
+  }, [color, kit])
 
   useEffect(() => {
-    if( data && data.variants && data.variants.length != 0 && color && install && kit ) {
+    if( data && data.variants && data.variants.length != 0 && color && kit ) {
       setProductVariant();
     }
     return () => { }
@@ -148,9 +141,6 @@ const Products = ({ data = {} }) => {
           </div>
           <div className="product-control">
             <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
-          </div>
-          <div className="product-control">
-            <Select placeholder={install} options={installs} keyValue="value" keyShow="value" handleClick={(value) => setInstall(value)} />
           </div>
           <div className="product-actions">
             <div className="product-control">

@@ -1,5 +1,5 @@
 
-export const getProductVariant = (variants = [], color = '', install = '', kit = '') => {
+export const getProductVariant = (variants = [], color = '', kit = '') => {
   
   return variants.find(variant => {
 
@@ -8,17 +8,12 @@ export const getProductVariant = (variants = [], color = '', install = '', kit =
     } = variant.selectedOptions.find(item => item.name == 'Color');
 
     const {
-      value: fInstall = ""
-    } = variant.selectedOptions.find(item => item.name == 'Install');
-
-    const {
       value: fKit = ""
     } = variant.selectedOptions.find(item => item.name == 'Kit');
 
     const hasColor = fColor == color ? true: false;
-    const hasInstall = fInstall == install ? true: false;
     const hasKit = fKit == kit ? true: false;
 
-    return hasColor && hasInstall && hasKit;
+    return hasColor && hasKit;
   });
 }

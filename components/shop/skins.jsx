@@ -4,9 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 SwiperCore.use([Navigation]);
 
-const Skin = ({ data = {} }) => {
+const Skin = ({ data = {}, collection = {} }) => {
 
-  const { title = "", images = [] } = data;
+  const {
+    title = "",
+    description = "",
+    images = []
+  } = data;
 
   const skinImage = images.find(item => {
      return item.altText ? item.altText.toLowerCase() == "skin" : {};
@@ -18,7 +22,7 @@ const Skin = ({ data = {} }) => {
         <img src={skinImage.src} alt={skinImage.altText} />
       </div>
       <div className="skin-description">
-        <p>{title}</p>
+        <p><strong>{title}</strong> / {description}</p>
       </div>
     </div>
   )
@@ -43,11 +47,11 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
         <section className="section skins-section">
 
           <div className="skins-swiper">
-            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints}>
+            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints} centeredSlides={true}>
               {skins.products.map((skin, index) => {
                 return (
                   <SwiperSlide key={index} onClick={() => setSkin(skin)}>
-                    <Skin data={skin} />
+                    <Skin data={skin} collection={skins} />
                   </SwiperSlide>
                 )
               })}
