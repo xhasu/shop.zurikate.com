@@ -2,9 +2,12 @@
 
   &-topbar {
     position: absolute;
-    top: 40px;
+    top: 120px;
     left: 0;
     z-index: 10;
+    @include below($tablet) {
+      top: 40px;
+    }
   }
 
   &-bottombar {
@@ -16,6 +19,9 @@
       bottom: 60px;
       right: auto;
       left: 0;
+    }
+    @include below($sm) {
+      bottom: 160px;
     }
   }
 
