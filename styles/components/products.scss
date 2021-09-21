@@ -71,6 +71,8 @@
 .product {
 
   &-tip {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     img {
       @include img-responsive();
     }
@@ -85,9 +87,15 @@
 
   &-media {
     position: relative;
-    min-height: 90vh;
+    max-width: 1520px;
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @include below($sm) {
+      min-height: 90vh;
+    }
 
     img {
       position: relative;
@@ -108,11 +116,14 @@
         object-position: 40% center;
         width: 140%;
         height: 85%;
+        margin-bottom: 15%;
+        margin-left: -15%;
       }
     }
 
     &::before,
     &::after {
+      display: none;
       content: '';
       clear: both;
       position: absolute;
