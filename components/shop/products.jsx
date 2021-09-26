@@ -7,7 +7,7 @@ import { UITopBar, UIBottomBar } from 'components/ui/bars'
 import Select from 'components/ui/select'
 import Modal from 'components/ui/modal'
 import { SearchIcon } from 'components/ui/svgs'
-import { getProductVariant } from 'app/helpers'
+import { getProductVariant, mapPickerColor } from 'app/helpers'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 
@@ -33,13 +33,16 @@ const Products = ({ data = {} }) => {
 
   const [openModal, setOpenModal] = useState(false);
 
+  const [carColor, setCarColor] = useState('black');
+  const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
+
   const setProductVariant = () => {
     const arrProduct = atob(data.id).split('/');
     const productId = arrProduct[arrProduct.length - 1];
     setProduct(productId);
 
     const selectedVariant = getProductVariant(variants, color, kit);
-    console.log(selectedVariant);
+    // console.log(selectedVariant);
     const arrVariant = atob(selectedVariant.id).split('/');
     const variantId = arrVariant[arrVariant.length - 1];
     setVariant(variantId);
@@ -57,6 +60,17 @@ const Products = ({ data = {} }) => {
         offsetY: offsetY,
       }
     });
+  }
+
+  const handleSelectColor = (value) => {
+    console.log(value);
+    setColor(value);
+  }
+
+  const handlePickerColor = (wheelcolor) => {
+    setWheelColor(wheelcolor);
+    console.log(mapPickerColor[wheelcolor]);
+    setColor(mapPickerColor[wheelcolor])
   }
 
   useEffect(() => {
@@ -104,9 +118,6 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [openModal])
 
-  const [carColor, setCarColor] = useState('black');
-  const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
-
   useEffect(() => {
     if (images.length != 0) {
       const imageFiltered = images.filter(image => image.altText);
@@ -132,7 +143,7 @@ const Products = ({ data = {} }) => {
 
           <div className="product-ui products-section">
             <UITopBar handlePickColor={(color) => setCarColor(color)} />
-            <UIBottomBar handlePickColor={(wheelcolor) => setWheelColor(wheelcolor)} />
+            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
                 <SearchIcon />
@@ -149,7 +160,7 @@ const Products = ({ data = {} }) => {
             <sup>USD</sup> <strong>${defaultVariant && defaultVariant.price}</strong> <span>Free shipping</span>
           </div>
           <div className="product-control">
-            <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
+            <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => handleSelectColor(value)} />
           </div>
           <div className="product-control">
             <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />

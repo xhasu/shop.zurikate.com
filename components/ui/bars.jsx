@@ -14,7 +14,7 @@ export const UITopBar = ({ handlePickColor }) => {
 
   const handleSelect = (index) => {
     setSelected(prev => index)
-    handlePickColor(prev => colors[index].classname);
+    handlePickColor(colors[index].classname);
   }
 
   return (
@@ -65,7 +65,7 @@ export const UIBottomBar = ({ handlePickColor }) => {
 
   const handleSelect = (index) => {
     setSelected(prev => index)
-    handlePickColor(prev => colors[index].classname);
+    handlePickColor(colors[index].classname);
   }
 
   return (

@@ -105,11 +105,13 @@
       bottom: 0;
       width: 100%;
       height: auto;
+      max-height: 100vh;
       object-fit: contain;
       object-position: center;
       z-index: 0;
       @include below($desktop){
         width: 100%;
+        max-height: none;
       }
       @include below($sm) {
         object-fit: cover;
@@ -156,13 +158,10 @@
     top: 90px;
     left: 10px;
     right: 10px;
-    height: 100%;
-    min-height: 720px;
-    max-height: 90vh;
+    bottom: 0;
     z-index: 1;
     @include below($laptop) {
       top: 60px;
-      min-height: auto;
     }
   }
 
