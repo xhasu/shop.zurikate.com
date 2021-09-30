@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import SwiperCore, { Pagination } from 'swiper';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
@@ -60,7 +60,7 @@ const Showcase = () => {
             </div>
 
             <div className="showcase-swiper">
-              <Swiper pagination={{clickable: true}} loop={true}>
+              <Swiper pagination={{clickable: true}} loop={true} autoplay={{delay: 3000}}>
                 <SwiperSlide className="swiper-slide">
                   <div className="showcase-item">
                     <picture>

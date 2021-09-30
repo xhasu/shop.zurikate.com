@@ -2,14 +2,14 @@
 
   &-topbar {
     position: absolute;
-    top: 120px;
+    top: 60px;
     left: 0;
     z-index: 10;
     @include below($desktop) {
-      top: 80px;
+      top: 40px;
     }
     @include below($tablet) {
-      top: 40px;
+      top: 20px;
     }
   }
 

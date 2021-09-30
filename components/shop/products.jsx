@@ -74,7 +74,7 @@ const Products = ({ data = {} }) => {
   }
 
   useEffect(() => {
-    handleScroll("#products", 0);
+    handleScroll("#products", 90);
     return () => { }
   }, [data])
 

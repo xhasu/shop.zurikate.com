@@ -13,11 +13,10 @@
 
   &-view {
     position: relative;
-    padding-top: 90px;
+    padding-top: 0;
     margin-bottom: 120px;
     box-sizing: border-box;
     @include below($laptop) {
-      padding-top: 60px;
       margin-bottom: 90px;
     }
   }
@@ -155,14 +154,11 @@
 
   &-ui {
     position: absolute;
-    top: 90px;
+    top: 0;
     left: 10px;
     right: 10px;
     bottom: 0;
     z-index: 1;
-    @include below($laptop) {
-      top: 60px;
-    }
   }
 
   &-info {
