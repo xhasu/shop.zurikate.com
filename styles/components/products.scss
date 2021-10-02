@@ -94,6 +94,7 @@
 
     @include below($sm) {
       min-height: 90vh;
+      overflow: hidden;
     }
 
     img {
