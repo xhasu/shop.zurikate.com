@@ -119,11 +119,15 @@ const Showcase = () => {
 
         </section>
 
-        <div className="showcase-bg-right">
-          <img src="/images/backgrounds/bg-showcase-right.png" alt="docarative sticker" loading="lazy" width="634" height="621" />
-        </div>
-        <div className="showcase-bg-left">
-          <img src="/images/backgrounds/bg-showcase-left.png" alt="docarative sticker" loading="lazy" width="618" height="566" />
+        <div className="showcase-bg">
+
+          <div className="showcase-bg-right">
+            <img src="/images/backgrounds/bg-showcase-right.png" alt="docarative sticker" loading="lazy" width="634" height="621" />
+          </div>
+          <div className="showcase-bg-left">
+            <img src="/images/backgrounds/bg-showcase-left.png" alt="docarative sticker" loading="lazy" width="618" height="566" />
+          </div>
+
         </div>
 
       </div>

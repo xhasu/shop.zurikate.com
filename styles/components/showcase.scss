@@ -116,6 +116,11 @@
     }
   }
 
+  &-bg {
+    @include cover();
+    overflow: hidden;
+  }
+
   &-bg-right,
   &-bg-left {
     @include no-events();

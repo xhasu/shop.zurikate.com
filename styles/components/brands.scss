@@ -1,10 +1,13 @@
 .brands {
   position: relative;
-  min-height: 50vh;
+  // min-height: 50vh;
   z-index: 1;
   &-content {
     display: block;
-    margin-bottom: 120px;
+    margin-bottom: 220px;
+    @include below($tablet) {
+      margin-bottom: 120px;
+    }
   }
   &-title {
     @include font-object();
