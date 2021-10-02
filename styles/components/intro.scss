@@ -7,17 +7,23 @@
   min-height: 480px;
   box-sizing: border-box;
 
+  @include below($tablet) {
+    height: calc(100vh - 52px);
+  }
+
   &-background {
     display: block;
     @include cover();
     video {
       position: relative;
-      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
       z-index: 0;
+      @include below($tablet) {
+        // object-fit: contain;
+      }
     }
 
     &::after {
@@ -29,6 +35,19 @@
       opacity: .3;
       // backdrop-filter: blur(4px);
       z-index: 1;
+    }
+  }
+
+  &-video-desktop {
+    display: block;
+    @include below($tablet) {
+      display: none;
+    }
+  }
+  &-video-mobile {
+    display: block;
+    @include above($tablet) {
+      display: none;
     }
   }
 
@@ -47,12 +66,13 @@
       display: inline-block;
       vertical-align: middle;
       box-sizing: border-box;
+      margin-left: 6px;
     }
     svg {
       display: inline-block;
       vertical-align: middle;
       width: 40px;
-      margin-right: 12px;
+      margin-right: 6px;
     }
 
     @include below($tablet) {
