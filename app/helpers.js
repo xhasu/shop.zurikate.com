@@ -25,3 +25,14 @@ export const mapPickerColor = {
   'matte-hard-black': 'Matte Hard Black',
   'reflective-zurikate': 'Reflective Zurikate',
 };
+
+export const mapSelectColor = {
+  'Gloss Luxury Black': 'gloss-luxury-black',
+  'Gloss Fire Red': 'gloss-fire-red',
+  'Gloss Golden Beach': 'gloss-golden-beach',
+  'Gloss Satin Azure': 'gloss-satin-azure',
+  'Matte Brown': 'matte-brown',
+  'Matte Gun Metal': 'matte-gun-metal',
+  'Matte Hard Black': 'matte-hard-black',
+  'Reflective Zurikate': 'reflective-zurikate',
+}

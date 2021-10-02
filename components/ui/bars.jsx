@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const UITopBar = ({ handlePickColor }) => {
 
@@ -48,7 +48,7 @@ export const UITopBar = ({ handlePickColor }) => {
   )
 }
 
-export const UIBottomBar = ({ handlePickColor }) => {
+export const UIBottomBar = ({ handlePickColor, updateSelected }) => {
 
   const colors = [
     { classname: 'gloss-luxury-black', text: 'Gloss Luxury Black' },
@@ -67,6 +67,12 @@ export const UIBottomBar = ({ handlePickColor }) => {
     setSelected(prev => index)
     handlePickColor(colors[index].classname);
   }
+  
+  useEffect(() => {
+    const idx = colors.findIndex(color => color.classname === updateSelected);
+    setSelected(prev => idx)
+    return () => { }
+  }, [updateSelected])
 
   return (
     <div className="ui ui-bottombar">

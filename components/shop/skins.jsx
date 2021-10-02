@@ -21,8 +21,11 @@ const Skin = ({ data = {}, collection = {} }) => {
       <div className="skin-media">
         <img src={skinImage.src} alt={skinImage.altText} />
       </div>
+      <div className="skin-title">
+        <strong>{title}</strong>
+      </div>
       <div className="skin-description">
-        <p><strong>{title}</strong> / {description}</p>
+        <p>{description}</p>
       </div>
     </div>
   )

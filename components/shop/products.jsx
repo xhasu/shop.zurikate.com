@@ -7,7 +7,7 @@ import { UITopBar, UIBottomBar } from 'components/ui/bars'
 import Select from 'components/ui/select'
 import Modal from 'components/ui/modal'
 import { SearchIcon } from 'components/ui/svgs'
-import { getProductVariant, mapPickerColor } from 'app/helpers'
+import { getProductVariant, mapPickerColor, mapSelectColor } from 'app/helpers'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 
@@ -64,13 +64,16 @@ const Products = ({ data = {} }) => {
 
   const handleSelectColor = (value) => {
     console.log(value);
+    setWheelColor(mapSelectColor[value]);
+    console.log(mapSelectColor[value]);
     setColor(value);
   }
 
   const handlePickerColor = (wheelcolor) => {
+    console.log(wheelcolor);
     setWheelColor(wheelcolor);
     console.log(mapPickerColor[wheelcolor]);
-    setColor(mapPickerColor[wheelcolor])
+    setColor(mapPickerColor[wheelcolor]);
   }
 
   useEffect(() => {
@@ -128,7 +131,7 @@ const Products = ({ data = {} }) => {
       result.length != 0 && setMedia(result[0].src);
     }
     return () => { }
-  }, [data, carColor, wheelColor]);
+  }, [data, carColor, wheelColor, color]);
 
   return (
     <div className="products" id="products">
@@ -143,7 +146,7 @@ const Products = ({ data = {} }) => {
 
           <div className="product-ui products-section">
             <UITopBar handlePickColor={(color) => setCarColor(color)} />
-            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} />
+            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} updateSelected={wheelColor} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
                 <SearchIcon />

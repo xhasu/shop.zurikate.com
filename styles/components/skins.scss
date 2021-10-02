@@ -55,17 +55,32 @@
       @include img-fluid();
     }
   }
+
+  &-title {
+    font-size: 26px;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 4px;
+    @include below($desktop) {
+      font-size: 24px;
+    }
+    @include below($laptop) {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
   &-description p {
-    font-size: 24px;
+    font-size: 18px;
     font-style: italic;
     line-height: 1.2;
     color: white;
     margin-top: 0;
     margin-bottom: 0;
     @include below($desktop) {
-      font-size: 18px;
+      font-size: 16px;
     }
-    @include below($sm) {
+    @include below($laptop) {
+      text-align: center;
       font-size: 14px;
     }
   }
