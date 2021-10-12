@@ -4,6 +4,7 @@ import Intro from 'components/sections/intro'
 import Showcase from 'components/sections/showcase'
 import Shop from 'components/sections/shop'
 import Gallery from 'components/sections/gallery'
+import Faqs from 'components/sections/Faqs'
 import Contact from 'components/sections/contact'
 
 const Landing = () => {
@@ -14,9 +15,10 @@ const Landing = () => {
         <Showcase />
         <Shop />
         <Gallery />
+        <Faqs />
         <Contact />
         <div className="background-noise">
-          <img src="/images/backgrounds/background-noise.jpg" alt="background Zurikate" />
+          <img src="/images/backgrounds/background-noise.jpg" alt="Zurikate Background" />
         </div>
       </div>
     </main>
