@@ -16,6 +16,7 @@ export const getProductVariant = (variants = [], color = '', kit = '') => {
 };
 
 export const mapPickerColor = {
+  'original': 'Original',
   'gloss-luxury-black': 'Gloss Luxury Black',
   'gloss-fire-red': 'Gloss Fire Red',
   'gloss-golden-beach': 'Gloss Golden Beach',
@@ -27,6 +28,7 @@ export const mapPickerColor = {
 };
 
 export const mapSelectColor = {
+  'Original': 'original',
   'Gloss Luxury Black': 'gloss-luxury-black',
   'Gloss Fire Red': 'gloss-fire-red',
   'Gloss Golden Beach': 'gloss-golden-beach',

@@ -172,6 +172,8 @@
 
     .btn {
       flex: none;
+      background-color: white;
+      color: black;
       @include below($desktop) {
         height: 35px;
         font-size: 16px;

@@ -26,6 +26,10 @@
     @include below($sm) {
       bottom: 160px;
     }
+
+    .ui-bar:last-child {
+      margin-left: 10px;
+    }
   }
 
   &-head {
@@ -61,6 +65,11 @@
       font-size: 24px;
     }
   }
+
+  &-group-bar {
+    display: flex;
+  }
+
   &-bar {
 
     display: flex;
@@ -68,7 +77,7 @@
     justify-content: space-between;
     border-radius: 10px;
     height: 20px;
-    padding: 5px 0;
+    padding: 3px 0;
     border: 1px solid white;
     box-sizing: border-box;
 
@@ -82,12 +91,12 @@
       cursor: pointer;
 
       &:first-child {
-        margin-left: 5px;
+        margin-left: 3px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
       }
       &:last-child {
-        margin-right: 5px;
+        margin-right: 3px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
       }
@@ -100,8 +109,20 @@
         }
       }
 
+      &:only-child {
+        text-align: left;
+        .ui-bar-info {
+          left: 0;
+          right: auto;
+        }
+      }
+
       @include below($desktop) {
         width: 30px;
+      }
+
+      @include below($sm) {
+        width: 25px;
       }
     }
     
@@ -175,6 +196,9 @@
     background: #1e2333;
   }
 
+  &.original {
+    background-color: #e5e5e5;
+  }
   &.gloss-luxury-black {
     background: #0c0c00;
   }

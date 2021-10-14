@@ -73,7 +73,9 @@ const Products = ({ data = {} }) => {
     console.log(wheelcolor);
     setWheelColor(wheelcolor);
     console.log(mapPickerColor[wheelcolor]);
-    setColor(mapPickerColor[wheelcolor]);
+    if( wheelcolor !== 'original' ) {
+      setColor(mapPickerColor[wheelcolor]);
+    }
   }
 
   useEffect(() => {
@@ -129,6 +131,7 @@ const Products = ({ data = {} }) => {
         return c == carColor && w == wheelColor;
       });
       result.length != 0 && setMedia(result[0].src);
+      console.log(result[0])
     }
     return () => { }
   }, [data, carColor, wheelColor, color]);
