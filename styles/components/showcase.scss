@@ -109,7 +109,7 @@
       position: static;
       padding: 0 10px;
     }
-    @include below($phone) {
+    @include below($sm) {
       margin-top: 18px;
       margin-bottom: 32px;
       font-size: 18px;

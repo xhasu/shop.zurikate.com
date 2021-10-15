@@ -4,9 +4,9 @@
   z-index: 1;
   &-content {
     display: block;
-    margin-bottom: 220px;
-    @include below($tablet) {
-      margin-bottom: 120px;
+    margin-bottom: 100px;
+    @include below($sm) {
+      margin-bottom: 40px;
     }
   }
   &-title {

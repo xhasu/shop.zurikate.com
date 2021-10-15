@@ -4,17 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  // min-height: 60vh;
   margin-bottom: 120px;
 
   @include below($sm) {
     // min-height: 70vh;
-    margin-bottom: 90px;
+    margin-bottom: 60px;
   }
 
   &-container {
     flex: 1;
-    margin-top: 100px;
+    margin-top: 90px;
     min-width: 0;
   }
 
