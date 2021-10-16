@@ -136,6 +136,11 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [data, carColor, wheelColor, color]);
 
+  useEffect(() => {
+    handlePickerColor('original')
+    return () => {}
+  }, [])
+
   return (
     <div className="products" id="products">
 
