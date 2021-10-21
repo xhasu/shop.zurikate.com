@@ -168,7 +168,7 @@
     left: 0;
     display: flex;
     align-items: center;
-    max-width: 70%;
+    // max-width: 70%;
 
     .btn {
       flex: none;
@@ -207,8 +207,8 @@
     flex: 1;
     font-size: 22px;
     font-style: italic;
-    max-width: 40ch;
-    &::first-line {
+    max-width: 60ch;
+    strong {
       font-weight: bold;
     }
     @include below($desktop) {

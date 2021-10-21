@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const Products = ({ data = {} }) => {
 
-  const { options = [], variants = [], images = [], title = "" } = data;
+  const { options = [], variants = [], images = [], title = "", description = "" } = data;
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
@@ -160,7 +160,10 @@ const Products = ({ data = {} }) => {
                 <SearchIcon />
                 <span>Product details</span>
               </button>
-              <div className="product-name">CADILLAC ESCALADE SPORT PLATINUM 2021 / FRONT  WHEEL 22” / REAR WHEEL 22”</div>
+              <div className="product-name">
+                <strong>{title}</strong> <br />
+                {description}
+              </div>
             </div>
           </div>
 
