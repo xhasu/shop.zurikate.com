@@ -21,13 +21,14 @@ const Products = ({ data = {} }) => {
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
 
-  const [defaultVariant, setDefaultVariant] = useState();
+  const [currentVariant, setCurrentVariant] = useState();
 
   const [color, setColor] = useState();
   const [kit, setKit] = useState();
 
   const [tips, setTips] = useState([]);
   const [media, setMedia] = useState("");
+  const [skinColor, setSkinColor] = useState("");
   const [product, setProduct] = useState();
   const [variant, setVariant] = useState();
 
@@ -41,18 +42,20 @@ const Products = ({ data = {} }) => {
     const productId = arrProduct[arrProduct.length - 1];
     setProduct(productId);
 
+    // console.log('variants', variants);
     const selectedVariant = getProductVariant(variants, color, kit);
     // console.log(selectedVariant);
     const arrVariant = atob(selectedVariant.id).split('/');
     const variantId = arrVariant[arrVariant.length - 1];
     setVariant(variantId);
 
-    setDefaultVariant(selectedVariant);
+    setCurrentVariant(selectedVariant);
 
     const imagesTips = images.filter(image => ['tip'].includes(image.altText));
     setTips(imagesTips);
   }
 
+  // handle scroll animation
   const handleScroll = (elementId, offsetY = 100) => {
     gsap.to(window, {
       scrollTo: {
@@ -63,26 +66,24 @@ const Products = ({ data = {} }) => {
   }
 
   const handleSelectColor = (value) => {
-    console.log(value);
     setWheelColor(mapSelectColor[value]);
-    console.log(mapSelectColor[value]);
     setColor(value);
   }
 
   const handlePickerColor = (wheelcolor) => {
-    console.log(wheelcolor);
     setWheelColor(wheelcolor);
-    console.log(mapPickerColor[wheelcolor]);
-    if( wheelcolor !== 'original' ) {
+    if (wheelcolor !== 'original') {
       setColor(mapPickerColor[wheelcolor]);
     }
   }
 
+  // handle scroll to product top
   useEffect(() => {
     handleScroll("#products", 90);
     return () => { }
   }, [data])
 
+  // find and set default variant
   useEffect(() => {
     if (colors, kits) {
 
@@ -97,11 +98,12 @@ const Products = ({ data = {} }) => {
       setColor(fColor);
       setKit(fKit);
 
-      setDefaultVariant(variants[0]);
+      setCurrentVariant(variants[0]);
     }
     return () => { }
   }, [colors, kits])
 
+  // if color or kit change, update product variant
   useEffect(() => {
     if (color, kit) {
       setProductVariant();
@@ -109,6 +111,7 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [color, kit])
 
+  // update when data [skins] change
   useEffect(() => {
     if (data && data.variants && data.variants.length != 0 && color && kit) {
       setProductVariant();
@@ -116,6 +119,7 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [data])
 
+  // open detail modal
   useEffect(() => {
 
     document.body.style.overflow = openModal ? 'hidden' : '';
@@ -123,22 +127,39 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [openModal])
 
+  // find image by car color and wheel color
   useEffect(() => {
     if (images.length != 0) {
       const imageFiltered = images.filter(image => image.altText);
-      const result = imageFiltered.filter(image => {
+      const result = imageFiltered.find(image => {
         const [c, w] = image.altText.split(':');
+        // console.count(`${carColor}:${wheelColor}`)
         return c == carColor && w == wheelColor;
       });
-      result.length != 0 && setMedia(result[0].src);
-      console.log(result[0])
+      result && setMedia(result.src);
     }
     return () => { }
   }, [data, carColor, wheelColor, color]);
 
+  // find default color skin // set car color
+  useEffect(() => {
+    if (images.length != 0) {
+      const skinImage = images.find(item => {
+        return item.altText ? item.altText.toLowerCase().includes("skin") : {};
+      });
+      const skinColorArr = skinImage ? skinImage.altText.split(':') : [];
+      const skinDefaultColor = skinColorArr.length > 1 ? skinImage.altText.split(':')[1] : 'black';
+      setSkinColor(skinDefaultColor);
+      setCarColor(skinDefaultColor);
+    }
+
+    return () => { }
+  }, [data])
+
+  // set default image - original
   useEffect(() => {
     handlePickerColor('original')
-    return () => {}
+    return () => { }
   }, [])
 
   return (
@@ -153,7 +174,7 @@ const Products = ({ data = {} }) => {
           </div>
 
           <div className="product-ui products-section">
-            <UITopBar handlePickColor={(color) => setCarColor(color)} />
+            <UITopBar handlePickColor={(color) => setCarColor(color)} skinColor={skinColor} />
             <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} updateSelected={wheelColor} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
@@ -171,7 +192,7 @@ const Products = ({ data = {} }) => {
 
         <div className="product-panel">
           <div className="product-price">
-            <sup>USD</sup> <strong>${defaultVariant && defaultVariant.price}</strong> <span>Free shipping</span>
+            <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
           </div>
           <div className="product-control">
             <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => handleSelectColor(value)} />

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-export const UITopBar = ({ handlePickColor }) => {
+export const UITopBar = ({ handlePickColor, skinColor }) => {
 
+  // keep order on ui
   const colors = [
     { classname: 'black', text: 'Black' },
     { classname: 'red', text: 'Red' },
@@ -16,6 +17,12 @@ export const UITopBar = ({ handlePickColor }) => {
     setSelected(prev => index)
     handlePickColor(colors[index].classname);
   }
+
+  useEffect(() => {
+    // find in colors array the classname of skinColor
+    const idx = colors.findIndex(color => color.classname === skinColor)
+    setSelected(idx)
+  }, [skinColor])
 
   return (
     <div className="ui ui-topbar">
@@ -55,6 +62,7 @@ export const UIBottomBar = ({ handlePickColor, updateSelected }) => {
     text: 'Original'
   }
 
+  // keep order on ui
   const colors = [
     { classname: 'gloss-luxury-black', text: 'Gloss Luxury Black' },
     { classname: 'gloss-fire-red', text: 'Gloss Fire Red' },
