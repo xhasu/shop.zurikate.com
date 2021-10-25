@@ -50,7 +50,7 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
         <section className="section skins-section">
 
           <div className="skins-swiper">
-            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={10} breakpoints={breakpoints} centeredSlides={skins.length <= 1}>
+            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="2" spaceBetween={10} breakpoints={breakpoints} centeredSlides={skins.length <= 1}>
               {skins.products.map((skin, index) => {
                 return (
                   <SwiperSlide key={index} onClick={() => setSkin(skin)}>

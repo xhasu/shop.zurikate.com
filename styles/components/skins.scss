@@ -28,6 +28,10 @@
 
   &-swiper {
     position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .swiper-slide {
@@ -71,6 +75,9 @@
       font-size: 18px;
       text-align: center;
     }
+    @include below($sm) {
+      font-size: 14px;
+    }
   }
   &-description p {
     font-size: 18px;
@@ -85,6 +92,9 @@
     @include below($laptop) {
       text-align: center;
       font-size: 14px;
+    }
+    @include below($sm) {
+      font-size: 12px;
     }
   }
 }
