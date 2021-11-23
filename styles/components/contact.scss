@@ -90,3 +90,288 @@
     }
   }
 }
+
+
+.info {
+  position: relative;
+  z-index: 0;
+
+  &-content {
+    margin: 0 auto 60px;
+    max-width: 620px;
+
+    @include below(1080px) {
+      max-width: 540px;
+    }
+
+    @include below($laptop) {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include below($sm) {
+      margin-bottom: 40px;
+    }
+
+    .content-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      box-sizing: border-box;
+      @include below($sm) {
+        margin-bottom: 16px;
+      }
+      small {
+        text-transform: uppercase;
+        font-style: italic;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.3em;
+      }
+      .small-msj {
+        font-style: italic;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.5em;
+        span {
+          color: $color-brand;
+        }
+        @include below($sm) {
+          letter-spacing: 0.3em;
+        }
+      }
+      .icon + div {
+        flex-grow: 1;
+      }
+    }
+      
+    .icon {
+      margin-right: 10px;
+      font-size: 24px;
+      line-height: 1;
+      display: grid;
+      grid-template-columns: 55px 45px;
+      @include below($desktop) {
+        margin-right: 0;
+      }
+      @include below($laptop) {
+        display: none;
+      }
+      img {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+    }
+    p {
+      font-size: 24px;
+      line-height: 1;
+      margin-top: 0;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      @include below(1080px) {
+        font-size: 21px;
+      }
+      
+      span {
+        color: $color-brand;
+      }
+      a {
+        text-decoration: none;
+        &:focus {
+          outline: none;
+        }
+      }
+      &.lead {
+        padding-left: 30px;
+        font-size: 28px;
+        margin-bottom: 20px;
+        @include below(1080px) {
+          font-size: 24px;
+        }
+        @include below($laptop) {
+          margin-bottom: 12px;
+        }
+        @include below($sm) {
+          padding-left: 15px;
+          font-size: 18px;
+        }
+      }
+    }
+    select,
+    input[type="email"],
+    input[type="text"] {
+      appearance: none;
+      display: block;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      height: 35px;
+      padding: 0 15px;
+      font-size: 21px;
+      text-align: left;
+      background-color: white;
+      box-sizing: border-box;
+      @include below($sm) {
+        font-size: 18px;
+      }
+    }
+
+    select {
+      @include below($sm) {
+        height: auto;
+        min-height: 35px;
+      }
+    }
+
+    button[type="submit"] {
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+      border: none;
+      padding: 6px 28px;
+      @include font-object();
+      font-size: 26px;
+      color: black;
+      cursor: pointer;
+      text-transform: uppercase;
+      background-color: $color-brand;
+      @include below($laptop) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .input-file {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      padding: 8px 15px;
+      background-color: white;
+      cursor: pointer;
+      box-sizing: border-box;
+      img {
+        display: block;
+        height: auto;
+        margin-bottom: 0;
+        margin-right: 12px;
+        @include below($desktop) {
+          width: 30px;
+          margin-right: 0;
+        }
+      }
+      span {
+        font-size: 21px;
+        color: black;
+        padding-left: 10px;
+        font-style: italic;
+        @include below($sm) {
+          font-size: 18px;
+        }
+      }
+
+      span:last-child {
+        display: none;
+      }
+    }
+
+    input:valid + .input-file {
+      background-color: $color-brand;
+    }
+    input:valid + .input-file span {
+      display: none;
+    }
+    input:valid + .input-file span:last-child {
+      display: inline-block;
+    }
+
+    .opt-label {
+      display: block;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 8px;
+
+      @include below($sm) {
+        font-size: 18px;
+      }
+
+      input {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .opt-box {
+      display: inline-block;
+      vertical-align: top;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      margin-left: 8px;
+      background-color: white;
+      svg {
+        display: none;
+        color: black;
+      }
+    }
+    .opt-label input:checked + .opt-box {
+      background-color: $color-brand;
+      svg {
+        display: block;
+      }
+    }
+  }
+
+}
+
+
+.loading {
+  @include fixed(0,0,0,0);
+  z-index: 500;
+  user-select: none;
+  background-color: black;
+  opacity: .8;
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  &.active {
+    display: flex;
+  }
+
+  &-box {
+    display: inline-block;
+    vertical-align: middle;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      background-color: white;
+      animation: pulseBullet 600ms ease-in-out infinite both;
+    }
+    span:nth-child(2){
+      animation-delay: 100ms;
+    }
+    span:nth-child(3){
+      animation-delay: 200ms;
+    }
+  }
+}
+
+@keyframes pulseBullet {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}

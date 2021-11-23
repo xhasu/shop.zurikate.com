@@ -46,6 +46,7 @@ const Brands = ({data = [], setBrand}) => {
               your
               <span className="green">MAKE:</span>
             </h2>
+            <h4 className="brands-caption">Can't find my vehicle? <span>Click here</span> </h4>
             <div className="brands-list">
               <Select placeholder={placeholder} options={data} keyValue="title" keyShow="title" handleClick={handleBrand} />
             </div>

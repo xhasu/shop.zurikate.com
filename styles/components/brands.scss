@@ -16,7 +16,7 @@
     text-align: center;
     text-transform: uppercase;
     color: white;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
     span.stroke {
       color: transparent;
       font-size: 1.1em;
@@ -34,6 +34,25 @@
     }
     @include below($phone) {
       font-size: 28px;
+    }
+  }
+  &-caption {
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+
+    @include below($phone) {
+      font-size: 16px;
+    }
+
+    span {
+      background: $color-brand;
+      color: black;
+      text-align: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0 10px;
     }
   }
   &-list {

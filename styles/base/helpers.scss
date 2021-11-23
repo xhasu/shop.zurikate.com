@@ -1,41 +1,41 @@
 .hidden,
 [hidden] {
-    display: none !important;
-    visibility: hidden !important;
+  display: none !important;
+  visibility: hidden !important;
 }
 
-.hidden-visibility{
-    visibility: hidden;
-    opacity: 0;
+.hidden-visibility {
+  visibility: hidden;
+  opacity: 0;
 }
 
-.breakline{
-    display: block;
+.breakline {
+  display: block;
 }
 
 .link {
-    cursor: pointer;
-    text-decoration: underline;
-    &:disabled,
-    &[disabled] {
-        cursor: not-allowed;
-    }
+  cursor: pointer;
+  text-decoration: underline;
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
 }
 
 .align-middle {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
-.text-center{
-    text-align: center;
+.text-center {
+  text-align: center;
 }
 
-.overflow-hidden{
-    overflow: hidden;
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
