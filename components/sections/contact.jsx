@@ -68,6 +68,7 @@ const Contact = () => {
 
       if (json.success) {
         showSnackbar('Thank you for contacting us');
+        document.querySelector('#contact .contact-form').classList.add('hidden');
         resetForm();
       }
       if (json.error) {
@@ -106,7 +107,7 @@ const Contact = () => {
     <div className="contact" id="contact">
       <section className="section contact-section">
 
-        <div className="contact-form">
+        <div className="contact-form hidden">
           <form ref={formRef} id="contactForm" name="order" className="info-content" method="POST">
             <div className="content-item">
               <i><img src="/images/icons/icon-mail.png" alt="icon mail" width="48" /></i>
