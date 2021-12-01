@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
+import Snackbar from 'node-snackbar'
 
 const Contact = () => {
 
+  const formRef = useRef();
   const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState('');
@@ -13,12 +15,99 @@ const Contact = () => {
   const [kitType, setKitType] = useState('Kit Only');
   const [color, setColor] = useState('');
 
+  useEffect(() => {
+
+    function validateForm(event) {
+      event.preventDefault();
+      event.target.classList.add('was-validated');
+
+      if (event.target.checkValidity() == false) {
+        event.target.classList.add('custom-validation');
+        return false;
+      }
+
+      submitLoginForm();
+
+      return true;
+    }
+
+    formRef.current.addEventListener('submit', validateForm);
+
+    return () => {
+      formRef.current && formRef.current.removeEventListener('submit', validateForm);
+    }
+
+  }, [email, details, address, imgVehicle, imgWheel, kitType, color]);
+
+  const submitLoginForm = async () => {
+
+    setLoading(true);
+
+    let file_vehicle = document.querySelector('#file_vehicle').files[0];
+    let file_wheel = document.querySelector('#file_wheel').files[0];
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('car', details);
+    formData.append('city', address);
+    formData.append('file_vehicle', file_vehicle);
+    formData.append('file_wheel', file_wheel);
+    formData.append('opt', kitType);
+    formData.append('color', color);
+
+    try {
+
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const json = await response.json();
+
+      setLoading(false);
+
+      if (json.success) {
+        showSnackbar('Thank you for contacting us');
+        resetForm();
+      }
+      if (json.error) {
+        showSnackbar('Email is not valid');
+      }
+
+    } catch (error) {
+      showSnackbar(error.message);
+      setLoading(false);
+    }
+
+    return false;
+  }
+
+  const resetForm = () => {
+    setEmail('');
+    setDetails('');
+    setAddress('');
+    setImgVehicle('');
+    setImgWheel('');
+    setKitType('Kit Only');
+    setColor('');
+  }
+
+  const showSnackbar = (message) => {
+    Snackbar.show({
+      pos: 'bottom-right',
+      showAction: false,
+      text: message,
+      textColor: '#000',
+      backgroundColor: '#CBFF00',
+    });
+  }
+
   return (
     <div className="contact" id="contact">
       <section className="section contact-section">
 
         <div className="contact-form">
-          <form id="contactForm" name="order" className="info-content" method="POST">
+          <form ref={formRef} id="contactForm" name="order" className="info-content" method="POST">
             <div className="content-item">
               <i><img src="/images/icons/icon-mail.png" alt="icon mail" width="48" /></i>
               <p className="lead">
@@ -50,7 +139,7 @@ const Contact = () => {
                 <p>
                   <i> <span>Year</span>, <span>brand</span> and <span>make</span> of your vehicle </i>
                 </p>
-                <input type="text" name="car" id="car" value={details} onChange={(event) => setDetails(event.target.value)}  required={true} />
+                <input type="text" name="car" id="car" value={details} onChange={(event) => setDetails(event.target.value)} required={true} />
               </div>
             </div>
             <div className="content-item">

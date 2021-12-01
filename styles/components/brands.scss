@@ -39,6 +39,7 @@
   &-caption {
     color: white;
     text-align: center;
+    font-size: 26px;
     margin-bottom: 60px;
 
     @include below($phone) {

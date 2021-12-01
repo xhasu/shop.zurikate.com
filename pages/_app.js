@@ -5,6 +5,7 @@ import 'react-modal-video/scss/modal-video.scss'
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss'
 import 'styles/main.scss'
+import 'node-snackbar/dist/snackbar.min.css'
 
 function MyApp({ Component, pageProps }) {
   return (
