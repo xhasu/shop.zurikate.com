@@ -162,6 +162,17 @@ const Products = ({ data = {} }) => {
     return () => { }
   }, [])
 
+  // preload images
+  useEffect(() => {
+    const filteredImages = images.filter(image => image.altText.includes(`${carColor}:`) );
+    const imagesPreload = filteredImages.map(image => {
+      const img = new Image();
+      img.src = image.src;
+      return img;
+    });
+    return () => { }
+  }, [images, carColor])
+
   return (
     <div className="products" id="products">
 
