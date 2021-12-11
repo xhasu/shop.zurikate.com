@@ -6,10 +6,13 @@ SwiperCore.use([Navigation]);
 
 const Skin = ({ data = {} }) => {
 
+  console.log(data);
+
   const {
     title = "",
+    images = [],
     description = "",
-    images = []
+    descriptionHtml = ""
   } = data;
 
   const skinImage = images.find(item => {
@@ -24,9 +27,7 @@ const Skin = ({ data = {} }) => {
       <div className="skin-title">
         <strong>{title}</strong>
       </div>
-      <div className="skin-description">
-        <p>{description}</p>
-      </div>
+      <div className="skin-description" dangerouslySetInnerHTML={{__html: descriptionHtml}}></div>
     </div>
   )
 }

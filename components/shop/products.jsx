@@ -16,7 +16,14 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const Products = ({ data = {} }) => {
 
-  const { options = [], variants = [], images = [], title = "", description = "" } = data;
+  const {
+    options = [],
+    variants = [],
+    images = [],
+    title = "",
+    description = "",
+    descriptionHtml = ""
+  } = data;
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
@@ -36,6 +43,7 @@ const Products = ({ data = {} }) => {
 
   const [carColor, setCarColor] = useState('black');
   const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
+  const [originalColor, setOriginalColor] = useState('');
 
   const setProductVariant = () => {
     const arrProduct = atob(data.id).split('/');
@@ -149,8 +157,10 @@ const Products = ({ data = {} }) => {
       });
       const skinColorArr = skinImage ? skinImage.altText.split(':') : [];
       const skinDefaultColor = skinColorArr.length > 1 ? skinImage.altText.split(':')[1] : 'black';
+      const originalDefaultColor = skinColorArr.length > 2 ? skinImage.altText.split(':')[2] : '';
       setSkinColor(skinDefaultColor);
       setCarColor(skinDefaultColor);
+      setOriginalColor(originalDefaultColor);
     }
 
     return () => { }
@@ -186,7 +196,7 @@ const Products = ({ data = {} }) => {
 
           <div className="product-ui products-section">
             <UITopBar handlePickColor={(color) => setCarColor(color)} skinColor={skinColor} />
-            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} updateSelected={wheelColor} />
+            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} updateSelected={wheelColor} originalColor={originalColor} />
             <div className="product-info">
               <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
                 <SearchIcon />

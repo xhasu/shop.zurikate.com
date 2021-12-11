@@ -55,7 +55,7 @@ export const UITopBar = ({ handlePickColor, skinColor }) => {
   )
 }
 
-export const UIBottomBar = ({ handlePickColor, updateSelected }) => {
+export const UIBottomBar = ({ handlePickColor, updateSelected, originalColor }) => {
 
   const original = {
     classname: 'original',
@@ -104,12 +104,12 @@ export const UIBottomBar = ({ handlePickColor, updateSelected }) => {
       </div>
       <div className="ui-group-bar">
         <div className="ui-bar">
-          <div className={`ui-bar-item ${original.classname} ${selected == -1 ? 'active' : ''}`} onClick={handleDefaultSelect}>
+          <div className={`ui-bar-item ${original.classname} ${originalColor} ${selected == -1 ? 'active' : ''}`} onClick={handleDefaultSelect}>
             <div className="ui-bar-info">
               <div className="ui-icon">
                 <img src="/images/icons/icon-angle-up.png" alt="arrow angle up" width="18" />
               </div>
-              <div className="ui-text">{original.text}</div>
+              <div className="ui-text">{original.text} {originalColor}</div>
             </div>
           </div>
         </div>
