@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Loading from "components/ui/loading";
 import BuyButton from 'components/ui/buybutton'
 import AddToCartButton from 'components/ui/addtocartbutton'
 import { UITopBar, UIBottomBar } from 'components/ui/bars'
@@ -27,6 +28,8 @@ const Products = ({ data = {} }) => {
 
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
+
+  const [loading, setLoading] = useState(true);
 
   const [currentVariant, setCurrentVariant] = useState();
 
@@ -174,10 +177,21 @@ const Products = ({ data = {} }) => {
 
   // preload images
   useEffect(() => {
+    setLoading(true);
     const filteredImages = images.filter(image => image.altText.includes(`${carColor}:`) );
-    const imagesPreload = filteredImages.map(image => {
+    let loadedImages = 0;
+    let limit = filteredImages.length - 2;
+    const onLoadImage = () => {
+      loadedImages++;
+      if( loadedImages == limit ) {
+        setLoading(false);
+        console.log('loaded All group')
+      }
+    }
+    filteredImages.map(image => {
       const img = new Image();
       img.src = image.src;
+      img.onload = onLoadImage;
       return img;
     });
     return () => { }
@@ -192,6 +206,7 @@ const Products = ({ data = {} }) => {
 
           <div className="product-media">
             <img src={media} alt="" />
+            {loading && <Loading />}
           </div>
 
           <div className="product-ui products-section">

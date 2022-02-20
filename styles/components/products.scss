@@ -87,10 +87,15 @@
   &-media {
     position: relative;
     max-width: 1520px;
+    min-height: 640px;
     display: flex;
     align-items: center;
     margin: 0 auto;
     box-sizing: border-box;
+
+    @include below($laptop) {
+      max-height: 768px;
+    }
 
     @include below($sm) {
       min-height: 90vh;
@@ -147,9 +152,6 @@
     &::after {
       right: 0;      
       background: linear-gradient(-90deg, black, transparent);
-    }
-    @include below($laptop) {
-      max-height: 768px;
     }
   }
 
@@ -279,4 +281,57 @@
     }
   }
 
+}
+
+
+.loading-media {
+  @include absolute(0,0,0,0);
+  z-index: 500;
+  user-select: none;
+  background-color: black;
+  opacity: .6;
+  box-sizing: border-box;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+
+  &.active {
+    display: flex;
+  }
+
+  &-box {
+    display: inline-block;
+    vertical-align: middle;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      border-radius: 100%;
+      background-color: white;
+      animation: pulseBullet 600ms ease-in-out infinite both;
+    }
+    span:nth-child(1){
+      animation-delay: 0ms;
+    }
+    span:nth-child(2){
+      animation-delay: 100ms;
+    }
+    span:nth-child(3){
+      animation-delay: 200ms;
+    }
+  }
+}
+
+@keyframes pulseBullet {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
 }
