@@ -26,7 +26,7 @@ const Showcase = () => {
       scrollTrigger: {
         trigger: '.showcase-head',
         start: 'top 50%',
-        toggleActions: 'play reverse play reverse',
+        toggleActions: 'play none none reverse',
         // markers: true,
       },
       x: "+100%",
@@ -37,11 +37,22 @@ const Showcase = () => {
       scrollTrigger: {
         trigger: '.showcase-head',
         start: 'top 50%',
-        toggleActions: 'play reverse play reverse',
+        toggleActions: 'play none none none',
         // markers: true,
       },
       x: "-100%",
       opacity: .4
+    })
+
+    gsap.from('.showcase-description', {
+      scrollTrigger: {
+        trigger: '.showcase-box',
+        start: 'center center',
+        toggleActions: 'play none none reverse',
+        // markers: true,
+      },
+      y: '+120%',
+      opacity: 0
     })
     
     return () => { }

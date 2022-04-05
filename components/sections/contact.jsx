@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Snackbar from 'node-snackbar'
+import { gsap } from 'gsap/dist/gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
 
@@ -14,6 +18,19 @@ const Contact = () => {
   const [imgWheel, setImgWheel] = useState('');
   const [kitType, setKitType] = useState('Kit Only');
   const [color, setColor] = useState('');
+
+  useEffect(() => {
+    gsap.from('.contact-info', {
+      scrollTrigger: {
+        trigger: '.contact-info',
+        start: 'top bottom',
+        toggleActions: 'play none none reverse',
+        // markers: true,
+      },
+      y: '+120%',
+      opacity: 0
+    })
+  }, [])
 
   useEffect(() => {
 
