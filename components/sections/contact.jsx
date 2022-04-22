@@ -20,6 +20,9 @@ const Contact = () => {
   const [color, setColor] = useState('');
 
   useEffect(() => {
+
+    // return true;
+
     gsap.from('.contact-info', {
       scrollTrigger: {
         trigger: '.contact-info',

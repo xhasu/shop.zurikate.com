@@ -1,8 +1,6 @@
 
 .showcase {
-
   position: relative;
-  @include center(1920px);
   margin-bottom: 240px;
   padding-bottom: 40px;
   z-index: 1;
@@ -25,6 +23,7 @@
 
   &-container {
     position: relative;
+    @include center(1920px);
   }
 
   &-box {

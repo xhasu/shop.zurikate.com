@@ -11,6 +11,8 @@ const Showcase = () => {
 
   useEffect(() => {
 
+    // return true;
+
     gsap.from('.showcase-head', {
       scrollTrigger: {
         trigger: '.showcase-box',
@@ -47,7 +49,7 @@ const Showcase = () => {
     gsap.from('.showcase-description', {
       scrollTrigger: {
         trigger: '.showcase-box',
-        start: 'center center',
+        start: 'center 75%',
         toggleActions: 'play none none reverse',
         // markers: true,
       },
@@ -122,23 +124,23 @@ const Showcase = () => {
 
             <div className="showcase-description">
               <p>
-                From our minds to reality, we work in order to provide you with the best product. That’s why we design, produce, and install our kits if you need it.
-                </p>
+                From our minds to reality, we work in order to provide you with the best product. That's why we design, produce, and install our kits if you need it.
+              </p>
             </div>
 
           </div>
 
         </section>
 
-        <div className="showcase-bg">
+      </div>
 
-          <div className="showcase-bg-right">
-            <img src="/images/backgrounds/bg-showcase-right.png" alt="docarative sticker" loading="lazy" width="634" height="621" />
-          </div>
-          <div className="showcase-bg-left">
-            <img src="/images/backgrounds/bg-showcase-left.png" alt="docarative sticker" loading="lazy" width="618" height="566" />
-          </div>
+      <div className="showcase-bg">
 
+        <div className="showcase-bg-right">
+          <img src="/images/backgrounds/bg-showcase-right.png" alt="docarative sticker" loading="lazy" width="634" height="621" />
+        </div>
+        <div className="showcase-bg-left">
+          <img src="/images/backgrounds/bg-showcase-left.png" alt="docarative sticker" loading="lazy" width="618" height="566" />
         </div>
 
       </div>

@@ -7,6 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Faqs = () => {
 
   useEffect(() => {
+    
+    // return true;
+
     gsap.from('.faqs', {
       scrollTrigger: {
         trigger: '.faqs-section',
