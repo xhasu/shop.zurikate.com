@@ -17,9 +17,6 @@ const Landing = () => {
         <Gallery />
         <Faqs />
         <Contact />
-        <div className="background-noise">
-          <img src="/images/backgrounds/background-noise.jpg" alt="Zurikate Background" />
-        </div>
       </div>
     </main>
   )
