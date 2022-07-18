@@ -28,7 +28,7 @@ const Select = (props) => {
       setOpen(false);
     };
 
-    ref.current.addEventListener('mouseleave', mouseLeadeHandler);
+    ref.current && ref.current.addEventListener('mouseleave', mouseLeadeHandler);
     
     return () => {
       ref.current && ref.current.removeEventListener('mouseleave', mouseLeadeHandler);
@@ -39,6 +39,8 @@ const Select = (props) => {
     handleClick(e.currentTarget.innerHTML);
     setOpen(false);
   }
+
+  if (options.length === 0) return null;
 
   return (
     <div className={`ui-select ${open ? 'ui-select-open': ''}`} ref={ref}>

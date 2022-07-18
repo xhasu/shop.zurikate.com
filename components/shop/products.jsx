@@ -1,23 +1,27 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SwiperCore, { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 import Loading from "components/ui/loading";
 import BuyButton from 'components/ui/buybutton'
 import AddToCartButton from 'components/ui/addtocartbutton'
-import { UITopBar, UIBottomBar } from 'components/ui/bars'
+
 import Select from 'components/ui/select'
 import Modal from 'components/ui/modal'
 import { SearchIcon } from 'components/ui/svgs'
+
 import { getProductVariant, mapPickerColor, mapSelectColor } from 'app/helpers'
+
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 
 SwiperCore.use([Navigation, Pagination]);
 gsap.registerPlugin(ScrollToPlugin);
 
-const Products = ({ data = {} }) => {
+const Prod = ({ data = {}}) => {
 
   const {
+    id = "",
     options = [],
     variants = [],
     images = [],
@@ -26,237 +30,192 @@ const Products = ({ data = {} }) => {
     descriptionHtml = ""
   } = data;
 
+  // get options colors, kits
   const { values: colors = [] } = options.find(item => item.name == 'Color');
   const { values: kits = [] } = options.find(item => item.name == 'Kit');
 
-  const [loading, setLoading] = useState(true);
-
-  const [currentVariant, setCurrentVariant] = useState();
-
+  // selected values of options
   const [color, setColor] = useState();
   const [kit, setKit] = useState();
 
-  const [tips, setTips] = useState([]);
-  const [media, setMedia] = useState("");
-  const [skinColor, setSkinColor] = useState("");
+  // selected ids of product and variant
   const [product, setProduct] = useState();
   const [variant, setVariant] = useState();
 
+  // current variant object
+  const [currentVariant, setCurrentVariant] = useState({});
+
+  // tips of product
+  const [tips, setTips] = useState([]);
+
+  // photos of product
+  const [photos, setPhotos] = useState("");
+
+  // loading state
+  const [loading, setLoading] = useState(true);
+
+  // modal state
   const [openModal, setOpenModal] = useState(false);
 
-  const [carColor, setCarColor] = useState('black');
-  const [wheelColor, setWheelColor] = useState('gloss-luxury-black');
-  const [originalColor, setOriginalColor] = useState('');
+  // swiper ref photos
+  const refSwiper = useRef(null);
 
-  const setProductVariant = () => {
-    const arrProduct = atob(data.id).split('/');
-    const productId = arrProduct[arrProduct.length - 1];
+  // set default product
+  useEffect(() => {
+
+    const bufferedProduct = atob(id).split('/');
+    const productId = bufferedProduct[bufferedProduct.length - 1];
     setProduct(productId);
+    
+  }, [id]);
 
-    // console.log('variants', variants);
-    const selectedVariant = getProductVariant(variants, color, kit);
-    // console.log(selectedVariant);
-    const arrVariant = atob(selectedVariant.id).split('/');
-    const variantId = arrVariant[arrVariant.length - 1];
+  // set default variant and current variant object
+  useEffect(() => {
+    const selectedVariant = variants && variants[0];
+
+    const bufferedVariant = atob(selectedVariant.id).split('/');
+    const variantId = bufferedVariant[bufferedVariant.length - 1];
     setVariant(variantId);
 
     setCurrentVariant(selectedVariant);
 
+    // set default color and kit
+    const {
+      value: fColor = ""
+    } = selectedVariant.selectedOptions.find(item => item.name == 'Color');
+
+    const {
+      value: fKit = ""
+    } = selectedVariant.selectedOptions.find(item => item.name == 'Kit');
+
+    setColor(fColor);
+    setKit(fKit);
+
+    // get tips of images list
     const imagesTips = images.filter(image => ['tip'].includes(image.altText));
     setTips(imagesTips);
+
+    const imagesPhotos = images.filter(image => !["tip", "skin"].includes(image.altText));
+    setPhotos(imagesPhotos);
+
+  }, [product]);
+
+  // update variant and current variant object
+  // when color or kit changed
+  useEffect(() => {
+    if( color && kit ) {
+      const selectedVariant = getProductVariant(variants, color, kit);
+      const bufferedVariant = atob(selectedVariant.id).split('/');
+      const variantId = bufferedVariant[bufferedVariant.length - 1];
+      setVariant(variantId);
+      setCurrentVariant(selectedVariant);
+    }
+  }, [color, kit]);
+
+  const getOptionColorName = (idx) => {
+    const colors = options.find(item => item.name == 'Color')
+    const name = colors && colors.values[idx] && colors.values[idx].value;
+    return name;
   }
 
-  // handle scroll animation
-  const handleScroll = (elementId, offsetY = 100) => {
-    gsap.to(window, {
-      scrollTo: {
-        y: elementId,
-        offsetY: offsetY,
-      }
-    });
+  const getIndexColor = () => {
+    console.log(options);
+    const colors = options.find(item => item.name == 'Color') || [];
+    const idx = colors.values.findIndex(item => item.value == color);
+    return idx;
   }
 
-  const handleSelectColor = (value) => {
-    setWheelColor(mapSelectColor[value]);
-    setColor(value);
+  const handleClickThumb = (idx) => {
+    refSwiper.current && refSwiper.current.swiper.slideTo(idx);
+    const color = getOptionColorName(idx);
+    setColor(color);
   }
-
-  const handlePickerColor = (wheelcolor) => {
-    setWheelColor(wheelcolor);
-    if (wheelcolor !== 'original') {
-      setColor(mapPickerColor[wheelcolor]);
-    }
-  }
-
-  // handle scroll to product top
-  useEffect(() => {
-    handleScroll("#products", 90);
-    return () => { }
-  }, [data])
-
-  // find and set default variant
-  useEffect(() => {
-    if (colors, kits) {
-
-      const {
-        value: fColor = ""
-      } = variants[0].selectedOptions.find(item => item.name == 'Color');
-
-      const {
-        value: fKit = ""
-      } = variants[0].selectedOptions.find(item => item.name == 'Kit');
-
-      setColor(fColor);
-      setKit(fKit);
-
-      setCurrentVariant(variants[0]);
-    }
-    return () => { }
-  }, [colors, kits])
-
-  // if color or kit change, update product variant
-  useEffect(() => {
-    if (color, kit) {
-      setProductVariant();
-    }
-    return () => { }
-  }, [color, kit])
-
-  // update when data [skins] change
-  useEffect(() => {
-    if (data && data.variants && data.variants.length != 0 && color && kit) {
-      setProductVariant();
-    }
-    return () => { }
-  }, [data])
-
-  // open detail modal
-  useEffect(() => {
-
-    document.body.style.overflow = openModal ? 'hidden' : '';
-
-    return () => { }
-  }, [openModal])
-
-  // find image by car color and wheel color
-  useEffect(() => {
-    if (images.length != 0) {
-      const imageFiltered = images.filter(image => image.altText);
-      const result = imageFiltered.find(image => {
-        const [c, w] = image.altText.split(':');
-        // console.count(`${carColor}:${wheelColor}`)
-        return c == carColor && w == wheelColor;
-      });
-      result && setMedia(result.src);
-    }
-    return () => { }
-  }, [data, carColor, wheelColor, color]);
-
-  // find default color skin // set car color
-  useEffect(() => {
-    if (images.length != 0) {
-      const skinImage = images.find(item => {
-        return item.altText ? item.altText.toLowerCase().includes("skin") : {};
-      });
-      const skinColorArr = skinImage ? skinImage.altText.split(':') : [];
-      const skinDefaultColor = skinColorArr.length > 1 ? skinImage.altText.split(':')[1] : 'black';
-      const originalDefaultColor = skinColorArr.length > 2 ? skinImage.altText.split(':')[2] : '';
-      setSkinColor(skinDefaultColor);
-      setCarColor(skinDefaultColor);
-      setOriginalColor(originalDefaultColor);
-    }
-
-    return () => { }
-  }, [data])
-
-  // set default image - original
-  useEffect(() => {
-    handlePickerColor('original')
-    return () => { }
-  }, [])
-
-  // preload images
-  useEffect(() => {
-    setLoading(true);
-    const filteredImages = images.filter(image => image.altText.includes(`${carColor}:`) );
-    let loadedImages = 0;
-    let limit = filteredImages.length - 2;
-    const onLoadImage = () => {
-      loadedImages++;
-      if( loadedImages == limit ) {
-        setLoading(false);
-        console.log('loaded All group')
-      }
-    }
-    filteredImages.map(image => {
-      const img = new Image();
-      img.src = image.src;
-      img.onload = onLoadImage;
-      return img;
-    });
-    return () => { }
-  }, [images, carColor])
 
   return (
     <div className="products" id="products">
+      
+      <div className="product-name">
+        <strong>{title}</strong> <br />
+        {description}
+      </div>
 
-      <div className="products-container">
+      {/* promo gallery */}
+      <div className="products-swiper products-promo">
+        <Swiper ref={refSwiper} spaceBetween={10} slidesPerView={1} navigation={{ prevEl: '.products-promo .swiper-arrows .arrow-prev', nextEl: '.products-promo .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
+          {photos && photos.map((image, index) => (
+            <SwiperSlide key={index} className="product-promo">
+              <img src={image.src} alt={image.altText} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-        <div className="products-view">
-
-          <div className="product-media">
-            <img src={media} alt="" />
-            {loading && <Loading />}
+        <div className="swiper-arrows">
+          <div className="arrow-prev">
+            <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
           </div>
-
-          <div className="product-ui products-section">
-            <UITopBar handlePickColor={(color) => setCarColor(color)} skinColor={skinColor} />
-            <UIBottomBar handlePickColor={(wheelcolor) => handlePickerColor(wheelcolor)} updateSelected={wheelColor} originalColor={originalColor} />
-            <div className="product-info">
-              <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
-                <SearchIcon />
-                <span>Product details</span>
-              </button>
-              <div className="product-name">
-                <strong>{title}</strong> <br />
-                {description}
+          <div className="arrow-next">
+            <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
+          </div>
+        </div>  
+      </div>
+      
+      <div className="products-nav">
+        <div className="products-thumbs">
+          {photos && photos.map((image, index) => (
+            <div key={index} className={`product-thumb ${getIndexColor() == index ? "active" : ""} `} onClick={() => handleClickThumb(index)}>
+              <img className="thumb-img" key={index} src={image.src} alt={image.altText} />
+              <div className="product-tooltip">
+                <img src="/images/icons/icon-angle-up.png" alt="icon arrow prev" loading="lazy" width="15" height="10" />
+                <span>{getOptionColorName(index)}</span>
               </div>
             </div>
-          </div>
-
+          ))}
         </div>
+      </div>
 
-        <div className="product-panel">
-          <div className="product-price">
-            <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+      <div className="product-details">
+        <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
+          <SearchIcon />
+          <span>Product details</span>
+        </button>
+      </div>
+
+      <div className="product-panel">
+        <div className="product-price">
+          <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+        </div>
+        <div className="product-control">
+          <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
+        </div>
+        <div className="product-control">
+          <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
+        </div>
+        <div className="product-actions">
+          <div className="product-control">
+            {(product && variant) && <AddToCartButton product={product} variant={variant} />}
           </div>
           <div className="product-control">
-            <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => handleSelectColor(value)} />
-          </div>
-          <div className="product-control">
-            <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
-          </div>
-          <div className="product-actions">
-            <div className="product-control">
-              {(product && variant) && <AddToCartButton product={product} variant={variant} />}
-            </div>
-            <div className="product-control">
-              {(product && variant) && <BuyButton product={product} variant={variant} />}
-            </div>
+            {(product && variant) && <BuyButton product={product} variant={variant} />}
           </div>
         </div>
-
       </div>
 
       {openModal && (
         <Modal isOpen={openModal} handleOpen={setOpenModal}>
-          <div className="products-swiper">
-            <Swiper navigation={{ prevEl: '.products .swiper-arrows .arrow-prev', nextEl: '.products .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-              {tips.filter(item => item.altText == 'tip').map((image, index) =>
-                <SwiperSlide className="product-tip" key={index}>
-                  <img src={image.src} alt={image.altText} />
-                </SwiperSlide>
-              )}
+          <div className="products-swiper products-tips">
+            <Swiper navigation={{ prevEl: '.products-tips .swiper-arrows .arrow-prev', nextEl: '.products-tips .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
+              <SwiperSlide className="product-tip">
+                <img src="/images/tips/tip-01.png" alt="tip" />
+              </SwiperSlide>
+              <SwiperSlide className="product-tip">
+                <img src="/images/tips/tip-02.png" alt="tip" />
+              </SwiperSlide>
+              <SwiperSlide className="product-tip">
+                <img src="/images/tips/tip-03.png" alt="tip" />
+              </SwiperSlide>
+              <SwiperSlide className="product-tip">
+                <img src="/images/tips/tip-04.png" alt="tip" />
+              </SwiperSlide>
               <SwiperSlide className="product-tip">
                 <video preload="metadata" playsInline="playsinline" poster="/media/product-details-poster.jpg" controls={true} width={645} height={645}>
                   <source src="/media/product-details.mp4" type="video/mp4" />
@@ -281,4 +240,4 @@ const Products = ({ data = {} }) => {
   )
 }
 
-export default Products
+export default Prod

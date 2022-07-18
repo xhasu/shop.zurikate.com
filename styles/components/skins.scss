@@ -29,7 +29,7 @@
   &-swiper {
     position: relative;
     width: 100%;
-    max-width: 720px;
+    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -42,17 +42,13 @@
 
 .skin {
   position: relative;
-  width: 100%;
-  max-width: 360px;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
 
-  @include below($desktop) {
-    max-width: 320px;
-  }
   @include below($sm) {
-    max-width: 240px;
+    width: 240px;
   }
 
   &-media {
@@ -64,15 +60,12 @@
   }
 
   &-title {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.2;
     color: white;
     margin-bottom: 4px;
-    @include below($desktop) {
-      font-size: 24px;
-    }
     @include below($laptop) {
-      font-size: 18px;
+      font-size: 16px;
       text-align: center;
     }
     @include below($sm) {
@@ -80,21 +73,17 @@
     }
   }
   &-description p {
-    font-size: 18px;
+    font-size: 14px;
     font-style: italic;
     line-height: 1.2;
     color: white;
     margin-top: 0;
     margin-bottom: 0;
-    @include below($desktop) {
-      font-size: 16px;
-    }
     @include below($laptop) {
       text-align: center;
-      font-size: 14px;
     }
     @include below($sm) {
-      font-size: 11px;
+      font-size: 12px;
     }
   }
 }

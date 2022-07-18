@@ -1,5 +1,7 @@
 export const getProductVariant = (variants = [], color = '', kit = '') => {
-  return variants.find((variant) => {
+
+  // find selected color and kit
+  const findedVariant = variants.find((variant) => {
     const { value: fColor = '' } = variant.selectedOptions.find(
       (item) => item.name == 'Color'
     );
@@ -13,6 +15,8 @@ export const getProductVariant = (variants = [], color = '', kit = '') => {
 
     return hasColor && hasKit;
   });
+
+  return findedVariant || variants[0];
 };
 
 export const mapPickerColor = {

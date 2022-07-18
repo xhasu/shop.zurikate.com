@@ -6,8 +6,6 @@ SwiperCore.use([Navigation]);
 
 const Skin = ({ data = {} }) => {
 
-  console.log(data);
-
   const {
     title = "",
     images = [],
@@ -22,7 +20,7 @@ const Skin = ({ data = {} }) => {
   return (
     <div className="skin">
       <div className="skin-media">
-        <img src={skinImage.src} alt={skinImage.altText} />
+        <img src={skinImage.src} alt={skinImage.altText} width={300} height={300} />
       </div>
       <div className="skin-title">
         <strong>{title}</strong>
@@ -34,15 +32,6 @@ const Skin = ({ data = {} }) => {
 
 const Skins = ({ data = [], brand = "", setSkin }) => {
 
-  const breakpoints = {
-    1280: {
-      spaceBetween: 80
-    },
-    640: {
-      spaceBetween: 30
-    }
-  };
-
   const skins = data.find(d => d.title == brand);
 
   return (
@@ -51,7 +40,7 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
         <section className="section skins-section">
 
           <div className="skins-swiper">
-            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="2" spaceBetween={10} breakpoints={breakpoints} centeredSlides={skins.length <= 1}>
+            <Swiper navigation={{ prevEl: '.skins .swiper-arrows .arrow-prev', nextEl: '.skins .swiper-arrows .arrow-next' }} slidesPerView="auto" spaceBetween={20} centeredSlides={skins.products <= 1}>
               {skins.products.map((skin, index) => {
                 return (
                   <SwiperSlide key={index} onClick={() => setSkin(skin)}>
