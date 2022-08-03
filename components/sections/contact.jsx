@@ -16,7 +16,7 @@ const Contact = () => {
 
   const [imgVehicle, setImgVehicle] = useState('');
   const [imgWheel, setImgWheel] = useState('');
-  const [kitType, setKitType] = useState('Kit Only');
+  const [kitType, setKitType] = useState('Full Kit');
   const [color, setColor] = useState('');
 
   useEffect(() => {
@@ -109,7 +109,7 @@ const Contact = () => {
     setAddress('');
     setImgVehicle('');
     setImgWheel('');
-    setKitType('Kit Only');
+    setKitType('Full Kit');
     setColor('');
   }
 
@@ -223,15 +223,15 @@ const Contact = () => {
                   <i> <span>Choose</span> one option: </i>
                 </p>
                 <label className="opt-label">
-                  Kit Only
-                  <input className="hidden" type="radio" name="opt" defaultValue="Kit Only" onClick={(event) => setKitType('Kit Only')} defaultChecked={true} />
+                  Full Kit
+                  <input className="hidden" type="radio" name="opt" defaultValue="Full Kit" onClick={(event) => setKitType('Full Kit')} defaultChecked={true} />
                   <div className="opt-box">
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
                 </label>
                 <label className="opt-label">
-                  Kit with installation
-                  <input className="hidden" type="radio" name="opt" defaultValue="Kit with installation" onClick={(event) => setKitType('Kit with installation')} />
+                  One Tire
+                  <input className="hidden" type="radio" name="opt" defaultValue="One Tire" onClick={(event) => setKitType('One Tire')} />
                   <div className="opt-box">
                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
