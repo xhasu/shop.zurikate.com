@@ -13,7 +13,6 @@
 
   &-section {
     position: relative;
-    max-width: $desktop + 40px;
     padding: 0 20px;
     @include below($sm) {
       padding: 0 10px;
@@ -30,27 +29,23 @@
   &-box {
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
     box-sizing: border-box;
     @include below($laptop) {
       flex-direction: column-reverse;
-      padding: 0;
     }
   }
   &-body {
     position: relative;
     flex: 1;
-    max-width: 80ch;
+    max-width: 90ch;
     p {
       @include font-italic();
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.4;
       margin-top: 0;
-      margin-bottom: 28px;
-      @include below($tablet) {
-        font-size: 21px;
-      }
+      margin-bottom: 20px;
       @include below($sm) {
         font-size: 16px;
       }

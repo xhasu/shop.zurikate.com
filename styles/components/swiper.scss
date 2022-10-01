@@ -1,12 +1,12 @@
 
-.swiper-container {
+.swiper {
   
-  &.swiper-container-horizontal > .swiper-pagination-bullets {
+  &.swiper-horizontal > .swiper-pagination-bullets {
     @include below($phone) {
       bottom: 0;
     }
   }
-  &.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  &.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 10px;
     @include below($phone) {
       margin: 0 5px;
@@ -26,27 +26,21 @@
   .swiper-pagination-bullet {
     position: relative;
     opacity: 1;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: white;
     &-active {
       &::before {
         content: '';
         display: block;
         position: absolute;
-        top: -10px;
-        left: -10px;
-        width: 30px;
-        height: 30px;
+        top: -6px;
+        left: -6px;
+        width: 20px;
+        height: 20px;
         border-radius: 100%;
         border: 1px solid white;
         box-sizing: border-box;
-        @include below($phone) {
-          width: 20px;
-          height: 20px;
-          top: -5px;
-          left: -5px;
-        }
       }
     }
   }

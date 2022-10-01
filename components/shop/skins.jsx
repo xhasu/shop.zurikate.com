@@ -14,7 +14,7 @@ const Skin = ({ data = {} }) => {
   return (
     <div className="skin">
       <div className="skin-media">
-        <img src={skinImage.src} alt={skinImage.altText} width={300} height={300} />
+        <img src={skinImage.src} alt={skinImage.altText} width={360} height={360} />
       </div>
       <div className="skin-title">
         <strong>{title}</strong>
@@ -28,17 +28,25 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
   const skins = data.find((d) => d.title == brand);
 
   return (
-    <div className="skins" id="skins">
-      <div className="skins-container">
-        <section className="section skins-section">
-          <div className="skins-grid">
-            {skins.products.map((skin, index) => {
-              return <Skin key={index} data={skin} />;
-            })}
-          </div>
-        </section>
+    <section className="skins" id="skins">
+
+      <div className="flex-1 px-4">
+
+        <h3 className="uppercase text-center text-2xl mb-8">2. Select your model: </h3>
+
+        <div className="skins-grid">
+          {skins.products.map((skin, index) => {
+            return (
+              <div key={index} onClick={() => setSkin(skin)}>
+                <Skin data={skin}  />
+              </div>
+            );
+          })}
+        </div>
+
       </div>
-    </div>
+
+    </section>
   );
 };
 

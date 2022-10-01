@@ -32,11 +32,11 @@ const Shop = () => {
   }, [brand])
 
   return (
-    <div>
+    <section>
       <Brands data={data} setBrand={setBrand} />
       {brand && <Skins data={data} brand={brand} setSkin={setSkin} />}
       {skin && <Products data={skin} />}
-    </div>
+    </section>
   )
 }
 

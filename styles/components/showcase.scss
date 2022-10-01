@@ -26,28 +26,10 @@
     @include center(1920px);
   }
 
-  &-box {
-    position: relative;
-    padding-top: 80px;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &-item {
-    position: relative;
-    padding-top: 60px;
-    img {
-      @include img-fluid();
-      max-height: 80vh;
-      width: auto;
-    }
-    @include below($laptop) {
-      padding-top: 0;
-    }
+  .swiper {
+    background-image: url("/images/showcase/original.png");
+    background-size: 100% auto;
+    background-position: center center;
   }
 
   &-head {
@@ -66,31 +48,17 @@
     }
   }
 
-  .page-title {
-    font-size: 90px;
-    line-height: 1;
-    @include below($hd) {
-      font-size: 80px;
-    }
-    @include below($desktop) {
-      font-size: 62px;
-    }
-    @include below($phone) {
-      font-size: 36px;
-    }
-  }
-
   &-description {
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     right: 0;
     margin-left: auto;
     margin-right: 0;
-    max-width: 600px;
-    font-size: 30px;
+    max-width: 500px;
+    font-size: 16px;
     font-style: italic;
     color: white;
-    line-height: 1.2;
+    line-height: 1.4;
     z-index: 5;
     p {
       margin-top: 0;

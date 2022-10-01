@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
@@ -6,13 +6,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Faqs = () => {
 
-  useEffect(() => {
-    
-    // return true;
+  const faqsEl = useRef(null);
 
-    gsap.from('.faqs', {
+  useEffect(() => {
+
+    const el = faqsEl.current;
+    
+    gsap.from(el, {
       scrollTrigger: {
-        trigger: '.faqs-section',
+        trigger: '.fqs',
         start: 'top 75%',
         toggleActions: 'play none none reverse',
         // markers: true,
@@ -23,8 +25,8 @@ const Faqs = () => {
   }, [])
 
   return (
-    <div className="faqs">
-      <section className="section faqs-section">
+    <div className="faqs" ref={faqsEl}>
+      <section className="section faqs-section fqs">
         <h2 className="page-title"><span>Frequent</span> Questions:</h2>
 
         <div className="faqs-box">

@@ -12,55 +12,39 @@
     margin-bottom: 60px;
   }
 
-  &-container {
+  &-bos {
     flex: 1;
     margin-top: 90px;
     min-width: 0;
   }
 
-  &-section {
-    position: relative;
-  }
-
-  &-swiper {
-    position: relative;
-    width: 100%;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   &-grid {
-    max-width: 960px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
+    gap: 20px 40px;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px 10px;
+    justify-items: center;
     @include below($laptop) {
+      gap: 10px 20px;
       max-width: 660px;
       grid-template-columns: 1fr 1fr;
     }
-    @include below($sm) {
-      // max-width: 320px;
-      // grid-template-columns: 1fr;
-    }
   }
 
-  .swiper-slide {
-    width: auto;
-    cursor: pointer;
-  }
 }
 
 .skin {
   position: relative;
-  width: 300px;
+  width: 360px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
 
-  @include below($sm) {
-    width: 240px;
+  @include below($laptop) {
+    width: 300px;
+    margin-bottom: 20px;
   }
 
   @include below($sm) {
@@ -70,6 +54,8 @@
   &-media {
     position: relative;
     margin-bottom: 12px;
+    border-radius: 10px;
+    overflow: hidden;
     img {
       @include img-fluid();
     }

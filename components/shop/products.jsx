@@ -133,6 +133,8 @@ const Prod = ({ data = {}}) => {
 
   return (
     <div className="products" id="products">
+
+      <h3 className="uppercase text-center text-2xl mb-8">2. Select kit color: </h3>
       
       <div className="product-name">
         <strong>{title}</strong> <br />

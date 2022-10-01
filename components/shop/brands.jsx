@@ -3,6 +3,7 @@ import Select from 'components/ui/select'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { ShopIcon } from "components/shared/icons"
 
 gsap.registerPlugin([ScrollToPlugin, ScrollTrigger]);
 
@@ -38,11 +39,11 @@ const Brands = ({data = [], setBrand}) => {
 
   useEffect(() => {
 
-    // return true;
+    return true;
 
     gsap.from('.brands-content', {
       scrollTrigger: {
-        trigger: '.brands-container',
+        trigger: '.brands-content',
         start: 'top 75%',
         toggleActions: 'play none none reverse',
         // markers: true,
@@ -66,20 +67,25 @@ const Brands = ({data = [], setBrand}) => {
 
   return (
     <div className="brands" id="brands">
-      <div className="brands-container">
-        <section className="section brands-section">
-          <div className="brands-content">
-            <h2 className="brands-title">
-              <span className="stroke">FIND</span>
-              your
-              <span className="green">MAKE:</span>
-            </h2>
-            <h4 className="brands-caption">Can't find my vehicle? <span onClick={showContact}>Click here</span> </h4>
-            <div className="brands-list">
-              <Select placeholder={placeholder} options={data} keyValue="title" keyShow="title" handleClick={handleBrand} />
-            </div>
+      <div className="brands-content">
+        <h2 className="uppercase text-center text-5xl mb-8">
+          <span className="inline-block align-baseline w-12 mr-4">
+            <ShopIcon />
+          </span>
+          Shop Now
+        </h2>
+        <h3 className="uppercase text-center text-2xl mb-8">1. Select your vehicle brand: </h3>
+        <div className="brands-list mb-60">
+          <Select placeholder={placeholder} options={data} keyValue="title" keyShow="title" handleClick={handleBrand} />
+        </div>
+        <h4 className="brands-caption">
+          Can't find my vehicle?
+          <div className="mt-4">
+            <button className="brands-btn" onClick={showContact}>
+              click here
+            </button>
           </div>
-        </section>
+        </h4>
       </div>
     </div>
   )

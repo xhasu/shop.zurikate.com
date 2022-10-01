@@ -6,6 +6,7 @@ import Shop from 'components/sections/shop'
 import Gallery from 'components/sections/gallery'
 import Faqs from 'components/sections/Faqs'
 import Contact from 'components/sections/contact'
+import ProductDescription from "components/sections/product-description"
 
 const Landing = () => {
   return (
@@ -14,6 +15,7 @@ const Landing = () => {
       <div className="relative">
         <Showcase />
         <Shop />
+        <ProductDescription />
         <Gallery />
         <Faqs />
         <Contact />
