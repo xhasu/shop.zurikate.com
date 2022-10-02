@@ -1,11 +1,21 @@
 .brands {
   position: relative;
-  // min-height: 50vh;
   z-index: 5;
   &-content {
     display: block;
+    padding-top: 40px;
     margin-bottom: 100px;
-    @include below($sm) {
+    background-image: url('/images/backgrounds/shop-now.jpg');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 640px;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    @include below($tablet) {
+      padding-top: 0;
+      min-height: 420px;
       margin-bottom: 40px;
     }
   }

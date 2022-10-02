@@ -56,6 +56,7 @@ const Prod = ({ data = {}}) => {
 
   // modal state
   const [openModal, setOpenModal] = useState(false);
+  const [openIntructions, setOpenIntructions] = useState(false);
 
   // swiper ref photos
   const refSwiper = useRef(null);
@@ -131,34 +132,86 @@ const Prod = ({ data = {}}) => {
     setColor(color);
   }
 
+  const handleScroll = (elementId, offsetY = 100) => {
+		gsap.to(window, {
+			scrollTo: {
+				y: elementId,
+				offsetY: offsetY,
+			}
+		});
+	}
+
   return (
     <div className="products" id="products">
 
-      <h3 className="uppercase text-center text-2xl mb-8">2. Select kit color: </h3>
+      <h3 className="uppercase text-center md:text-2xl mb-8">2. Select kit color: </h3>
       
-      <div className="product-name">
-        <strong>{title}</strong> <br />
-        {description}
-      </div>
+      <div className="products-promo">
 
-      {/* promo gallery */}
-      <div className="products-swiper products-promo">
-        <Swiper ref={refSwiper} spaceBetween={10} slidesPerView={1} navigation={{ prevEl: '.products-promo .swiper-arrows .arrow-prev', nextEl: '.products-promo .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
-          {photos && photos.map((image, index) => (
-            <SwiperSlide key={index} className="product-promo">
-              <img src={image.src} alt={image.altText} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="products-swiper">
+          <div className="product-name">
+            <div><strong>{title}</strong></div>
+            <div dangerouslySetInnerHTML={{__html: descriptionHtml}}></div>
+          </div>
 
-        <div className="swiper-arrows">
-          <div className="arrow-prev">
-            <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
+          <Swiper ref={refSwiper} spaceBetween={10} slidesPerView={1} navigation={{ prevEl: '.products-promo .swiper-arrows .arrow-prev', nextEl: '.products-promo .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
+            {photos && photos.map((image, index) => (
+              <SwiperSlide key={index} className="product-promo">
+                <img src={image.src} alt={image.altText} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className="swiper-arrows">
+            <div className="arrow-prev">
+              <img src="/images/icons/icon-angle-left.png" alt="icon arrow prev" loading="lazy" width="17" height="25" />
+            </div>
+            <div className="arrow-next">
+              <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
+            </div>
           </div>
-          <div className="arrow-next">
-            <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
+
+        </div>
+
+        <div className="px-5 hidden lg:block">
+
+          <div className="product-details">
+            <button className="btn btn-secondary mb-5" type="button" onClick={() => setOpenModal(true)}>
+              <SearchIcon />
+              <span>Product details</span>
+            </button>
+            <button className="btn btn-secondary" type="button" onClick={() => setOpenIntructions(true)}>
+              <span>Instructions</span>
+            </button>
           </div>
-        </div>  
+
+          <div className="product-panel">
+            <div className="product-price">
+              <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+            </div>
+            <div className="product-control">
+              <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
+            </div>
+            <div className="product-control">
+              <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
+            </div>
+            <div className="product-actions">
+              <div className="product-control">
+                {(product && variant) && <AddToCartButton product={product} variant={variant} />}
+              </div>
+              <div className="product-control">
+                {(product && variant) && <BuyButton product={product} variant={variant} />}
+              </div>
+              <div className="product-control pt-5">
+                <button className="btn text-black bg-white" type="button" onClick={() => handleScroll("#brands")}>
+                  <span>More vehicles</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
       
       <div className="products-nav">
@@ -175,32 +228,43 @@ const Prod = ({ data = {}}) => {
         </div>
       </div>
 
-      <div className="product-details">
-        <button className="btn btn-secondary" type="button" onClick={() => setOpenModal(true)}>
-          <SearchIcon />
-          <span>Product details</span>
-        </button>
+      <div className="block lg:hidden">
+        <div className="product-details">
+          <button className="btn btn-secondary mb-5" type="button" onClick={() => setOpenModal(true)}>
+            <SearchIcon />
+            <span>Product details</span>
+          </button>
+          <button className="btn btn-secondary" type="button" onClick={() => setOpenIntructions(true)}>
+            <span>Instructions</span>
+          </button>
+        </div>
+
+        <div className="product-panel">
+          <div className="product-price">
+            <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+          </div>
+          <div className="product-control">
+            <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
+          </div>
+          <div className="product-control">
+            <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
+          </div>
+          <div className="product-actions">
+            <div className="product-control">
+              {(product && variant) && <AddToCartButton product={product} variant={variant} />}
+            </div>
+            <div className="product-control">
+              {(product && variant) && <BuyButton product={product} variant={variant} />}
+            </div>
+            <div className="product-control pt-5">
+              <button className="btn text-black bg-white" type="button" onClick={() => handleScroll("#brands")}>
+                <span>More vehicles</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="product-panel">
-        <div className="product-price">
-          <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
-        </div>
-        <div className="product-control">
-          <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
-        </div>
-        <div className="product-control">
-          <Select placeholder={kit} options={kits} keyValue="value" keyShow="value" handleClick={(value) => setKit(value)} />
-        </div>
-        <div className="product-actions">
-          <div className="product-control">
-            {(product && variant) && <AddToCartButton product={product} variant={variant} />}
-          </div>
-          <div className="product-control">
-            {(product && variant) && <BuyButton product={product} variant={variant} />}
-          </div>
-        </div>
-      </div>
 
       {openModal && (
         <Modal isOpen={openModal} handleOpen={setOpenModal}>
@@ -233,6 +297,16 @@ const Prod = ({ data = {}}) => {
               <div className="arrow-next">
                 <img src="/images/icons/icon-angle-right.png" alt="icon arrow next" loading="lazy" width="17" height="25" />
               </div>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {openIntructions && (
+        <Modal isOpen={openIntructions} handleOpen={setOpenIntructions}>
+          <div>
+            <div className="flex-1 max-h-screen max-w-5xl">
+              <img src="/images/infographic.jpg" alt="" className="w-full h-full object-contain" />
             </div>
           </div>
         </Modal>

@@ -68,15 +68,18 @@ const Brands = ({data = [], setBrand}) => {
   return (
     <div className="brands" id="brands">
       <div className="brands-content">
-        <h2 className="uppercase text-center text-5xl mb-8">
-          <span className="inline-block align-baseline w-12 mr-4">
+        <h2 className="uppercase text-center text-2xl md:text-5xl mb-8">
+          <span className="inline-block align-baseline w-8 md:w-12 mr-4">
             <ShopIcon />
           </span>
           Shop Now
         </h2>
-        <h3 className="uppercase text-center text-2xl mb-8">1. Select your vehicle brand: </h3>
-        <div className="brands-list mb-60">
+        <h3 className="uppercase text-center md:text-2xl mb-8">1. Select your vehicle brand: </h3>
+        <div className="brands-list mb-4">
           <Select placeholder={placeholder} options={data} keyValue="title" keyShow="title" handleClick={handleBrand} />
+        </div>
+        <div className="text-center my-8 md:my-20 flex justify-center items-center">
+          <img src="/images/icons/brand.png" alt="Zurikate brand white" width="126" height="94" />
         </div>
         <h4 className="brands-caption">
           Can't find my vehicle?
