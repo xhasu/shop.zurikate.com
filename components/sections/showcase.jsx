@@ -64,7 +64,7 @@ const Showcase = () => {
     <section className="showcase relative max-w-[1920] mx-auto" id="showcase">
 
       <div className="showcase-head">
-        <div className="font-object">
+        <div className="font-object pt-8">
           <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
           <div className="leading-none text-2xl md:text-5xl">WHEELS</div>
           <div className="text-sm font-century my-2">

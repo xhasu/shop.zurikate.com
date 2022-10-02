@@ -24,8 +24,22 @@ const ProductDescription = () => {
   }, []);
 
   return (
-    <div className="faqs" ref={faqsEl}>
-      <section className="section faqs-section max-w-7xl">
+    <section className="faqs" ref={faqsEl}>
+      <div className="relative py-10 md:py-32 text-center mb-16">
+        <div className="relative z-10">
+          <h2 className="text-xl text-white text-center mb-4">You can search for a 3M certified installers in your area here:</h2>
+          <button className="text-center px-8 py-2 font-object text-2xl text-black bg-primary rounded-lg leading-none">Find installers near me</button>
+        </div>
+        <div className="absolute left-0 top-0 bottom-0 z-0 hidden md:block">
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-t from-transparent to-black"></div>
+          <img src="/images/backgrounds/bg-lines-left.png" alt="" />
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 z-0 opacity-50 md:opacity-100">
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-t from-transparent to-black"></div>
+          <img src="/images/backgrounds/bg-lines-right.png" alt="" />
+        </div>
+      </div>
+      <div className="section faqs-section max-w-7xl">
         <div className="faqs-body max-w-7xl mx-auto">
           <h2 className="page-title">
             <span>Product</span> Description:
@@ -99,8 +113,8 @@ const ProductDescription = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
