@@ -39,16 +39,14 @@ const Brands = ({data = [], setBrand}) => {
 
   useEffect(() => {
 
-    return true;
-
-    gsap.from('.brands-content', {
+    gsap.from('.brands', {
       scrollTrigger: {
-        trigger: '.brands-content',
-        start: 'top 75%',
+        trigger: '.brands',
+        start: 'top 85%',
         toggleActions: 'play none none reverse',
         // markers: true,
       },
-      y: '+120%',
+      y: '+20%',
       opacity: 0
     })
 
