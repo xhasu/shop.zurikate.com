@@ -21,8 +21,6 @@ const Contact = () => {
 
   useEffect(() => {
 
-    // return true;
-
     gsap.from('.contact-info', {
       scrollTrigger: {
         trigger: '.contact-info',

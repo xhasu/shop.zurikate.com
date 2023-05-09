@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "node_modules/next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,14 +10,12 @@ const ProductDescription = () => {
 
   useEffect(() => {
     const el = faqsEl.current;
-    return true;
 
     gsap.from(el, {
       scrollTrigger: {
         trigger: ".faqs-section",
-        start: "top 75%",
+        start: "top bottom",
         toggleActions: "play none none reverse",
-        // markers: true,
       },
       y: "+5%",
       opacity: 0,
@@ -28,13 +27,15 @@ const ProductDescription = () => {
       <div className="relative py-10 md:py-32 text-center mb-16">
         <div className="relative z-10">
           <h2 className="text-xl text-white text-center mb-4">You can search for a 3M certified installers in your area here:</h2>
-          <button className="text-center px-8 py-2 font-object text-2xl text-black bg-primary rounded-lg leading-none">Find installers near me</button>
+          <Link href="https://get.3mskins.com/home/open/#/companies/publicsearch">
+            <a target="_blank" rel="noreferrer noopener" className="text-center px-8 py-2 font-object text-2xl text-black bg-primary rounded-lg leading-none inline-block">Find installers near me</a>
+          </Link>
         </div>
-        <div className="absolute left-0 top-0 bottom-0 z-0 hidden md:block">
+        <div className="absolute left-0 top-0 bottom-0 z-0 opacity-50 xl:opacity-100">
           <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-t from-transparent to-black"></div>
           <img src="/images/backgrounds/bg-lines-left.png" alt="" />
         </div>
-        <div className="absolute right-0 top-0 bottom-0 z-0 opacity-50 md:opacity-100">
+        <div className="absolute right-0 top-0 bottom-0 z-0 hidden xl:block">
           <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-t from-transparent to-black"></div>
           <img src="/images/backgrounds/bg-lines-right.png" alt="" />
         </div>
