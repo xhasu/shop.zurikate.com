@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Showcase = () => {
   useEffect(() => {
-
     gsap.from(".showcase-bg-right", {
       scrollTrigger: {
         trigger: ".showcase-head",
@@ -45,6 +44,15 @@ const Showcase = () => {
     return () => {};
   }, []);
 
+  const handleScroll = (elementId, offsetY = 100) => {
+		gsap.to(window, {
+			scrollTo: {
+				y: elementId,
+				offsetY: offsetY
+			}
+		});
+	}
+
   const creativeEffect = {
     prev: {
       translate: [0, 0, 0],
@@ -58,7 +66,7 @@ const Showcase = () => {
     <section className="showcase relative" id="showcase">
       <div className="relative max-w-[1920px] mx-auto">
         <div className="showcase-head">
-          <div className="font-object pt-8">
+          <div className="font-object">
             <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
             <div className="leading-none text-2xl md:text-5xl">WHEELS</div>
             <div className="text-sm font-century my-2">
@@ -72,16 +80,18 @@ const Showcase = () => {
           </div>
         </div>
 
-        <div className="showcase-description">
-          <p>
-            The best way to change the color of your wheels in less time and with a high quality product. We use 3M
-            vinyl to produce precise measured decals to fit your rims. If you can't find your vehicle, no problem, we
-            can make it!
-          </p>
-        </div>
-
         <div className="showcase-swiper">
-          <Swiper modules={[Pagination, Autoplay, EffectCreative]} pagination={{ clickable: true }} effect={"creative"} loop={true} creativeEffect={creativeEffect}>
+          <div className="showcase-swiper-bg"></div>
+          <Swiper
+            modules={[Pagination, Autoplay, EffectCreative]}
+            pagination={{ clickable: true }}
+            effect={"creative"}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            creativeEffect={creativeEffect}>
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
                 <img src="/images/showcase/gloss_fire_red.png" alt="" width="1920" height="1080" loading="lazy" />
@@ -131,6 +141,22 @@ const Showcase = () => {
             </SwiperSlide>
           </Swiper>
         </div>
+
+        <div className="showcase-description">
+          <p>
+            The best way to change the color of your wheels in less time and with a high quality product. We use 3M
+            vinyl to produce precise measured decals to fit your rims. If you can't find your vehicle, no problem, we
+            can make it!
+          </p>
+        </div>
+
+        <div className="intro-scroll" onClick={() => handleScroll("#brands", 300)}>
+					<span>Scroll Down</span>
+					<i className="icon">
+						<img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
+					</i>
+				</div>
+
       </div>
 
       <div className="showcase-bg">

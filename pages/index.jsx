@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Intro from 'components/sections/intro'
+// import Intro from 'components/sections/intro'
 import Showcase from 'components/sections/showcase'
 import Shop from 'components/sections/shop'
 import Gallery from 'components/sections/gallery'
@@ -11,7 +11,7 @@ import ProductDescription from "components/sections/product-description"
 const Landing = () => {
   return (
     <main>
-      <Intro />
+      {/* <Intro /> */}
       <div className="relative">
         <Showcase />
         <Shop />

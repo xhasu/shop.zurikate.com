@@ -25,13 +25,13 @@ const Header = () => {
   return (
     <header className="header">
 			<section className="section header-section">
-				<div className="header-brand" onClick={() => handleScroll("#intro")}>
+				<div className="header-brand" onClick={() => handleScroll("#showcase")}>
 					<img src="/images/brand.png" alt="Zurikate two tone wheels" width="221" height="59" />
 				</div>
 				<div className={`header-nav ${isOpen ? 'open' : ''}`}>
 					<nav className="navbar" onClick={handleMenu}>
 						<ul className="flex">
-							<li className="cursor-pointer" onClick={() => handleScroll("#intro")}>
+							<li className="cursor-pointer" onClick={() => handleScroll("#showcase")}>
 								<div className="p-3 md:p-5 text-white hover:text-primary transition-colors uppercase tracking-[6px]">
 									Home
 								</div>
