@@ -18,6 +18,10 @@ import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
 SwiperCore.use([Navigation, Pagination]);
 gsap.registerPlugin(ScrollToPlugin);
 
+const parseProductId = (id) => {
+  return id.match(/(\d+)/)[0];
+}
+
 const Prod = ({ data = {}}) => {
 
   const {
@@ -64,7 +68,7 @@ const Prod = ({ data = {}}) => {
   // set default product
   useEffect(() => {
 
-    const bufferedProduct = atob(id).split('/');
+    const bufferedProduct = parseProductId(id).split('/');
     const productId = bufferedProduct[bufferedProduct.length - 1];
     setProduct(productId);
     
@@ -74,7 +78,7 @@ const Prod = ({ data = {}}) => {
   useEffect(() => {
     const selectedVariant = variants && variants[0];
 
-    const bufferedVariant = atob(selectedVariant.id).split('/');
+    const bufferedVariant = parseProductId(selectedVariant.id).split('/');
     const variantId = bufferedVariant[bufferedVariant.length - 1];
     setVariant(variantId);
 
@@ -106,7 +110,7 @@ const Prod = ({ data = {}}) => {
   useEffect(() => {
     if( color && kit ) {
       const selectedVariant = getProductVariant(variants, color, kit);
-      const bufferedVariant = atob(selectedVariant.id).split('/');
+      const bufferedVariant = parseProductId(selectedVariant.id).split('/');
       const variantId = bufferedVariant[bufferedVariant.length - 1];
       setVariant(variantId);
       setCurrentVariant(selectedVariant);
