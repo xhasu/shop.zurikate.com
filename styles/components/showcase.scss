@@ -40,7 +40,7 @@
 
   &-head {
     position: absolute;
-    // top: 5%;
+    top: 5%;
     left: 10%;
     z-index: 1;
     max-width: 720px;
@@ -51,6 +51,7 @@
     @include below($laptop) {
       position: static;
       padding: 0 10px;
+      margin-top: 5%;
     }
   }
 

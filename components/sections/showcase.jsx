@@ -150,7 +150,7 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="intro-scroll" onClick={() => handleScroll("#brands", 300)}>
+        <div className="intro-scroll" onClick={() => handleScroll("#brands", 250)}>
 					<span>Scroll Down</span>
 					<i className="icon">
 						<img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
