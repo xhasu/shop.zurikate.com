@@ -6,11 +6,15 @@ import ModalVideo from 'react-modal-video'
 
 const Intro = () => {
 
-	const ref = useRef(null);
+	const refDesktop = useRef(null);
+	const refMobile = useRef(null);
 	const [isOpen, setOpen] = useState(false);
 	const isBrowser = () => typeof window !== 'undefined';
 
 	useEffect(() => {
+
+		let promiseDesktop;
+		let promiseMobile;
 
 		const checkScrollVideo = () => {
 
@@ -18,11 +22,12 @@ const Intro = () => {
 			if (window.scrollY > window.innerHeight) {
 
 				// stop  video
-				ref.current.pause();
-
+				promiseDesktop && refDesktop.current.pause();
+				promiseMobile && refMobile.current.pause();
 			} else {
 				// resume video
-				ref.current.play();
+				promiseDesktop = refDesktop.current.play();
+				promiseMobile = refMobile.current.play();
 			}
 		}
 
@@ -49,11 +54,11 @@ const Intro = () => {
 		<div className="intro" id="intro">
 			<div className="intro-background">
 
-				<video className="intro-video-desktop" ref={ref} preload="metadata" autoPlay={true} loop="loop" muted={true} playsInline="playsinline" poster="/media/video-poster.jpg">
+				<video className="intro-video-desktop" ref={refDesktop} preload="none" autoPlay={true} loop="loop" muted={true} playsInline="playsinline" poster="/media/video-poster.jpg">
 					<source src="/media/zurikate-intro.mp4" type="video/mp4" />
 					<img src="/media/video-poster.jpg" alt="Zurikate video poster" width="1920" height="1080" />
 				</video>
-				<video className="intro-video-mobile" ref={ref} preload="metadata" autoPlay={true} loop="loop" muted={true} playsInline="playsinline" poster="/media/video-poster.jpg">
+				<video className="intro-video-mobile" ref={refMobile} preload="none" autoPlay={true} loop="loop" muted={true} playsInline="playsinline" poster="/media/video-poster.jpg">
 					<source src="/media/zurikate-intro-mobile.mp4" type="video/mp4" />
 					<img src="/media/video-poster.jpg" alt="Zurikate video poster" width="1920" height="1080" />
 				</video>

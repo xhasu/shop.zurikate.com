@@ -124,7 +124,7 @@ const Prod = ({ data = {}}) => {
   }
 
   const getIndexColor = () => {
-    console.log(options);
+    // console.log(options);
     const colors = options.find(item => item.name == 'Color') || [];
     const idx = colors.values.findIndex(item => item.value == color);
     return idx;
