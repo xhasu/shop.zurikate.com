@@ -13,10 +13,16 @@
     padding: 0 10px;
     box-sizing: border-box;
 
-    @include below($tablet) {
+    @include below($desktop) {
+      min-height: 480px;
+      padding-bottom: 1px;
+    }
+    @include below($sm) {
       padding-top: 0;
-      min-height: 420px;
       margin-bottom: 40px;
+      background-image: url('/images/backgrounds/show-now-xs.jpg');
+      background-size: 100% auto;
+      background-position: bottom;
     }
   }
   &-title {

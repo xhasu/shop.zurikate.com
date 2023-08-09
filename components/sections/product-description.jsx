@@ -28,7 +28,7 @@ const ProductDescription = () => {
         <div className="relative z-10">
           <h2 className="text-xl text-white text-center mb-4">You can search for a 3M certified installers in your area here:</h2>
           <Link href="https://get.3mskins.com/home/open/#/companies/publicsearch">
-            <a target="_blank" rel="noreferrer noopener" className="text-center px-8 py-2 font-object text-2xl text-black bg-primary rounded-lg leading-none inline-block">Find installers near me</a>
+            <a target="_blank" rel="noreferrer noopener" className="text-center px-8 py-2 font-object text-xl text-black bg-primary rounded-lg leading-none inline-block">Find 3M installers near you</a>
           </Link>
         </div>
         <div className="absolute left-0 top-0 bottom-0 z-0 opacity-50 xl:opacity-100">
