@@ -3,7 +3,7 @@ import Brands from 'components/shop/brands'
 import Skins from 'components/shop/skins'
 import Products from 'components/shop/products'
 
-import Client from 'shopify-buy'
+// import Client from 'shopify-buy'
 
 const Shop = () => {
 
@@ -13,7 +13,7 @@ const Shop = () => {
 
   useEffect(() => {
 
-    const client = Client.buildClient({
+    const client = ShopifyBuy.buildClient({
       domain: 'zurikate.myshopify.com',
       storefrontAccessToken: 'ff9cc9002ce8806f9f9b1e44166e1bed',
     })

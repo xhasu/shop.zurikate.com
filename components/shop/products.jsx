@@ -83,6 +83,7 @@ const Prod = ({ data = {}}) => {
     setVariant(variantId);
 
     setCurrentVariant(selectedVariant);
+    console.log(selectedVariant);
 
     // set default color and kit
     const {
@@ -191,7 +192,7 @@ const Prod = ({ data = {}}) => {
 
           <div className="product-panel">
             <div className="product-price">
-              <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+              <sup>USD</sup> <strong>${currentVariant && currentVariant.price && currentVariant.price.amount}</strong> <span>Free shipping</span>
             </div>
             <div className="product-control">
               <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />
@@ -245,7 +246,7 @@ const Prod = ({ data = {}}) => {
 
         <div className="product-panel">
           <div className="product-price">
-            <sup>USD</sup> <strong>${currentVariant && currentVariant.price}</strong> <span>Free shipping</span>
+            <sup>USD</sup> <strong>${currentVariant && currentVariant.price && currentVariant.price.amount}</strong> <span>Free shipping</span>
           </div>
           <div className="product-control">
             <Select placeholder={color} options={colors} keyValue="value" keyShow="value" handleClick={(value) => setColor(value)} />

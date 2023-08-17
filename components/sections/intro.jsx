@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Throttle from 'lodash/throttle'
 import { gsap } from 'gsap/dist/gsap'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin'
-import ModalVideo from 'react-modal-video'
+// import ModalVideo from 'react-modal-video'
 
 const Intro = () => {
 
@@ -74,7 +74,7 @@ const Intro = () => {
 					</i>
 				</div>
 			</div>
-			<ModalVideo channel='youtube' isOpen={isOpen} videoId='dxUC_iJjoUc' onClose={() => setOpen(false)} />
+			{/* <ModalVideo channel='youtube' isOpen={isOpen} videoId='dxUC_iJjoUc' onClose={() => setOpen(false)} /> */}
 		</div>
 	)
 }

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Main from "components/layouts/main";
 
-import "react-modal-video/scss/modal-video.scss";
+// import "react-modal-video/scss/modal-video.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "styles/main.scss";
