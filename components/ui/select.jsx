@@ -55,7 +55,7 @@ const Select = (props) => {
             );
           })}
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-5 select-none cursor-pointer">
+      <div className="absolute top-1/2 -translate-y-1/2 right-5 select-none cursor-pointer pointer-events-none">
         {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </div>
     </div>

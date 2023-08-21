@@ -146,10 +146,16 @@ const Prod = ({ data = {}}) => {
 		});
 	}
 
+  const handleSlideChange = (swiper) => {
+    const idx = swiper.activeIndex;
+    const color = getOptionColorName(idx);
+    setColor(color);
+  }
+
   return (
     <div className="products" id="products">
 
-      <h3 className="uppercase text-center md:text-2xl mb-8">2. Select kit color: </h3>
+      <h3 className="uppercase text-center md:text-2xl mb-6">2. Select kit color: </h3>
       
       <div className="products-promo">
 
@@ -159,7 +165,7 @@ const Prod = ({ data = {}}) => {
             <div dangerouslySetInnerHTML={{__html: descriptionHtml}}></div>
           </div>
 
-          <Swiper ref={refSwiper} spaceBetween={10} slidesPerView={1} navigation={{ prevEl: '.products-promo .swiper-arrows .arrow-prev', nextEl: '.products-promo .swiper-arrows .arrow-next' }} pagination={{ clickable: true }}>
+          <Swiper ref={refSwiper} spaceBetween={10} slidesPerView={1} navigation={{ prevEl: '.products-promo .swiper-arrows .arrow-prev', nextEl: '.products-promo .swiper-arrows .arrow-next' }} pagination={{ clickable: true }} onSlideChange={handleSlideChange}>
             {photos && photos.map((image, index) => (
               <SwiperSlide key={index} className="product-promo">
                 <img src={image.src} alt={image.altText} />
