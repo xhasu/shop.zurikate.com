@@ -191,9 +191,12 @@ const Prod = ({ data = {}}) => {
               <SearchIcon />
               <span>Product details</span>
             </button>
-            <button className="btn btn-secondary" type="button" onClick={() => setOpenIntructions(true)}>
+            {/* <button className="btn btn-secondary" type="button" onClick={() => setOpenIntructions(true)}>
               <span>Instructions</span>
-            </button>
+            </button> */}
+            <a className="btn btn-secondary" rel="noopenner noreferrer" target="_blank" href="https://youtu.be/4W1md-hCmdw">
+              <span>How to install?</span>
+            </a>
           </div>
 
           <div className="product-panel">
