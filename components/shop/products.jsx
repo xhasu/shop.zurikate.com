@@ -143,6 +143,13 @@ const Prod = ({ data = {} }) => {
     const idx = swiper.activeIndex;
     const color = getOptionColorName(idx);
     setColor(color);
+
+    // I have a product-thumb active, I need to scroll to it when I change the slide
+    // the scroll is horizontal, so I need to scroll to the left the container
+    const thumb = document.querySelector(".product-thumb.active");
+    const thumbLeft = thumb && thumb.offsetLeft;
+    const thumbs = document.querySelector(".products-thumbs");
+    thumbs.scrollTo({ left: thumbLeft, behavior: "smooth" });
   };
 
   return (
