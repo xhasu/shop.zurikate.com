@@ -284,7 +284,7 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <button type="submit">Send</button>
+              <button type="submit" className="btn max-w-max">Send</button>
             </div>
           </form>
         </div>
