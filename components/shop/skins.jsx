@@ -39,7 +39,7 @@ const Skins = ({ data = [], brand = "", setSkin }) => {
 
   const handleClick = (skin) => {
     setSkin(skin);
-    handleScroll("#products");
+    handleScroll("#products", 50);
   };
 
   return (
