@@ -7,14 +7,14 @@ const Seo = () => {
 
   return (
     <Head>
-      <title>Zurikate – Two Tone Wheels</title>
+      <title>Zurikate - Skins for wheels</title>
 
       <meta name="author" content="Zurikate" />
-	    <meta name="description" content="Zurikate Two Tone Wheels" />
+	    <meta name="description" content="Zurikate skins for wheels" />
       <meta name="keywords" content="Wheels" />
 
       <meta property="og:title" content="Zurikate" />
-      <meta property="og:description" content="Zurikate – Two Tone Wheels" />
+      <meta property="og:description" content="Zurikate - Skins for wheels" />
       <meta property="og:image" content="" />
       <meta property="og:url" content="" />
 
