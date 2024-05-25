@@ -1,8 +1,6 @@
-
 .swiper {
-  
   &.swiper-horizontal > .swiper-pagination-bullets {
-    @include below($phone) {
+    @include below($sm) {
       bottom: 0;
     }
   }
@@ -31,7 +29,7 @@
     background-color: white;
     &-active {
       &::before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: -6px;
@@ -41,6 +39,10 @@
         border-radius: 100%;
         border: 1px solid white;
         box-sizing: border-box;
+        @include below($sm) {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }

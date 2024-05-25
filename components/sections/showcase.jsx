@@ -45,13 +45,13 @@ const Showcase = () => {
   }, []);
 
   const handleScroll = (elementId, offsetY = 100) => {
-		gsap.to(window, {
-			scrollTo: {
-				y: elementId,
-				offsetY: offsetY
-			}
-		});
-	}
+    gsap.to(window, {
+      scrollTo: {
+        y: elementId,
+        offsetY: offsetY,
+      },
+    });
+  };
 
   const creativeEffect = {
     prev: {
@@ -68,15 +68,10 @@ const Showcase = () => {
         <div className="showcase-head">
           <div className="font-object">
             <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-5xl">WHEELS</div>
-            <div className="text-sm font-century my-2">
-              <div className=" leading-none">The best way to</div>
-              <div className="text-primary leading-none">customize and protect your wheels.</div>
-            </div>
-            <h2 className="page-title">
-              <span>VINYL THAT</span> <br />
-              Looks like <br /> Paint
-            </h2>
+            <div className="leading-none text-2xl md:text-5xl mb-8 xl:mb-0">WHEELS</div>
+          </div>
+          <div className="max-w-[220px] md:max-w-xs italic text-sm border-b border-white pb-4">
+            <p>Transform and protect your vehicle's wheels with premium adhesive winyl wraps</p>
           </div>
         </div>
 
@@ -87,56 +82,53 @@ const Showcase = () => {
             pagination={{ clickable: true }}
             effect={"creative"}
             loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 3000,
+            //   disableOnInteraction: false,
+            // }}
             creativeEffect={creativeEffect}>
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
-                <img src="/images/showcase/gloss_fire_red.png" alt="" width="1920" height="1080" loading="lazy" />
+                <picture>
+                  <source srcSet="/images/showcase/gloss_fire_red-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/gloss_fire_red.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
-                <img src="/images/showcase/gloss_black.png" alt="" width="1920" height="1080" loading="lazy" />
+                <picture>
+                  <source srcSet="/images/showcase/gloss_golden_beach-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/gloss_golden_beach.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
-                <img src="/images/showcase/gloss_golden_beach.png" alt="" width="1920" height="1080" loading="lazy" />
+                <picture>
+                  <source srcSet="/images/showcase/matte_brown-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte_brown.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
-                <img src="/images/showcase/satin_azure.png" alt="" width="1920" height="1080" loading="lazy" />
+                <picture>
+                  <source srcSet="/images/showcase/matte_gun_metal-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte_gun_metal.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide">
               <div className="showcase-item">
-                <img src="/images/showcase/satin_barbie_pink.png" alt="" width="1920" height="1080" loading="lazy" />
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="swiper-slide">
-              <div className="showcase-item">
-                <img
-                  src="/images/showcase/reflective_zurikate_white.png"
-                  alt=""
-                  width="1920"
-                  height="1080"
-                  loading="lazy"
-                />
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="swiper-slide">
-              <div className="showcase-item">
-                <img src="/images/showcase/matte_hard_black.png" alt="" width="1920" height="1080" loading="lazy" />
+                <picture>
+                  <source srcSet="/images/showcase/matte_hard_black-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte_hard_black.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
               </div>
             </SwiperSlide>
           </Swiper>
@@ -151,12 +143,11 @@ const Showcase = () => {
         </div>
 
         <div className="intro-scroll" onClick={() => handleScroll("#brands", 250)}>
-					<span>Scroll Down</span>
-					<i className="icon">
-						<img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
-					</i>
-				</div>
-
+          <span>Scroll Down</span>
+          <i className="icon">
+            <img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
+          </i>
+        </div>
       </div>
 
       <div className="showcase-bg">

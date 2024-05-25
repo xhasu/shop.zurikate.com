@@ -18,6 +18,8 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 	        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
           <link rel="stylesheet" href="/css/fonts.css"/>
+
+          <meta property="og:image" content="/images/share.png" />
         </Head>
         <body>
           <noscript dangerouslySetInnerHTML={{__html: `<iframe src="https://www.goo\admingletagmanager.com/ns.html?id=GTM-M3X677F" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}} />
