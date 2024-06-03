@@ -14,7 +14,7 @@
   .swiper-pagination {
     @include below($laptop) {
       padding: 0 10px;
-      text-align: right;
+      // text-align: right;
       left: 0;
       right: 0;
       width: auto;

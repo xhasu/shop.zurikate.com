@@ -65,12 +65,12 @@ const Showcase = () => {
   return (
     <section className="showcase relative" id="showcase">
       <div className="relative max-w-[1920px] mx-auto">
-        <div className="showcase-head">
+        <div className="showcase-head relative z-10">
           <div className="font-object">
             <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-5xl mb-8 xl:mb-0">WHEELS</div>
+            <div className="leading-none text-2xl md:text-5xl mb-12">WHEELS</div>
           </div>
-          <div className="max-w-[220px] md:max-w-xs italic text-sm border-b border-white pb-4">
+          <div className="absolute top-full mt-6 max-w-[200px] md:max-w-xs italic text-xs md:text-sm border-b border-white pb-2">
             <p>Transform and protect your vehicle's wheels with premium adhesive winyl wraps</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Showcase = () => {
             //   disableOnInteraction: false,
             // }}
             creativeEffect={creativeEffect}>
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/gloss_fire_red-xs.png" media="(max-width: 768px)" />
@@ -96,7 +96,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/gloss_golden_beach-xs.png" media="(max-width: 768px)" />
@@ -105,7 +105,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_brown-xs.png" media="(max-width: 768px)" />
@@ -114,7 +114,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_gun_metal-xs.png" media="(max-width: 768px)" />
@@ -123,7 +123,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide">
+            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_hard_black-xs.png" media="(max-width: 768px)" />
@@ -142,7 +142,7 @@ const Showcase = () => {
           </p>
         </div>
 
-        <div className="intro-scroll" onClick={() => handleScroll("#brands", 250)}>
+        <div className="intro-scroll mt-12" onClick={() => handleScroll("#brands", 250)}>
           <span>Scroll Down</span>
           <i className="icon">
             <img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
