@@ -68,9 +68,9 @@ const Showcase = () => {
         <div className="showcase-head relative z-10">
           <div className="font-object">
             <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-5xl mb-12">WHEELS</div>
+            <div className="leading-none text-2xl md:text-6xl ">WHEELS</div>
           </div>
-          <div className="absolute top-full mt-6 max-w-[200px] md:max-w-xs italic text-xs md:text-sm border-b border-white pb-2">
+          <div className="md:absolute top-full mt-4 mb-8 max-w-[280px] md:max-w-[200px] lg:max-w-xs italic text-xs md:text-sm">
             <p>Transform and protect your vehicle's wheels with premium adhesive winyl wraps</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Showcase = () => {
             //   disableOnInteraction: false,
             // }}
             creativeEffect={creativeEffect}>
-            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/gloss_fire_red-xs.png" media="(max-width: 768px)" />
@@ -96,7 +96,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/gloss_golden_beach-xs.png" media="(max-width: 768px)" />
@@ -105,7 +105,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_brown-xs.png" media="(max-width: 768px)" />
@@ -114,7 +114,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_gun_metal-xs.png" media="(max-width: 768px)" />
@@ -123,7 +123,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-4 md:mb-12">
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">
                 <picture>
                   <source srcSet="/images/showcase/matte_hard_black-xs.png" media="(max-width: 768px)" />
@@ -134,20 +134,20 @@ const Showcase = () => {
           </Swiper>
         </div>
 
-        <div className="showcase-description">
+        <div className="showcase-description italic">
           <p>
-            The best way to change the color of your wheels in less time and with a high quality product. We use 3M
-            vinyl to produce precise measured decals to fit your rims. If you can't find your vehicle, no problem, we
-            can make it!
+            Upgrade your ride with our high-quality adhesive vinyl wheel skins, available in 8 stunning colors! Each wrap
+            is precision-crafted to fit your wheels perfectly, ensuring a sleek and customized look. Enhance the style
+            and durability of your wheels today!
           </p>
         </div>
 
-        <div className="intro-scroll mt-12" onClick={() => handleScroll("#brands", 250)}>
+        {/* <div className="intro-scroll mt-12" onClick={() => handleScroll("#brands", 250)}>
           <span>Scroll Down</span>
           <i className="icon">
             <img src="images/icons/icon-scroll-down.png" alt="Icon scroll down" />
           </i>
-        </div>
+        </div> */}
       </div>
 
       <div className="showcase-bg">
@@ -156,8 +156,8 @@ const Showcase = () => {
             src="/images/backgrounds/bg-showcase-right.png"
             alt="docarative sticker"
             loading="lazy"
-            width="634"
-            height="621"
+            width="893"
+            height="763"
           />
         </div>
         <div className="showcase-bg-left">
@@ -165,8 +165,8 @@ const Showcase = () => {
             src="/images/backgrounds/bg-showcase-left.png"
             alt="docarative sticker"
             loading="lazy"
-            width="618"
-            height="566"
+            width="894"
+            height="762"
           />
         </div>
       </div>
