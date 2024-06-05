@@ -82,10 +82,10 @@ const Showcase = () => {
             pagination={{ clickable: true }}
             effect={"creative"}
             loop={true}
-            // autoplay={{
-            //   delay: 3000,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
             creativeEffect={creativeEffect}>
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item">

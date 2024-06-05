@@ -311,7 +311,7 @@ const Contact = () => {
             </li>
             <li>
               <div className="contact-item">
-                <a href="https://instagram.com/twotonewheels" target="_blank"><i className="icon"><img src="/images/icons/icon-instagram.png" alt="icon instagram zurikate" width="48" height="48" /></i></a>
+                <a href="https://instagram.com/skinsforwheels" target="_blank"><i className="icon"><img src="/images/icons/icon-instagram.png" alt="icon instagram zurikate" width="48" height="48" /></i></a>
                 <a href="https://www.facebook.com/twotonewheels" target="_blank"><i className="icon"><img src="/images/icons/icon-facebook.png" alt="icon facebook zurikate" width="48" height="48" /></i></a>
               </div>
             </li>
