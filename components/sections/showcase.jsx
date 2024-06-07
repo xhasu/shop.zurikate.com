@@ -65,12 +65,12 @@ const Showcase = () => {
   return (
     <section className="showcase relative" id="showcase">
       <div className="relative max-w-[1920px] mx-auto">
-        <div className="showcase-head relative z-10">
+        <div className="showcase-head relative z-10 text-center md:text-left">
           <div className="font-object">
             <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-6xl ">WHEELS</div>
+            <div className="leading-none text-2xl md:text-6xl">WHEELS</div>
           </div>
-          <div className="md:absolute top-full mt-4 mb-8 max-w-[280px] md:max-w-[200px] lg:max-w-xs italic text-xs md:text-sm">
+          <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[280px] md:max-w-[200px] lg:max-w-xs italic text-xs md:text-sm">
             <p>Transform and protect your vehicle's wheels with premium adhesive winyl wraps</p>
           </div>
         </div>
@@ -82,52 +82,67 @@ const Showcase = () => {
             pagination={{ clickable: true }}
             effect={"creative"}
             loop={true}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 15000,
+            //   disableOnInteraction: false,
+            // }}
             creativeEffect={creativeEffect}>
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
-              <div className="showcase-item">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Fire Red</span>
                 <picture>
-                  <source srcSet="/images/showcase/gloss_fire_red-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/gloss_fire_red.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <source srcSet="/images/showcase/gloss-fire-red-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/gloss-fire-red.png" alt="" width="1920" height="1080" loading="lazy" />
                 </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
-              <div className="showcase-item">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Golden Beach</span>
                 <picture>
-                  <source srcSet="/images/showcase/gloss_golden_beach-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/gloss_golden_beach.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <source srcSet="/images/showcase/golden-beach-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/golden-beach.png" alt="" width="1920" height="1080" loading="lazy" />
                 </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
-              <div className="showcase-item">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Brown</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte_brown-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte_brown.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <source srcSet="/images/showcase/matte-brown-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte-brown.png" alt="" width="1920" height="1080" loading="lazy" />
                 </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
-              <div className="showcase-item">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Gun Metal</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte_gun_metal-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte_gun_metal.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <source srcSet="/images/showcase/matte-gun-metal-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte-gun-metal.png" alt="" width="1920" height="1080" loading="lazy" />
                 </picture>
               </div>
             </SwiperSlide>
 
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
-              <div className="showcase-item">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Hard Black</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte_hard_black-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte_hard_black.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <source srcSet="/images/showcase/matte-hard-black-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/matte-hard-black.png" alt="" width="1920" height="1080" loading="lazy" />
+                </picture>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Satin Azure</span>
+                <picture>
+                  <source srcSet="/images/showcase/satin-azure-xs.png" media="(max-width: 768px)" />
+                  <img src="/images/showcase/satin-azure.png" alt="" width="1920" height="1080" loading="lazy" />
                 </picture>
               </div>
             </SwiperSlide>
