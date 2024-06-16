@@ -131,7 +131,7 @@ const ProductDescription = () => {
                 <h3 className="font-object text-3xl md:text-8xl">Pros</h3>
                 <sup className="md:absolute md:top-4 md:left-20 uppercase text-primary">Our method</sup>
                 <p className="max-w-lg pt-8">
-                  That's why our product Zurikate - Two tone wheels creates a new way to customize and protect the
+                  That's why our product Zurikate - creates a new way to customize and protect the
                   wheels of vehicles, changing the appearance of the wheels in an easy, quick and effective way with our
                   vinyl custom decal skins.
                 </p>

@@ -56,9 +56,11 @@ const Showcase = () => {
   const creativeEffect = {
     prev: {
       translate: [0, 0, 0],
+      opacity: 0,
     },
     next: {
       translate: ["100%", 0, 0],
+      opacity: 1,
     },
   };
 
@@ -87,12 +89,21 @@ const Showcase = () => {
               disableOnInteraction: false,
             }}
             creativeEffect={creativeEffect}>
+
             <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Fire Red</span>
                 <picture>
-                  <source srcSet="/images/showcase/gloss-fire-red-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/gloss-fire-red.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/gloss-fire-red.png" alt="" width="1080" height="709" />
+                </picture>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Luxury Black</span>
+                <picture>
+                  <img src="/images/showcase/gloss-luxury-black.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>
@@ -101,8 +112,7 @@ const Showcase = () => {
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Golden Beach</span>
                 <picture>
-                  <source srcSet="/images/showcase/golden-beach-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/golden-beach.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/golden-beach.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>
@@ -111,8 +121,7 @@ const Showcase = () => {
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Brown</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte-brown-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte-brown.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/matte-brown.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>
@@ -121,8 +130,7 @@ const Showcase = () => {
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Gun Metal</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte-gun-metal-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte-gun-metal.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/matte-gun-metal.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>
@@ -131,8 +139,7 @@ const Showcase = () => {
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Hard Black</span>
                 <picture>
-                  <source srcSet="/images/showcase/matte-hard-black-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/matte-hard-black.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/matte-hard-black.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>
@@ -141,8 +148,16 @@ const Showcase = () => {
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Satin Azure</span>
                 <picture>
-                  <source srcSet="/images/showcase/satin-azure-xs.png" media="(max-width: 768px)" />
-                  <img src="/images/showcase/satin-azure.png" alt="" width="1920" height="1080" loading="lazy" />
+                  <img src="/images/showcase/satin-azure.png" alt="" width="1080" height="709" />
+                </picture>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+              <div className="showcase-item relative">
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Reflective</span>
+                <picture>
+                  <img src="/images/showcase/display-reflective.png" alt="" width="1080" height="709" />
                 </picture>
               </div>
             </SwiperSlide>

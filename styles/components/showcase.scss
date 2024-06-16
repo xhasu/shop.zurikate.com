@@ -2,6 +2,9 @@
   position: relative;
   margin-bottom: 180px;
   z-index: 1;
+  // max-width: 100%;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
   overflow: hidden;
 
   @include below($tablet) {
@@ -36,7 +39,6 @@
     background-position: top center;
     background-repeat: no-repeat;
     @include below($desktop) {
-      background-image: url("/images/showcase/original-xs.png");
       max-width: 480px;
     }
   }
@@ -115,14 +117,14 @@
   &-bg-left {
     @include absolute($top: 70%, $left: 0);
     @include below($laptop) {
-      left: -15%;
+      // left: -15%;
     }
   }
   &-bg-right {
     @include absolute($right: 0, $top: -35%);
     @include below($laptop) {
       top: 0;
-      right: -15%;
+      // right: -15%;
     }
   }
 
