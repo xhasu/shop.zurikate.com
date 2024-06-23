@@ -69,11 +69,11 @@ const Showcase = () => {
       <div className="relative max-w-[1920px] mx-auto">
         <div className="showcase-head relative z-10 text-center md:text-left">
           <div className="font-object">
-            <div className="text-primary leading-none text-2xl md:text-5xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-6xl">WHEELS</div>
+            <div className="text-primary leading-none text-2xl md:text-6xl">SKINS FOR</div>
+            <div className="leading-none text-2xl md:text-7xl">WHEELS</div>
           </div>
-          <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[280px] md:max-w-[200px] lg:max-w-xs italic text-xs md:text-sm">
-            <p>Transform and protect your vehicle's wheels with premium adhesive winyl wraps</p>
+          <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[200px] md:max-w-[280px] lg:max-w-sm italic md:text-base text-ms">
+            <p>Transform and protect your vehicle's wheels with premium adhesive vinyl wraps</p>
           </div>
         </div>
 
@@ -90,7 +90,7 @@ const Showcase = () => {
             }}
             creativeEffect={creativeEffect}>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Fire Red</span>
                 <picture>
@@ -99,7 +99,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Luxury Black</span>
                 <picture>
@@ -108,7 +108,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Golden Beach</span>
                 <picture>
@@ -117,7 +117,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Brown</span>
                 <picture>
@@ -126,7 +126,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Gun Metal</span>
                 <picture>
@@ -135,7 +135,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Matte Hard Black</span>
                 <picture>
@@ -144,7 +144,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Satin Azure</span>
                 <picture>
@@ -153,7 +153,7 @@ const Showcase = () => {
               </div>
             </SwiperSlide>
 
-            <SwiperSlide className="swiper-slide mb-6 md:mb-12 xl:mb-20">
+            <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
                 <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Reflective</span>
                 <picture>

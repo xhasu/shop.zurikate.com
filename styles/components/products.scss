@@ -69,6 +69,13 @@
       }
     }
 
+    @include below($sm) {
+      .swiper-pagination .swiper-pagination-bullet {
+        width: 4px !important;
+        height: 4px !important;
+      }
+    }
+
   }
 
   &-nav {
@@ -154,6 +161,9 @@
       font-size: 12px;
       text-transform: uppercase;
       // transform: translateX(-50%);
+      @include below($sm) {
+        font-size: 10px;
+      }
     }
     img {
       display: block;
