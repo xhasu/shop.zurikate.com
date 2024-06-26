@@ -69,10 +69,10 @@ const Showcase = () => {
       <div className="relative max-w-[1920px] mx-auto">
         <div className="showcase-head relative z-10 text-center md:text-left">
           <div className="font-object">
-            <div className="text-primary leading-none text-2xl md:text-6xl">SKINS FOR</div>
-            <div className="leading-none text-2xl md:text-7xl">WHEELS</div>
+            <div className="text-primary leading-none text-3xl md:text-6xl">SKINS FOR</div>
+            <div className="leading-none text-4xl md:text-7xl">WHEELS</div>
           </div>
-          <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[200px] md:max-w-[280px] lg:max-w-sm italic md:text-base text-ms">
+          <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[240px] md:max-w-[280px] lg:max-w-sm italic md:text-base text-ms">
             <p>Transform and protect your vehicle's wheels with premium adhesive vinyl wraps</p>
           </div>
         </div>
@@ -155,7 +155,7 @@ const Showcase = () => {
 
             <SwiperSlide className="swiper-slide mb-12 xl:mb-20">
               <div className="showcase-item relative">
-                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Reflective</span>
+                <span className="absolute top-full left-0 right-0 text-center text-sm leading-none">Gloss Black Reflective</span>
                 <picture>
                   <img src="/images/showcase/display-reflective.png" alt="" width="1080" height="709" />
                 </picture>
