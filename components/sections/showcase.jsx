@@ -69,8 +69,8 @@ const Showcase = () => {
       <div className="relative max-w-[1920px] mx-auto">
         <div className="showcase-head relative z-10 text-center md:text-left">
           <div className="font-object">
-            <div className="text-primary leading-none text-3xl md:text-6xl">SKINS FOR</div>
-            <div className="leading-none text-4xl md:text-7xl">WHEELS</div>
+            <div className="text-primary leading-none text-3xl md:text-6xl">WHEEL</div>
+            <div className="leading-none text-4xl md:text-7xl">SKINS</div>
           </div>
           <div className="md:absolute top-full mt-4 mb-8 mx-auto max-w-[240px] md:max-w-[280px] lg:max-w-sm italic md:text-base text-ms">
             <p>Transform and protect your vehicle's wheels with premium adhesive vinyl wraps</p>

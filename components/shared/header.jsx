@@ -26,7 +26,7 @@ const Header = () => {
     <header className="header">
 			<section className="section header-section">
 				<div className="header-brand" onClick={() => handleScroll("#showcase")}>
-					<img src="/images/brand.png" alt="Zurikate skins for wheels" width="303" height="55" />
+					<img src="/images/brand.png" alt="Zurikate Wheel Skins" width="303" height="55" />
 				</div>
 				<div className={`header-nav ${isOpen ? 'open' : ''}`}>
 					<nav className="navbar" onClick={handleMenu}>

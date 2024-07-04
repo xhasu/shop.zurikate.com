@@ -39,7 +39,7 @@ const Faqs = () => {
             <p className="lead">If you need more information contact us through any of these channels:</p>
           </div>
           <div className="faqs-media">
-            <img src="/images/faqs-media.png" alt="Zurikate skins for wheels" width="501" height="497" />
+            <img src="/images/faqs-media.png" alt="Zurikate Wheel Skins" width="501" height="497" />
           </div>
         </div>
       </section>
