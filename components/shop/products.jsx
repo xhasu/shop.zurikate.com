@@ -167,7 +167,6 @@ const Prod = ({ data = {} }) => {
     setTimeout(() => {
       scrollToThumb();
     }, 200);
-    
   };
 
   return (
@@ -301,7 +300,11 @@ const Prod = ({ data = {} }) => {
                     width="15"
                     height="10"
                   />
-                  <span>{getOptionColorName(index)}</span>
+                  <span>
+                    {getOptionColorName(index) == "Reflective Zurikate"
+                      ? "Gloss Black Reflective"
+                      : getOptionColorName(index)}
+                  </span>
                 </div>
               </div>
             ))}

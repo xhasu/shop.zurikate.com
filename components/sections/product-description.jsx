@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "node_modules/next/link";
@@ -10,25 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 const ProductDescription = () => {
   const [openVideo, setOpenVideo] = useState(false);
 
-  const faqsEl = useRef(null);
-
-  useEffect(() => {
-    const el = faqsEl.current;
-
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: ".faqs-section",
-        start: "top bottom",
-        toggleActions: "play none none reverse",
-      },
-      y: "+5%",
-      opacity: 0,
-    });
-  }, []);
-
   return (
     <>
-      <section className="faqs" ref={faqsEl}>
+      <section className="faqs">
         <div className="relative py-10 md:pb-32 md:pt-16 text-center mb-16">
           <div className="relative z-10">
             <div className="max-w-sm px-5 text-center mx-auto mb-6 md:mb-16">
@@ -131,7 +115,7 @@ const ProductDescription = () => {
                 <h3 className="font-object text-3xl md:text-8xl">Pros</h3>
                 <sup className="md:absolute md:top-4 md:left-20 uppercase text-primary">Our method</sup>
                 <p className="max-w-lg pt-8">
-                  That's why our product Zurikate - Two tone wheels creates a new way to customize and protect the
+                  That's why our product Zurikate - creates a new way to customize and protect the
                   wheels of vehicles, changing the appearance of the wheels in an easy, quick and effective way with our
                   vinyl custom decal skins.
                 </p>
