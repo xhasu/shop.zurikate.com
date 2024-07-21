@@ -46,7 +46,7 @@
       margin-bottom: 60px;
     }
     @include below($sm) {
-      margin-bottom: 20px;
+      margin-bottom: 0px;
       padding: 0 20px;
     }
 
@@ -56,7 +56,6 @@
       margin-bottom: 8px;
       margin-left: auto;
       margin-right: auto;
-
     }
 
     .swiper-pagination {
@@ -87,7 +86,7 @@
     position: relative;
     max-width: $desktop;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 16px;
     gap: 8px;
     padding-bottom: 60px;
     margin-bottom: 20px;

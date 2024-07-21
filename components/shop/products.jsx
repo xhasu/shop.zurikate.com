@@ -178,7 +178,7 @@ const Prod = ({ data = {} }) => {
           <div className="flex gap-4 mb-2 items-end">
             <div className="rounded-[10px] overflow-auto">
             <picture>
-              <img src={imageSkin.src} alt={imageSkin.altText} width={120} height={120} />
+              <img src={imageSkin.src} alt={imageSkin.altText} width={100} height={100} />
             </picture>
             </div>
             <div className="product-name">
