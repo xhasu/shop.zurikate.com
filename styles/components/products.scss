@@ -53,14 +53,15 @@
     .swiper-wrapper {
       width: 100%;
       max-width: 540px;
-      padding-bottom: 40px;
-      margin: 0 auto;
+      margin-bottom: 8px;
+      margin-left: auto;
+      margin-right: auto;
 
-      .swiper-pagination {
-        @include below($laptop) {
-          text-align: center;
-        }
-      }
+    }
+
+    .swiper-pagination {
+      bottom: 20px !important;
+      color: black;
     }
 
     .swiper-arrows {
@@ -113,8 +114,9 @@
     img {
       @include img-responsive();
       max-width: 540px;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
+      border-radius: 10px;
+      // border-bottom-right-radius: 10px;
+      // border-bottom-left-radius: 10px;
     }
   }
 
@@ -281,7 +283,7 @@
   }
 
   &-name {
-    text-align: center;
+    // text-align: center;
     flex: 1;
     font-size: 18px;
     font-style: italic;
@@ -289,9 +291,9 @@
     
     padding-top: 8px;
     padding-bottom: 8px;
-    border: 1px solid white;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 5px solid grey;
+    // border: 1px solid white;
+    // border-radius: 10px 10px 0 0;
+    // border-bottom: 5px solid grey;
     box-sizing: border-box;
 
     strong {

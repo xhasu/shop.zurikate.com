@@ -26,7 +26,7 @@
     opacity: 1;
     width: 8px;
     height: 8px;
-    background-color: white;
+    background-color: currentColor;
     &-active {
       &::before {
         content: "";
@@ -37,7 +37,7 @@
         width: 20px;
         height: 20px;
         border-radius: 100%;
-        border: 1px solid white;
+        border: 1px solid currentColor;
         box-sizing: border-box;
         @include below($sm) {
           width: 16px;

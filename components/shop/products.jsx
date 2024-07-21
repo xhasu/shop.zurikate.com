@@ -54,6 +54,9 @@ const Prod = ({ data = {} }) => {
   // photos of product
   const [photos, setPhotos] = useState("");
 
+  // photo main skin
+  const [imageSkin, setImageSkin] = useState("");
+
   // loading state
   const [loading, setLoading] = useState(true);
 
@@ -97,6 +100,9 @@ const Prod = ({ data = {} }) => {
 
     const imagesPhotos = images.filter((image) => !["tip", "skin"].includes(image.altText));
     setPhotos(imagesPhotos);
+
+    const imageSkin = images.find((image) => image.altText == "skin");
+    setImageSkin(imageSkin);
   }, [product]);
 
   // update variant and current variant object
@@ -170,11 +176,18 @@ const Prod = ({ data = {} }) => {
 
       <div className="products-promo">
         <div className="products-swiper">
-          <div className="product-name">
-            <div>
-              <strong>{title}</strong>
+          <div className="flex gap-4 mb-2 items-end">
+            <div className="rounded-[10px] overflow-auto">
+            <picture>
+              <img src={imageSkin.src} alt={imageSkin.altText} width={120} height={120} />
+            </picture>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: descriptionHtml }}></div>
+            <div className="product-name">
+              <div>
+                <strong>{title}</strong>
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: descriptionHtml }}></div>
+            </div>
           </div>
 
           <Swiper
