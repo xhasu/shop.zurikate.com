@@ -53,13 +53,13 @@
     .swiper-wrapper {
       width: 100%;
       max-width: 540px;
-      margin-bottom: 8px;
+      margin-bottom: 20px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .swiper-pagination {
-      bottom: 20px !important;
+      bottom: 32px !important;
       color: black;
     }
 
@@ -130,7 +130,7 @@
     position: relative;
     display: inline-block;
     width: 120px;
-    margin: 0 4px;
+    margin: 0 6px;
     cursor: pointer;
 
     @include below($sm) {
@@ -299,7 +299,7 @@
     @include center(540px);
     
     padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 0;
     // border: 1px solid white;
     // border-radius: 10px 10px 0 0;
     // border-bottom: 5px solid grey;

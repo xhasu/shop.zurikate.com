@@ -170,12 +170,12 @@ const Prod = ({ data = {} }) => {
   };
 
   return (
-    <div className="products" id="products">
+    <div className="products px-4 md:px-0" id="products">
       <h3 className="uppercase text-center md:text-2xl mb-6">2. Select kit color: </h3>
 
       <div className="products-promo">
         <div className="products-swiper">
-          <div className="flex gap-4 mb-2 items-end">
+          <div className="flex gap-6 mb-4 items-end">
             <div className="rounded-[10px] overflow-auto">
             <picture>
               <img src={imageSkin.src} alt={imageSkin.altText} width={100} height={100} />
