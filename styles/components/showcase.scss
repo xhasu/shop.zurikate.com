@@ -88,6 +88,11 @@
       font-size: 12px;
       max-width: 420px;
     }
+    @include below($phone) {
+      margin-top: 20px;
+
+    }
+
   }
 
   &-bg {
@@ -140,7 +145,7 @@
     }
     .swiper {
       @include below($phone) {
-        padding-bottom: 24px;
+        // padding-bottom: 24px;
       }
     }
   }
