@@ -387,6 +387,7 @@ const Prod = ({ data = {} }) => {
               </SwiperSlide>
               <SwiperSlide className="product-tip">
                 <video
+                  className="aspect-square"
                   preload="metadata"
                   playsInline="playsinline"
                   poster="/media/product-details-poster.jpg"
